@@ -1,0 +1,31 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+#issueTrackerURL = ""
+license = "All Rights Reserved"
+
+[[mods]]
+modId = "sloth1"
+version = "1"
+displayName = "Neoforge Wurst"
+authors = "Sloth"
+description = '''
+Wurst Client compatible with NeoForge
+'''
+#logoFile = ""
+
+[[dependencies.polarbear]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.polarbear]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[mixins]]
+config = "polarbear.mixins.json"
