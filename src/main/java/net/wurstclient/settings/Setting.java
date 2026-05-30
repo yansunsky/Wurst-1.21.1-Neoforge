@@ -21,237 +21,258 @@ import net.wurstclient.util.text.WText;
 
 public abstract class Setting
 {
-	private static final Map<String, String> CN_NAMES = cnNames();
-	
-	private static Map<String, String> cnNames()
-	{
-		var m = new java.util.LinkedHashMap<String, String>();
-		m.put("AI range", "AI范围");
-		m.put("Accent", "强调色");
-		m.put("Aim while blocking", "格挡时自瞄");
-		m.put("All GUIs", "全部GUI");
-		m.put("Allow ClickGUI", "允许菜单界面");
-		m.put("Allow chorus fruit", "允许紫颂果");
-		m.put("Allow hunger effect", "允许饥饿效果");
-		m.put("Allow jump key", "允许跳跃键");
-		m.put("Allow offhand", "允许副手");
-		m.put("Allow other screens", "允许其他界面");
-		m.put("Allow poison effect", "允许中毒效果");
-		m.put("Allow sneak key", "允许潜行键");
-		m.put("Allow sprint key", "允许疾跑键");
-		m.put("Altitude", "高度");
-		m.put("Always FastPlace", "始终快速放置");
-		m.put("Always show player names", "始终显示玩家名");
-		m.put("Amethyst", "紫水晶");
-		m.put("Amount", "数量");
-		m.put("Animations", "动画");
-		m.put("Anti-Kick", "防踢");
-		m.put("Anti-Kick Interval", "防踢间隔");
-		m.put("Area", "区域");
-		m.put("Attack while blocking", "格挡时攻击");
-		m.put("Auto-place anchors", "自动放置锚点");
-		m.put("Background", "背景");
-		m.put("Bamboo", "竹子");
-		m.put("Barrel color", "木桶颜色");
-		m.put("Beetroots", "甜菜根");
-		m.put("Block", "方块");
-		m.put("Block Hit Color", "方块击中颜色");
-		m.put("Blocking offset", "格挡偏移");
-		m.put("Blocks", "方块列表");
-		m.put("Cactus", "仙人掌");
-		m.put("Carrots", "胡萝卜");
-		m.put("Catch delay", "捕捉延迟");
-		m.put("Change moon phase", "更改月相");
-		m.put("Change world time", "更改世界时间");
-		m.put("Check held item", "检查手持物品");
-		m.put("Check line of sight", "检查视线");
-		m.put("Chest boat color", "运输船颜色");
-		m.put("Chest cart color", "运输矿车颜色");
-		m.put("Chest color", "箱子颜色");
-		m.put("Chorus plants", "紫颂植物");
-		m.put("Cocoa", "可可豆");
-		m.put("Cocoa beans", "可可豆");
-		m.put("Color", "颜色");
-		m.put("Command", "命令");
-		m.put("Crafter color", "合成器颜色");
-		m.put("Crops", "农作物");
-		m.put("DD color", "DD颜色");
-		m.put("Day color", "白天颜色");
-		m.put("Death screen button", "死亡界面按钮");
-		m.put("Debug draw", "调试绘制");
-		m.put("Debug mode", "调试模式");
-		m.put("Delay", "延迟");
-		m.put("Depth test", "深度测试");
-		m.put("Detect received language", "检测接收语言");
-		m.put("Disable Freecam", "禁用自由视角");
-		m.put("Disable rain", "禁用下雨");
-		m.put("Disable signatures", "禁用签名");
-		m.put("Disable telemetry", "禁用遥测");
-		m.put("Dispenser color", "发射器颜色");
-		m.put("Distance", "距离");
-		m.put("Draw blocks to harvest", "绘制待收获方块");
-		m.put("Draw blocks to replant", "绘制待补种方块");
-		m.put("Draw distance", "绘制距离");
-		m.put("Draw replanting spots", "绘制补种位置");
-		m.put("Dropper color", "投掷器颜色");
-		m.put("ESP color", "透视颜色");
-		m.put("Eat while walking", "行走时进食");
-		m.put("Edge distance", "边缘距离");
-		m.put("End gateway color", "末地折跃门颜色");
-		m.put("End portal color", "末地传送门颜色");
-		m.put("End portal frame color", "末地传送门框架颜色");
-		m.put("Ender color", "末影箱颜色");
-		m.put("Entity Hit Color", "实体击中颜色");
-		m.put("FOV", "视野");
-		m.put("Fade", "淡出效果");
-		m.put("Fall speed", "下落速度");
-		m.put("Filter server messages", "过滤服务器消息");
-		m.put("Filter untamed", "过滤未驯服");
-		m.put("Flat mode", "平面模式");
-		m.put("Frequency penalty", "频率惩罚");
-		m.put("Furnace color", "熔炉颜色");
-		m.put("Glow berries", "发光浆果");
-		m.put("Guide", "指南");
-		m.put("Guide color", "指南颜色");
-		m.put("Health", "生命值");
-		m.put("Height", "高度");
-		m.put("Height control", "高度控制");
-		m.put("Hopper cart color", "漏斗矿车颜色");
-		m.put("Hopper color", "漏斗颜色");
-		m.put("Horizontal strength", "水平力度");
-		m.put("Hungry sprint", "饥饿疾跑");
-		m.put("ID", "ID");
-		m.put("Ignore errors", "忽略错误");
-		m.put("Ignore mouse input", "忽略鼠标输入");
-		m.put("Include barrels", "包含木桶");
-		m.put("Include chest boats", "包含运输船");
-		m.put("Include chest carts", "包含运输矿车");
-		m.put("Include crafters", "包含合成器");
-		m.put("Include dispensers", "包含发射器");
-		m.put("Include droppers", "包含投掷器");
-		m.put("Include end gateways", "包含末地折跃门");
-		m.put("Include end portal frames", "包含末地传送门框架");
-		m.put("Include end portals", "包含末地传送门");
-		m.put("Include ender chests", "包含末影箱");
-		m.put("Include furnaces", "包含熔炉");
-		m.put("Include hopper carts", "包含漏斗矿车");
-		m.put("Include hoppers", "包含漏斗");
-		m.put("Include nether portals", "包含下界传送门");
-		m.put("Include normal chests", "包含普通箱子");
-		m.put("Include pots", "包含花盆");
-		m.put("Include shulkers", "包含潜影盒");
-		m.put("Include trap chests", "包含陷阱箱");
-		m.put("Indicator", "指示器");
-		m.put("Injury threshold", "伤害阈值");
-		m.put("Items", "物品列表");
-		m.put("Kelp", "海带");
-		m.put("Keybind", "按键绑定");
-		m.put("Legit mode", "合法模式");
-		m.put("Limit", "限制");
-		m.put("Lock ID", "锁定ID");
-		m.put("Log chunks", "记录区块");
-		m.put("Max attempts", "最大尝试次数");
-		m.put("Max height", "最大高度");
-		m.put("Max settings height", "设置最大高度");
-		m.put("Max suggestions per draft", "每稿最大建议数");
-		m.put("Max tokens", "最大令牌数");
-		m.put("Max vein size", "最大矿脉大小");
-		m.put("Melons", "西瓜");
-		m.put("Middle click friends", "中键添加好友");
-		m.put("Min depth", "最小深度");
-		m.put("Min height", "最小高度");
-		m.put("Min hunger", "最小饥饿值");
-		m.put("Miss color", "未命中颜色");
-		m.put("Moon phase", "月相");
-		m.put("Move speed", "移动速度");
-		m.put("Multitill", "多格耕地");
-		m.put("Nether warts", "下界疣");
-		m.put("Nether portal color", "下界传送门颜色");
-		m.put("New chunks color", "新区块颜色");
-		m.put("Night color", "夜晚颜色");
-		m.put("NoCheat+ bypass", "NoCheat+绕过");
-		m.put("Non-AI range", "非AI范围");
-		m.put("Non-blocking offset", "非格挡偏移");
-		m.put("Offset", "偏移");
-		m.put("Old chunks color", "旧区块颜色");
-		m.put("Omnidirectional sprint", "全方向疾跑");
-		m.put("Opacity", "不透明度");
-		m.put("OpenAI legacy endpoint", "OpenAI旧版接口");
-		m.put("Ores", "矿石");
-		m.put("Other", "其他");
-		m.put("Particles", "粒子效果");
-		m.put("Patience", "耐心");
-		m.put("Pause for mace", "为重锤暂停");
-		m.put("Pause when sneaking", "潜行时暂停");
-		m.put("Pitcher plants", "瓶子草");
-		m.put("Place torches", "放置火把");
-		m.put("Potatoes", "马铃薯");
-		m.put("Pots color", "花盆颜色");
-		m.put("Power", "力度");
-		m.put("Presence penalty", "存在惩罚");
-		m.put("Pumpkins", "南瓜");
-		m.put("RC mode", "RC模式");
-		m.put("Radius", "半径");
-		m.put("Range", "范围");
-		m.put("Release time", "释放时间");
-		m.put("Repair mode", "修复模式");
-		m.put("Retry delay", "重试延迟");
-		m.put("Reverse sorting", "反向排序");
-		m.put("Reverse steal order", "反向偷取顺序");
-		m.put("Rotate with player", "随玩家旋转");
-		m.put("Rotation speed", "旋转速度");
-		m.put("Saplings", "树苗");
-		m.put("Scale", "缩放");
-		m.put("Show counter", "显示计数");
-		m.put("Show wait time", "显示等待时间");
-		m.put("Shulker color", "潜影盒颜色");
-		m.put("Slot", "槽位");
-		m.put("Sneak at edges", "边缘潜行");
-		m.put("Sound", "音效");
-		m.put("Speed", "速度");
-		m.put("Speed randomization", "速度随机化");
-		m.put("Spoof vanilla", "伪装原版");
-		m.put("Stack size", "堆叠大小");
-		m.put("Steal/Store buttons", "偷取/存放按钮");
-		m.put("Stems", "茎秆");
-		m.put("Stop flying in water", "水中停止飞行");
-		m.put("Strength", "强度");
-		m.put("Sugar cane", "甘蔗");
-		m.put("Super fast mode", "超快模式");
-		m.put("Sweet berries", "甜浆果");
-		m.put("Temperature", "温度");
-		m.put("Template", "模板");
-		m.put("Text", "文本");
-		m.put("Time", "时间");
-		m.put("Tooltip opacity", "提示不透明度");
-		m.put("Top P", "Top P");
-		m.put("Torchflowers", "火把花");
-		m.put("Totems", "图腾");
-		m.put("Tracer", "轨迹线");
-		m.put("Tracer color", "轨迹线颜色");
-		m.put("Trap chest color", "陷阱箱颜色");
-		m.put("Trident yeet mode", "三叉戟投掷模式");
-		m.put("Turn off while flying", "飞行时关闭");
-		m.put("Twerk speed", "Twerk速度");
-		m.put("Twisting vines", "缠怨藤");
-		m.put("Unlimited range", "无限范围");
-		m.put("Upward speed", "上升速度");
-		m.put("Use AI", "使用AI");
-		m.put("Use AI (experimental)", "使用AI(实验性)");
-		m.put("Use hands", "使用手");
-		m.put("Use swords", "使用剑");
-		m.put("Valid range", "有效范围");
-		m.put("Vertical strength", "垂直力度");
-		m.put("Wait time", "等待时间");
-		m.put("Weeping vines", "哭泣藤");
-		m.put("Wheat", "小麦");
-		m.put("Zoom level", "缩放级别");
-		m.put("mcMMO limit", "mcMMO限制");
-		m.put("mcMMO mode", "mcMMO模式");
-		m.put("mcMMO range", "mcMMO范围");
-		m.put("mcMMO range bug", "mcMMO范围bug");
-		return Map.copyOf(m);
-	}
+	private static final Map<String, String> CN_NAMES = Map.ofEntries(
+		Map.entry("AI range", "AI范围"),
+		Map.entry("Accent", "强调色"),
+		Map.entry("Aim while blocking", "格挡时自瞄"),
+		Map.entry("All GUIs", "全部GUI"),
+		Map.entry("Allow ClickGUI", "允许菜单界面"),
+		Map.entry("Allow chorus fruit", "允许紫颂果"),
+		Map.entry("Allow hunger effect", "允许饥饿效果"),
+		Map.entry("Allow jump key", "允许跳跃键"),
+		Map.entry("Allow offhand", "允许副手"),
+		Map.entry("Allow other screens", "允许其他界面"),
+		Map.entry("Allow poison effect", "允许中毒效果"),
+		Map.entry("Allow sneak key", "允许潜行键"),
+		Map.entry("Allow sprint key", "允许疾跑键"),
+		Map.entry("Altitude", "高度"),
+		Map.entry("Always FastPlace", "始终快速放置"),
+		Map.entry("Always show player names", "始终显示玩家名"),
+		Map.entry("Amethyst", "紫水晶"),
+		Map.entry("Amount", "数量"),
+		Map.entry("Animations", "动画"),
+		Map.entry("Anti-Kick", "防踢"),
+		Map.entry("Anti-Kick Interval", "防踢间隔"),
+		Map.entry("Area", "区域"),
+		Map.entry("Attack while blocking", "格挡时攻击"),
+		Map.entry("Auto-place anchors", "自动放置锚点"),
+		Map.entry("Background", "背景"),
+		Map.entry("Bamboo", "竹子"),
+		Map.entry("Barrel color", "木桶颜色"),
+		Map.entry("Beetroots", "甜菜根"),
+		Map.entry("Block", "方块"),
+		Map.entry("Block Hit Color", "方块击中颜色"),
+		Map.entry("Blocking offset", "格挡偏移"),
+		Map.entry("Blocks", "方块列表"),
+		Map.entry("Cactus", "仙人掌"),
+		Map.entry("Carrots", "胡萝卜"),
+		Map.entry("Catch delay", "捕捉延迟"),
+		Map.entry("Change Moon Phase", "更改月相"),
+		Map.entry("Change World Time", "更改世界时间"),
+		Map.entry("Check held item", "检查手持物品"),
+		Map.entry("Check line of sight", "检查视线"),
+		Map.entry("Chest boat color", "运输船颜色"),
+		Map.entry("Chest cart color", "运输矿车颜色"),
+		Map.entry("Chest color", "箱子颜色"),
+		Map.entry("Chorus Plants", "紫颂植物"),
+		Map.entry("Cocoa", "可可豆"),
+		Map.entry("Cocoa Beans", "可可豆"),
+		Map.entry("Color", "颜色"),
+		Map.entry("Command", "命令"),
+		Map.entry("Crafter color", "合成器颜色"),
+		Map.entry("Crops", "农作物"),
+		Map.entry("DD color", "DD颜色"),
+		Map.entry("Day color", "白天颜色"),
+		Map.entry("Death screen button", "死亡界面按钮"),
+		Map.entry("Debug draw", "调试绘制"),
+		Map.entry("Debug mode", "调试模式"),
+		Map.entry("Delay", "延迟"),
+		Map.entry("Depth test", "深度测试"),
+		Map.entry("Detect received language", "检测接收语言"),
+		Map.entry("Disable Freecam", "禁用自由视角"),
+		Map.entry("Disable Rain", "禁用下雨"),
+		Map.entry("Disable signatures", "禁用签名"),
+		Map.entry("Disable telemetry", "禁用遥测"),
+		Map.entry("Dispenser color", "发射器颜色"),
+		Map.entry("Distance", "距离"),
+		Map.entry("Draw blocks to harvest", "绘制待收获方块"),
+		Map.entry("Draw blocks to replant", "绘制待补种方块"),
+		Map.entry("Draw distance", "绘制距离"),
+		Map.entry("Draw replanting spots", "绘制补种位置"),
+		Map.entry("Dropper color", "投掷器颜色"),
+		Map.entry("ESP color", "透视颜色"),
+		Map.entry("Eat while walking", "行走时进食"),
+		Map.entry("Edge distance", "边缘距离"),
+		Map.entry("End gateway color", "末地折跃门颜色"),
+		Map.entry("End portal color", "末地传送门颜色"),
+		Map.entry("End portal frame color", "末地传送门框架颜色"),
+		Map.entry("Ender color", "末影箱颜色"),
+		Map.entry("Entity Hit Color", "实体击中颜色"),
+		Map.entry("FOV", "视野"),
+		Map.entry("Fade", "淡出效果"),
+		Map.entry("Fall speed", "下落速度"),
+		Map.entry("Filter allays", "过滤悦灵"),
+		Map.entry("Filter armor stands", "过滤盔甲架"),
+		Map.entry("Filter babies", "过滤幼年生物"),
+		Map.entry("Filter bats", "过滤蝙蝠"),
+		Map.entry("Filter end crystals", "过滤末影水晶"),
+		Map.entry("Filter endermen", "过滤末影人"),
+		Map.entry("Filter flying", "过滤飞行生物"),
+		Map.entry("Filter golems", "过滤傀儡"),
+		Map.entry("Filter hostile mobs", "过滤敌对生物"),
+		Map.entry("Filter invisible", "过滤隐身"),
+		Map.entry("Filter minecarts", "过滤矿车"),
+		Map.entry("Filter named", "过滤已命名"),
+		Map.entry("Filter neutral mobs", "过滤中立生物"),
+		Map.entry("Filter passive mobs", "过滤被动生物"),
+		Map.entry("Filter passive water mobs", "过滤水生生物"),
+		Map.entry("Filter pets", "过滤宠物"),
+		Map.entry("Filter piglins", "过滤猪灵"),
+		Map.entry("Filter players", "过滤玩家"),
+		Map.entry("Filter server messages", "过滤服务器消息"),
+		Map.entry("Filter shulker bullets", "过滤潜影贝子弹"),
+		Map.entry("Filter shulkers", "过滤潜影贝"),
+		Map.entry("Filter sleeping", "过滤睡觉"),
+		Map.entry("Filter slimes", "过滤史莱姆"),
+		Map.entry("Filter untamed", "过滤未驯服"),
+		Map.entry("Filter villagers", "过滤村民"),
+		Map.entry("Filter zombie piglins", "过滤僵尸猪灵"),
+		Map.entry("Filter zombie villagers", "过滤僵尸村民"),
+		Map.entry("Flat mode", "平面模式"),
+		Map.entry("Frequency penalty", "频率惩罚"),
+		Map.entry("Furnace color", "熔炉颜色"),
+		Map.entry("Glow Berries", "发光浆果"),
+		Map.entry("Guide", "指南"),
+		Map.entry("Guide color", "指南颜色"),
+		Map.entry("Health", "生命值"),
+		Map.entry("Height", "高度"),
+		Map.entry("Height control", "高度控制"),
+		Map.entry("Hopper cart color", "漏斗矿车颜色"),
+		Map.entry("Hopper color", "漏斗颜色"),
+		Map.entry("Horizontal Strength", "水平力度"),
+		Map.entry("Hungry Sprint", "饥饿疾跑"),
+		Map.entry("ID", "ID"),
+		Map.entry("Ignore errors", "忽略错误"),
+		Map.entry("Ignore mouse input", "忽略鼠标输入"),
+		Map.entry("Include barrels", "包含木桶"),
+		Map.entry("Include chest boats", "包含运输船"),
+		Map.entry("Include chest carts", "包含运输矿车"),
+		Map.entry("Include crafters", "包含合成器"),
+		Map.entry("Include dispensers", "包含发射器"),
+		Map.entry("Include droppers", "包含投掷器"),
+		Map.entry("Include end gateways", "包含末地折跃门"),
+		Map.entry("Include end portal frames", "包含末地传送门框架"),
+		Map.entry("Include end portals", "包含末地传送门"),
+		Map.entry("Include ender chests", "包含末影箱"),
+		Map.entry("Include furnaces", "包含熔炉"),
+		Map.entry("Include hopper carts", "包含漏斗矿车"),
+		Map.entry("Include hoppers", "包含漏斗"),
+		Map.entry("Include nether portals", "包含下界传送门"),
+		Map.entry("Include normal chests", "包含普通箱子"),
+		Map.entry("Include pots", "包含花盆"),
+		Map.entry("Include shulkers", "包含潜影盒"),
+		Map.entry("Include trap chests", "包含陷阱箱"),
+		Map.entry("Indicator", "指示器"),
+		Map.entry("Injury threshold", "伤害阈值"),
+		Map.entry("Items", "物品列表"),
+		Map.entry("Kelp", "海带"),
+		Map.entry("Keybind", "按键绑定"),
+		Map.entry("Legit mode", "合法模式"),
+		Map.entry("Limit", "限制"),
+		Map.entry("Lock ID", "锁定ID"),
+		Map.entry("Log chunks", "记录区块"),
+		Map.entry("Max attempts", "最大尝试次数"),
+		Map.entry("Max height", "最大高度"),
+		Map.entry("Max settings height", "设置最大高度"),
+		Map.entry("Max suggestions per draft", "每稿最大建议数"),
+		Map.entry("Max tokens", "最大令牌数"),
+		Map.entry("Max vein size", "最大矿脉大小"),
+		Map.entry("Melons", "西瓜"),
+		Map.entry("Middle click friends", "中键添加好友"),
+		Map.entry("Min depth", "最小深度"),
+		Map.entry("Min height", "最小高度"),
+		Map.entry("Min hunger", "最小饥饿值"),
+		Map.entry("Miss Color", "未命中颜色"),
+		Map.entry("Moon Phase", "月相"),
+		Map.entry("Move speed", "移动速度"),
+		Map.entry("MultiTill", "多格耕地"),
+		Map.entry("Nether Warts", "下界疣"),
+		Map.entry("Nether portal color", "下界传送门颜色"),
+		Map.entry("New chunks color", "新区块颜色"),
+		Map.entry("Night color", "夜晚颜色"),
+		Map.entry("NoCheat+ bypass", "NoCheat+绕过"),
+		Map.entry("Non-AI range", "非AI范围"),
+		Map.entry("Non-blocking offset", "非格挡偏移"),
+		Map.entry("Offset", "偏移"),
+		Map.entry("Old chunks color", "旧区块颜色"),
+		Map.entry("Omnidirectional Sprint", "全方向疾跑"),
+		Map.entry("Opacity", "不透明度"),
+		Map.entry("OpenAI legacy endpoint", "OpenAI旧版接口"),
+		Map.entry("Ores", "矿石"),
+		Map.entry("Other", "其他"),
+		Map.entry("Particles", "粒子效果"),
+		Map.entry("Patience", "耐心"),
+		Map.entry("Pause for mace", "为重锤暂停"),
+		Map.entry("Pause when sneaking", "潜行时暂停"),
+		Map.entry("Pitcher Plants", "瓶子草"),
+		Map.entry("Place torches", "放置火把"),
+		Map.entry("Potatoes", "马铃薯"),
+		Map.entry("Pots color", "花盆颜色"),
+		Map.entry("Power", "力度"),
+		Map.entry("Presence penalty", "存在惩罚"),
+		Map.entry("Pumpkins", "南瓜"),
+		Map.entry("RC mode", "RC模式"),
+		Map.entry("Radius", "半径"),
+		Map.entry("Range", "范围"),
+		Map.entry("Release time", "释放时间"),
+		Map.entry("Repair mode", "修复模式"),
+		Map.entry("Retry delay", "重试延迟"),
+		Map.entry("Reverse sorting", "反向排序"),
+		Map.entry("Reverse steal order", "反向偷取顺序"),
+		Map.entry("Rotate with player", "随玩家旋转"),
+		Map.entry("Rotation Speed", "旋转速度"),
+		Map.entry("Saplings", "树苗"),
+		Map.entry("Scale", "缩放"),
+		Map.entry("Show counter", "显示计数"),
+		Map.entry("Show wait time", "显示等待时间"),
+		Map.entry("Shulker color", "潜影盒颜色"),
+		Map.entry("Slot", "槽位"),
+		Map.entry("Sneak at edges", "边缘潜行"),
+		Map.entry("Sound", "音效"),
+		Map.entry("Speed", "速度"),
+		Map.entry("Speed randomization", "速度随机化"),
+		Map.entry("Spoof Vanilla", "伪装原版"),
+		Map.entry("Stack size", "堆叠大小"),
+		Map.entry("Steal/Store buttons", "偷取/存放按钮"),
+		Map.entry("Stems", "茎秆"),
+		Map.entry("Stop flying in water", "水中停止飞行"),
+		Map.entry("Strength", "强度"),
+		Map.entry("Sugar Cane", "甘蔗"),
+		Map.entry("Super fast mode", "超快模式"),
+		Map.entry("Sweet Berries", "甜浆果"),
+		Map.entry("Temperature", "温度"),
+		Map.entry("Template", "模板"),
+		Map.entry("Text", "文本"),
+		Map.entry("Time", "时间"),
+		Map.entry("Tooltip opacity", "提示不透明度"),
+		Map.entry("Top P", "Top P"),
+		Map.entry("Torchflowers", "火把花"),
+		Map.entry("Totems", "图腾"),
+		Map.entry("Tracer", "轨迹线"),
+		Map.entry("Tracer color", "轨迹线颜色"),
+		Map.entry("Trap chest color", "陷阱箱颜色"),
+		Map.entry("Trident yeet mode", "三叉戟投掷模式"),
+		Map.entry("Trident yeet mode", "三叉戟投掷模式"),
+		Map.entry("Turn off while flying", "飞行时关闭"),
+		Map.entry("Twerk speed", "Twerk速度"),
+		Map.entry("Twisting Vines", "缠怨藤"),
+		Map.entry("Unlimited range", "无限范围"),
+		Map.entry("Upward Speed", "上升速度"),
+		Map.entry("Use AI", "使用AI"),
+		Map.entry("Use AI (experimental)", "使用AI(实验性)"),
+		Map.entry("Use hands", "使用手"),
+		Map.entry("Use swords", "使用剑"),
+		Map.entry("Valid range", "有效范围"),
+		Map.entry("Vertical Strength", "垂直力度"),
+		Map.entry("Wait time", "等待时间"),
+		Map.entry("Weeping Vines", "哭泣藤"),
+		Map.entry("Wheat", "小麦"),
+		Map.entry("Zoom level", "缩放级别"),
+		Map.entry("mcMMO limit", "mcMMO限制"),
+		Map.entry("mcMMO mode", "mcMMO模式"),
+		Map.entry("mcMMO range", "mcMMO范围"),
+		Map.entry("mcMMO range bug", "mcMMO范围bug")
+	);
 	
 	private final String name;
 	private final WText description;
@@ -291,15 +312,6 @@ public abstract class Setting
 	
 	public abstract JsonElement toJson();
 	
-	/**
-	 * Exports this setting's data to a {@link JsonObject} for use in the
-	 * Wurst Wiki. Must always specify the following properties:
-	 * <ul>
-	 * <li>name
-	 * <li>description
-	 * <li>type
-	 * </ul>
-	 */
 	public abstract JsonObject exportWikiData();
 	
 	public void update()
