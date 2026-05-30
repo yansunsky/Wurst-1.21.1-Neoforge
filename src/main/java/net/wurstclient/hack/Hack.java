@@ -32,6 +32,14 @@ public abstract class Hack extends Feature
 		addPossibleKeybind(name, "Toggle " + name);
 	}
 	
+	/**
+	 * 获取该 hack 的翻译键名，用于语言文件查找
+	 */
+	public final String getNameKey()
+	{
+		return "hack.wurst." + name.toLowerCase();
+	}
+	
 	@Override
 	public final String getName()
 	{
@@ -39,14 +47,16 @@ public abstract class Hack extends Feature
 	}
 	
 	/**
-	 * Returns the name of the hack to be displayed in HackList.
-	 *
+	 * Returns the name of the hack to be displayed in HackList / HUD.
+	 * <p>
+	 * 默认通过语言文件查找翻译（键: hack.wurst.xxx），
+	 * 找不到翻译时回退到原始英文名。
 	 * <p>
 	 * WARNING: This method can be called while <code>MC.player</code> is null.
 	 */
 	public String getRenderName()
 	{
-		return name;
+		return WURST.translate(getNameKey());
 	}
 	
 	@Override
