@@ -41,6 +41,14 @@ public abstract class Feature
 	
 	public abstract String getName();
 	
+	/**
+	 * @return 用于界面显示的名称（支持语言文件翻译）
+	 */
+	public String getRenderName()
+	{
+		return getName();
+	}
+	
 	public abstract String getDescription();
 	
 	public String getWrappedDescription(int width)

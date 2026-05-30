@@ -160,7 +160,7 @@ public final class TabGui implements KeyPressListener
 			for(int i = 0; i < tab.features.size(); i++)
 			{
 				Feature feature = tab.features.get(i);
-				String fName = feature.getName();
+				String fName = feature.getRenderName();
 				
 				if(feature.isEnabled())
 					fName = "\u00a7a" + fName + "\u00a7r";
@@ -208,7 +208,7 @@ public final class TabGui implements KeyPressListener
 			width = 64;
 			for(Feature feature : features)
 			{
-				int fWidth = MC.font.width(feature.getName()) + 10;
+				int fWidth = MC.font.width(feature.getRenderName()) + 10;
 				if(fWidth > width)
 					width = fWidth;
 			}

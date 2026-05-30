@@ -116,7 +116,7 @@ public final class FeatureButton extends Component
 				y2 - 0.5F, hSettings, !isSettingsWindowOpen());
 		
 		// text
-		String name = feature.getName();
+		String name = feature.getRenderName();
 		int tx = x1 + (x3 - x1 - TR.width(name)) / 2;
 		int ty = y1 + 2;
 		context.drawString(TR, name, tx, ty, GUI.getTxtColor(), false);
@@ -132,7 +132,7 @@ public final class FeatureButton extends Component
 	@Override
 	public int getDefaultWidth()
 	{
-		int width = TR.width(feature.getName());
+		int width = TR.width(feature.getRenderName());
 		width += hasSettings ? 15 : 4;
 		return width;
 	}

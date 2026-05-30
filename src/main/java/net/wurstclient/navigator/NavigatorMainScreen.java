@@ -375,7 +375,7 @@ public final class NavigatorMainScreen extends NavigatorScreen
 		if(!clickTimerRunning)
 		{
 			Font tr = minecraft.font;
-			String buttonText = feature.getName();
+			String buttonText = feature.getRenderName();
 			int bx = area.x + 4;
 			int by = area.y + 4;
 			int txtColor = gui.getTxtColor();

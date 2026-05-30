@@ -313,7 +313,7 @@ public final class NavigatorFeatureScreen extends NavigatorScreen
 		int txtColor = gui.getTxtColor();
 
 		// title bar
-		context.drawCenteredString(minecraft.font, feature.getName(), middleX,
+		context.drawCenteredString(minecraft.font, feature.getRenderName(), middleX,
 				32, txtColor);
 
 		// background
