@@ -29,6 +29,8 @@ public final class IngameHUD implements GUIRenderListener
 			tabGui = new TabGui();
 		
 		ClickGui clickGui = WurstClient.INSTANCE.getGui();
+		if(clickGui == null)
+			return;
 		
 		clickGui.updateColors();
 		
