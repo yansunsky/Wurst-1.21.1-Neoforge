@@ -252,7 +252,6 @@ public abstract class Setting
 		Map.entry("Tracer color", "轨迹线颜色"),
 		Map.entry("Trap chest color", "陷阱箱颜色"),
 		Map.entry("Trident yeet mode", "三叉戟投掷模式"),
-		Map.entry("Trident yeet mode", "三叉戟投掷模式"),
 		Map.entry("Turn off while flying", "飞行时关闭"),
 		Map.entry("Twerk speed", "Twerk速度"),
 		Map.entry("Twisting Vines", "缠怨藤"),
