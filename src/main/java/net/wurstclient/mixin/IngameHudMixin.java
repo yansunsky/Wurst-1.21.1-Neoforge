@@ -45,7 +45,7 @@ public class IngameHudMixin
 		EventManager.fire(new GUIRenderEvent(context, tickDelta));
 	}
 	
-	// 在 render 方法尾部注入，确保每帧触发
+	// 在 render 方法尾部注入作为兜底，确保 HUD 每帧渲染
 	@Inject(at = @At("TAIL"),
 		method = "render(Lnet/minecraft/client/gui/GuiGraphics;Lnet/minecraft/client/DeltaTracker;)V")
 	private void onRender(GuiGraphics context, DeltaTracker tickCounter,
