@@ -13,6 +13,7 @@ import java.util.Set;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
+import net.wurstclient.WurstClient;
 import net.wurstclient.clickgui.Component;
 import net.wurstclient.keybinds.PossibleKeybind;
 import net.wurstclient.util.ChatUtils;
@@ -32,6 +33,22 @@ public abstract class Setting
 	public final String getName()
 	{
 		return name;
+	}
+	
+	/**
+	 * @return 翻译键，格式: setting.wurst.<name_lowercase>
+	 */
+	public String getNameKey()
+	{
+		return "setting.wurst." + name.toLowerCase().replace(' ', '_').replace('-', '_');
+	}
+	
+	/**
+	 * @return 用于界面显示的名称（支持语言文件翻译），回退到英文
+	 */
+	public String getDisplayName()
+	{
+		return WurstClient.INSTANCE.translate(getNameKey());
 	}
 	
 	public final String getDescription()

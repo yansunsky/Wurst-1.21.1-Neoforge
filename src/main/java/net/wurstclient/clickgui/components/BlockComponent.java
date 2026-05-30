@@ -80,7 +80,7 @@ public final class BlockComponent extends Component
 		context.fill(x1, y1, x2, y2, bgColor);
 		
 		// text
-		String name = setting.getName() + ":";
+		String name = setting.getDisplayName() + ":";
 		context.drawString(TR, name, x1, y1 + 2, GUI.getTxtColor(), false);
 		
 		// block
@@ -124,7 +124,7 @@ public final class BlockComponent extends Component
 	@Override
 	public int getDefaultWidth()
 	{
-		return TR.width(setting.getName() + ":") + BLOCK_WIDTH + 4;
+		return TR.width(setting.getDisplayName() + ":") + BLOCK_WIDTH + 4;
 	}
 	
 	@Override

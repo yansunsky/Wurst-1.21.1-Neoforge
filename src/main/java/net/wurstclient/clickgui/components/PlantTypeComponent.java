@@ -122,7 +122,7 @@ public final class PlantTypeComponent extends Component
 			ClickGuiIcons.drawCheck(context, x5, y3, x6, y2, hReplant, false);
 		
 		// text
-		String name = setting.getName();
+		String name = setting.getDisplayName();
 		context.drawString(TR, name, x3 + 2, y1 + 3, GUI.getTxtColor(), false);
 		context.drawString(TR, HARVEST, x4 + 2, y3 + 2, GUI.getTxtColor(),
 			false);
@@ -139,7 +139,7 @@ public final class PlantTypeComponent extends Component
 	@Override
 	public int getDefaultWidth()
 	{
-		int nameWidth = TR.width(setting.getName());
+		int nameWidth = TR.width(setting.getDisplayName());
 		int boxesWidth =
 			2 * BOX_SIZE + TR.width(HARVEST) + TR.width(REPLANT) + 6;
 		return ICON_SIZE + Math.max(nameWidth, boxesWidth);
