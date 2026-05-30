@@ -32,12 +32,24 @@ public class IngameHudMixin
 	@Final
 	private DebugScreenOverlay debugOverlay;
 	
-	// runs after renderScoreboardSidebar()
-	// and before playerListHud.setVisible()
+	// 在渲染玩家列表时触发（原注入点）
 	@Inject(at = @At("HEAD"),
 		method = "renderTabList(Lnet/minecraft/client/gui/GuiGraphics;Lnet/minecraft/client/DeltaTracker;)V")
 	private void onRenderPlayerList(GuiGraphics context,
 		DeltaTracker tickCounter, CallbackInfo ci)
+	{
+		if(debugOverlay.showDebugScreen())
+			return;
+		
+		float tickDelta = tickCounter.getGameTimeDeltaPartialTick(true);
+		EventManager.fire(new GUIRenderEvent(context, tickDelta));
+	}
+	
+	// 额外注入：直接挂在 render 方法尾部，确保每帧触发
+	@Inject(at = @At("TAIL"),
+		method = "render(Lnet/minecraft/client/gui/GuiGraphics;Lnet/minecraft/client/DeltaTracker;)V")
+	private void onRender(GuiGraphics context, DeltaTracker tickCounter,
+		CallbackInfo ci)
 	{
 		if(debugOverlay.showDebugScreen())
 			return;
