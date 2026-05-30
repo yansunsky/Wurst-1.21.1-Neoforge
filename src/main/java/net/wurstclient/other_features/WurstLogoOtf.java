@@ -28,6 +28,10 @@ public final class WurstLogoOtf extends OtherFeature
 	private final ColorSetting txtColor =
 		new ColorSetting("Text", "Text color.", Color.BLACK);
 	
+	private final EnumSetting<Visibility> visibility =
+		new EnumSetting<>("Visibility", Visibility.values(), Visibility.ALWAYS);
+	
+	
 
 	
 	public WurstLogoOtf()
@@ -35,8 +39,14 @@ public final class WurstLogoOtf extends OtherFeature
 		super("WurstLogo", "Shows the Wurst logo and version on the screen.");
 		addSetting(bgColor);
 		addSetting(txtColor);
+		addSetting(visibility);
 	}
 
+	
+	public boolean isVisible()
+	{
+		return visibility.getSelected().isVisible();
+	}
 	
 	public int getBackgroundColor()
 	{
@@ -49,9 +59,9 @@ public final class WurstLogoOtf extends OtherFeature
 	}
 	
 	public static enum Visibility
-	{;
-
-
+	{
+		ALWAYS("Always", () -> true);
+		
 		private final String name;
 		private final BooleanSupplier visible;
 		
