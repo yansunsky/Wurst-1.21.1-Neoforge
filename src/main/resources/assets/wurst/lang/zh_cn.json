@@ -582,5 +582,21 @@
   "hack.wurst.tunneller": "隧道挖掘",
   "hack.wurst.veinminer": "矿脉挖掘",
   "hack.wurst.xray": "透视",
-  "hack.wurst.tp-aura": "TP光环"
+  "hack.wurst.tp-aura": "TP光环",
+  "other.wurst.changelog": "更新日志",
+  "other.wurst.cleanup": "清理",
+  "other.wurst.hacklist": "功能列表",
+  "other.wurst.keybinds": "按键绑定",
+  "other.wurst.lastserver": "上次服务器",
+  "other.wurst.nochatreports": "防聊天举报",
+  "other.wurst.notelemetry": "防遥测",
+  "other.wurst.reconnect": "重连",
+  "other.wurst.serverfinder": "服务器搜索",
+  "other.wurst.tabgui": "标签界面",
+  "other.wurst.translations": "翻译",
+  "other.wurst.vanillaspoof": "原版伪装",
+  "other.wurst.wikidataexport": "Wiki数据导出",
+  "other.wurst.wurstcapes": "Wurst披风",
+  "other.wurst.wurstlogo": "WurstLogo",
+  "other.wurst.zoom": "缩放"
 }

@@ -473,5 +473,21 @@
   "hack.wurst.trollpotion": "TrollPotion",
   "hack.wurst.truesight": "TrueSight",
   "hack.wurst.tunneller": "Tunneller",
-  "hack.wurst.veinminer": "VeinMiner"
+  "hack.wurst.veinminer": "VeinMiner",
+  "other.wurst.changelog": "Changelog",
+  "other.wurst.cleanup": "CleanUp",
+  "other.wurst.hacklist": "HackList",
+  "other.wurst.keybinds": "Keybinds",
+  "other.wurst.lastserver": "LastServer",
+  "other.wurst.nochatreports": "NoChatReports",
+  "other.wurst.notelemetry": "NoTelemetry",
+  "other.wurst.reconnect": "Reconnect",
+  "other.wurst.serverfinder": "ServerFinder",
+  "other.wurst.tabgui": "TabGUI",
+  "other.wurst.translations": "Translations",
+  "other.wurst.vanillaspoof": "VanillaSpoof",
+  "other.wurst.wikidataexport": "WikiDataExport",
+  "other.wurst.wurstcapes": "WurstCapes",
+  "other.wurst.wurstlogo": "WurstLogo",
+  "other.wurst.zoom": "Zoom"
 }

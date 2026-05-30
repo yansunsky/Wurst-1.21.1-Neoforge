@@ -20,6 +20,17 @@ public abstract class OtherFeature extends Feature
 		this.description = description;
 	}
 	
+	public final String getNameKey()
+	{
+		return "other.wurst." + name.toLowerCase();
+	}
+	
+	@Override
+	public String getRenderName()
+	{
+		return WURST.translate(getNameKey());
+	}
+	
 	@Override
 	public final String getName()
 	{
