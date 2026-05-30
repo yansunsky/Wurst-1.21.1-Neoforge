@@ -211,16 +211,25 @@ public enum WurstClient
 	
 	public HackList getHax()
 	{
+		if(hax == null && MC != null)
+			initialize();
+		
 		return hax;
 	}
 	
 	public CmdList getCmds()
 	{
+		if(cmds == null && MC != null)
+			initialize();
+		
 		return cmds;
 	}
 	
 	public OtfList getOtfs()
 	{
+		if(otfs == null && MC != null)
+			initialize();
+		
 		return otfs;
 	}
 	
@@ -281,6 +290,9 @@ public enum WurstClient
 	
 	public WurstTranslator getTranslator()
 	{
+		if(translator == null && MC != null)
+			initialize();
+		
 		return translator;
 	}
 	

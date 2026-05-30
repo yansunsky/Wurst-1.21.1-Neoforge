@@ -32,6 +32,9 @@ public abstract class RenderTickCounterDynamicMixin
 	public void onBeginRenderTick(long timeMillis,
 		CallbackInfoReturnable<Integer> cir)
 	{
+		if(WurstClient.INSTANCE.getHax() == null)
+			return;
+		
 		deltaTicks *= WurstClient.INSTANCE.getHax().timerHack.getTimerSpeed();
 	}
 }

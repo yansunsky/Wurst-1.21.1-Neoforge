@@ -79,7 +79,8 @@
     "TitleScreenMixin",
     "ToastComponentAccessor",
     "WorldMixin",
-    "WorldRendererMixin"
+    "WorldRendererMixin",
+    "TextVisitFactoryMixin"
   ],
   "injectors": {
     "defaultRequire": 1

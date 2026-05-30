@@ -27,6 +27,9 @@ public abstract class LanguageManagerMixin
 	{
 		// Using a mixin for this because WurstClient.initialize() runs too
 		// early to call ResourceManager.registerReloader()
+		if(WurstClient.INSTANCE.getTranslator() == null)
+			return;
+		
 		WurstClient.INSTANCE.getTranslator().onResourceManagerReload(manager);
 	}
 }

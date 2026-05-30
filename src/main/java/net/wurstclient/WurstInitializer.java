@@ -2,9 +2,11 @@ package net.wurstclient;
 
 import net.neoforged.fml.common.Mod;
 
-@Mod("sloth1")
+@Mod(WurstInitializer.MODID)
 public final class WurstInitializer
 {
+	public static final String MODID = "wurst";
+
 	private static boolean initialized;
 
 	public WurstInitializer()
