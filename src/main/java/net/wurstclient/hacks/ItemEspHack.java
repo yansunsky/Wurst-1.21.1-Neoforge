@@ -39,7 +39,7 @@ public final class ItemEspHack extends Hack implements UpdateListener,
 			+ "\u00a7lFancy\u00a7r mode shows larger boxes that look better.");
 	
 	private final ColorSetting color = new ColorSetting("Color",
-		"Items will be highlighted in this color.", Color.YELLOW);
+		"物品将以此颜色高亮。", Color.YELLOW);
 	
 	private final ArrayList<ItemEntity> items = new ArrayList<>();
 	

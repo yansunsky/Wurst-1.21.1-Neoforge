@@ -42,12 +42,12 @@ public class ShallowWaterWarningCheckbox extends CheckboxSetting
 		
 		if(isChecked() && !hasAlreadyWarned)
 		{
-			ChatUtils.warning("You are currently fishing in shallow water.");
+			ChatUtils.warning("你正在浅水中钓鱼。");
 			ChatUtils.message(
 				"You can't get any treasure items while fishing like this.");
 			
 			if(!WurstClient.INSTANCE.getHax().openWaterEspHack.isEnabled())
-				ChatUtils.message("Use OpenWaterESP to find open water.");
+				ChatUtils.message("使用 OpenWaterESP 寻找开阔水域。");
 			
 			hasAlreadyWarned = true;
 		}

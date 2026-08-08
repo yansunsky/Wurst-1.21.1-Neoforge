@@ -20,8 +20,8 @@ public final class AddAltCmd extends Command
 {
 	public AddAltCmd()
 	{
-		super("addalt", "Adds a player to your alt list.", ".addalt <player>",
-			"Add all players on the server: .addalt all");
+		super("addalt", "将一个玩家添加到你的账户列表。", ".addalt <player>",
+			"添加服务器上的所有玩家：.addalt all");
 	}
 	
 	@Override
@@ -50,7 +50,7 @@ public final class AddAltCmd extends Command
 			return;
 		
 		WURST.getAltManager().add(new CrackedAlt(name));
-		ChatUtils.message("Added 1 alt.");
+		ChatUtils.message("已添加 1 个账户。");
 	}
 	
 	private void addAll()
@@ -75,6 +75,6 @@ public final class AddAltCmd extends Command
 			alts++;
 		}
 		
-		ChatUtils.message("Added " + alts + (alts == 1 ? " alt." : " alts."));
+		ChatUtils.message("已添加 " + alts + (alts == 1 ? " 个账户。" : " 个账户。"));
 	}
 }

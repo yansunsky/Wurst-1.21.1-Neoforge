@@ -37,7 +37,7 @@ public final class HackListOtf extends OtherFeature
 		Position.values(), Position.LEFT);
 	
 	private final ColorSetting color = new ColorSetting("Color",
-		"Color of the HackList text.\n"
+		"HackList 文字的颜色。\n"
 			+ "Only visible when \u00a76RainbowUI\u00a7r is disabled.",
 		Color.WHITE);
 	
@@ -50,7 +50,7 @@ public final class HackListOtf extends OtherFeature
 		new CheckboxSetting("Reverse sorting", false);
 	
 	private final CheckboxSetting animations = new CheckboxSetting("Animations",
-		"When enabled, entries slide into and out of the HackList as hacks are enabled and disabled.",
+		"启用后，条目会随着功能的启用和禁用滑入和滑出 HackList。",
 		true);
 	
 	private SortBy prevSortBy;

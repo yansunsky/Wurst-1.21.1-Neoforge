@@ -27,7 +27,7 @@ public final class FurnacesGroup extends ChestEspBlockGroup
 	protected ColorSetting createColorSetting()
 	{
 		return new ColorSetting("Furnace color",
-			"Furnaces, smokers, and blast furnaces will be highlighted in this color.",
+			"熔炉、烟熏炉和高炉将以此颜色高亮。",
 			Color.RED);
 	}
 	

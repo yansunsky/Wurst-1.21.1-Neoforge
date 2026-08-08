@@ -31,31 +31,31 @@ public final class FishingSpotManager
 	private static final Minecraft MC = WurstClient.MC;
 	
 	private final CheckboxSetting mcmmoMode = new CheckboxSetting("mcMMO mode",
-		"If enabled, AutoFish will cycle between two different fishing spots"
-			+ " to bypass mcMMO's overfishing mechanic.\n\n"
-			+ "All other mcMMO settings will do nothing if this is disabled.",
+		"如果启用，AutoFish 将在两个不同的钓鱼点之间循环"
+			+ "来绕过 mcMMO 的过度捕捞机制。\n\n"
+			+ "如果禁用此选项，所有其他 mcMMO 设置将不起作用。",
 		false);
 	
 	private final SliderSetting mcmmoRange = new SliderSetting("mcMMO range",
-		"The value of mcMMO's MoveRange config option. This is the minimum"
-			+ " distance between two fishing spots needed to avoid overfishing.\n\n"
-			+ "mcMMO only cares about the position of the bobber, so you don't"
-			+ " need to move your character unless some other anti-AFK plugin"
-			+ " is present.",
+		"mcMMO 的 MoveRange 配置选项的值。这是最小"
+			+ "避免过度捕捞所需的两个钓鱼点之间的距离。\n\n"
+			+ "mcMMO 只关心浮漂的位置，所以你不"
+			+ "需要移动角色，除非有其他反挂机插件"
+			+ "存在。",
 		3, 1, 50, 1, ValueDisplay.INTEGER.withSuffix(" blocks"));
 	
 	private final CheckboxSetting mcmmoRangeBug =
 		new CheckboxSetting("mcMMO range bug",
-			"At the time of writing, there is a bug in mcMMO's range"
-				+ " calculation, meaning the default range of 3 blocks is"
-				+ " actually just 2 blocks.\n\n"
-				+ "Uncheck this box if they ever fix it.",
+			"在编写本文时，mcMMO 的范围存在一个 bug"
+				+ "计算 bug，意味着默认的 3 格范围实际上"
+				+ "只有 2 格。\n\n"
+				+ "如果他们修复了它，请取消勾选此框。",
 			true);
 	
 	private final SliderSetting mcmmoLimit = new SliderSetting("mcMMO limit",
-		"The value of mcMMO's OverFishLimit config option. Overfishing starts"
-			+ " at this value, so you can actually only catch (limit - 1) fish"
-			+ " from the same spot.",
+		"mcMMO 的 OverFishLimit 配置选项的值。过度捕捞开始"
+			+ "从该值开始，所以实际上你只能在同一地点"
+			+ "钓到（上限 - 1）条鱼。",
 		10, 2, 1000, 1, ValueDisplay.INTEGER);
 	
 	private final ArrayList<FishingSpot> fishingSpots = new ArrayList<>();
@@ -84,9 +84,9 @@ public final class FishingSpotManager
 			if(spot1MsgShown)
 				return true;
 			
-			ChatUtils.message("Starting AutoFish mcMMO mode.");
-			ChatUtils.message("Please wait while the first fishing spot is"
-				+ " being recorded.");
+			ChatUtils.message("正在启动 AutoFish mcMMO 模式。");
+			ChatUtils.message("请等待第一个钓鱼点正在"
+				+ "记录中。");
 			spot1MsgShown = true;
 			return true;
 		}
@@ -99,10 +99,10 @@ public final class FishingSpotManager
 				return false;
 			
 			ChatUtils
-				.message("AutoFish mcMMO mode requires another fishing spot.");
-			ChatUtils.message("Move your camera (or the player, if necessary)"
-				+ " so that the bobber will land outside of the red box, then"
-				+ " cast the rod.");
+				.message("AutoFish mcMMO 模式需要另一个钓鱼点。");
+			ChatUtils.message("移动你的视角（如有必要，移动玩家）"
+				+ "，使浮漂落在红色方框外，然后"
+				+ "抛出鱼竿。");
 			spot2MsgShown = true;
 			setupDoneMsgShown = false;
 			return false;
@@ -112,8 +112,8 @@ public final class FishingSpotManager
 		// confirm setup is done
 		if(!setupDoneMsgShown)
 		{
-			ChatUtils.message("All done! AutoFish will now run automatically"
-				+ " and switch between the fishing spots as needed.");
+			ChatUtils.message("全部完成！AutoFish 现在将自动运行"
+				+ "并根据需要在钓鱼点之间切换。");
 			setupDoneMsgShown = true;
 		}
 		

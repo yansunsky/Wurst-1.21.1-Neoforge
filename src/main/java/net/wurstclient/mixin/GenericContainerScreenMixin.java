@@ -50,13 +50,13 @@ public abstract class GenericContainerScreenMixin
 		if(autoSteal.areButtonsVisible())
 		{
 			addRenderableWidget(Button
-				.builder(Component.literal("Steal"),
+				.builder(Component.literal("拿走"),
 					b -> autoSteal.steal(this, containerRows))
 				.bounds(leftPos + imageWidth - 108, topPos + 4, 50, 12)
 				.build());
 			
 			addRenderableWidget(Button
-				.builder(Component.literal("Store"),
+				.builder(Component.literal("存入"),
 					b -> autoSteal.store(this, containerRows))
 				.bounds(leftPos + imageWidth - 56, topPos + 4, 50, 12).build());
 		}

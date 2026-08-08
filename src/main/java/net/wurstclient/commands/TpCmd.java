@@ -24,7 +24,7 @@ public final class TpCmd extends Command
 {
 	private final CheckboxSetting disableFreecam =
 		new CheckboxSetting("Disable Freecam",
-			"Disables Freecam just before teleporting.\n\n"
+			"在传送前禁用自由视角。\n\n"
 				+ "This allows you to teleport your actual character to your"
 				+ " Freecam position by typing \".tp ~ ~ ~\" while Freecam is"
 				+ " enabled.",
@@ -32,7 +32,7 @@ public final class TpCmd extends Command
 	
 	public TpCmd()
 	{
-		super("tp", "Teleports you up to 10 blocks away.", ".tp <x> <y> <z>",
+		super("tp", "将你传送到最多 10 格远的地方。", ".tp <x> <y> <z>",
 			".tp <entity>");
 		addSetting(disableFreecam);
 	}
@@ -53,7 +53,7 @@ public final class TpCmd extends Command
 		switch(args.length)
 		{
 			default:
-			throw new CmdSyntaxError("Invalid coordinates.");
+			throw new CmdSyntaxError("无效的坐标。");
 			
 			case 1:
 			return argsToEntityPos(args[0]);
@@ -76,7 +76,7 @@ public final class TpCmd extends Command
 			.orElse(null);
 		
 		if(entity == null)
-			throw new CmdError("Entity \"" + name + "\" could not be found.");
+			throw new CmdError("找不到实体 \"" + name + "\"。");
 		
 		return BlockPos.containing(entity.position());
 	}
@@ -96,7 +96,7 @@ public final class TpCmd extends Command
 				&& MathUtils.isInteger(xyz[i].substring(1)))
 				pos[i] = player[i] + Integer.parseInt(xyz[i].substring(1));
 			else
-				throw new CmdSyntaxError("Invalid coordinates.");
+				throw new CmdSyntaxError("无效的坐标。");
 			
 		return new BlockPos(pos[0], pos[1], pos[2]);
 	}

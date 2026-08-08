@@ -44,7 +44,7 @@ public class ServerFinderScreen extends Screen
 
 	public ServerFinderScreen(JoinMultiplayerScreen prevScreen)
 	{
-		super(Component.literal("Server Finder"));
+		super(Component.literal("服务器查找器"));
 		this.prevScreen = prevScreen;
 	}
 
@@ -52,18 +52,18 @@ public class ServerFinderScreen extends Screen
 	public void init()
 	{
 		addRenderableWidget(searchButton = Button
-				.builder(Component.literal("Search"), b -> searchOrCancel())
+				.builder(Component.literal("搜索"), b -> searchOrCancel())
 				.bounds(width / 2 - 100, height / 4 + 96 + 12, 200, 20).build());
 		searchButton.active = false;
 
 		addRenderableWidget(Button
-				.builder(Component.literal("Tutorial"),
+				.builder(Component.literal("教程"),
 						b -> Util.getPlatform().openUri(
 								"https://www.wurstclient.net/serverfinder-tutorial/"))
 				.bounds(width / 2 - 100, height / 4 + 120 + 12, 200, 20).build());
 
 		addRenderableWidget(Button
-				.builder(Component.literal("Back"), b -> onClose())
+				.builder(Component.literal("返回"), b -> onClose())
 				.bounds(width / 2 - 100, height / 4 + 144 + 12, 200, 20).build());
 
 		ipBox = new EditBox(font, width / 2 - 100, height / 4 + 34, 200, 20,
@@ -88,7 +88,7 @@ public class ServerFinderScreen extends Screen
 			state = ServerFinderState.CANCELLED;
 			ipBox.active = true;
 			maxThreadsBox.active = true;
-			searchButton.setMessage(Component.literal("Search"));
+			searchButton.setMessage(Component.literal("搜索"));
 			return;
 		}
 
@@ -96,11 +96,11 @@ public class ServerFinderScreen extends Screen
 		maxThreads = Integer.parseInt(maxThreadsBox.getValue());
 		ipBox.active = false;
 		maxThreadsBox.active = false;
-		searchButton.setMessage(Component.literal("Cancel"));
+		searchButton.setMessage(Component.literal("取消"));
 		checked = 0;
 		working = 0;
 
-		new Thread(this::findServers, "Server Finder").start();
+		new Thread(this::findServers, "服务器查找器").start();
 	}
 
 	private void findServers()
@@ -224,32 +224,32 @@ public class ServerFinderScreen extends Screen
 	{
 		renderBackground(context, mouseX, mouseY, partialTicks);
 
-		context.drawCenteredString(font, "Server Finder", width / 2, 20,
+		context.drawCenteredString(font, "服务器查找器", width / 2, 20,
 				CommonColors.WHITE);
 		context.drawCenteredString(font,
-				"This will search for servers with similar IPs", width / 2, 40,
+				"这将搜索与你在下方输入框输入的 IP", width / 2, 40,
 				CommonColors.LIGHT_GRAY);
 		context.drawCenteredString(font,
-				"to the IP you type into the field below.", width / 2, 50,
+				"地址相似的服务器。", width / 2, 50,
 				CommonColors.LIGHT_GRAY);
 		context.drawCenteredString(font,
-				"The servers it finds will be added to your server list.",
+				"找到的服务器将添加到你的服务器列表中。",
 				width / 2, 60, CommonColors.LIGHT_GRAY);
 
-		context.drawString(font, "Server address:", width / 2 - 100,
+		context.drawString(font, "服务器地址：", width / 2 - 100,
 				height / 4 + 24, CommonColors.LIGHT_GRAY);
 		ipBox.render(context, mouseX, mouseY, partialTicks);
 
-		context.drawString(font, "Max. threads:", width / 2 - 100,
+		context.drawString(font, "最大线程数：", width / 2 - 100,
 				height / 4 + 60, CommonColors.LIGHT_GRAY);
 		maxThreadsBox.render(context, mouseX, mouseY, partialTicks);
 
 		context.drawCenteredString(font, state.toString(), width / 2,
 				height / 4 + 73, CommonColors.LIGHT_GRAY);
 
-		context.drawString(font, "Checked: " + checked + " / 1792",
+		context.drawString(font, "已检查：" + checked + " / 1792",
 				width / 2 - 100, height / 4 + 84, CommonColors.LIGHT_GRAY);
-		context.drawString(font, "Working: " + working, width / 2 - 100,
+		context.drawString(font, "可用：" + working, width / 2 - 100,
 				height / 4 + 94, CommonColors.LIGHT_GRAY);
 
 		for(Renderable drawable : renderables)
@@ -266,12 +266,12 @@ public class ServerFinderScreen extends Screen
 	enum ServerFinderState
 	{
 		NOT_RUNNING(""),
-		SEARCHING("\u00a72Searching..."),
-		RESOLVING("\u00a72Resolving..."),
-		UNKNOWN_HOST("\u00a74Unknown Host!"),
-		CANCELLED("\u00a74Cancelled!"),
-		DONE("\u00a72Done!"),
-		ERROR("\u00a74An error occurred!");
+		SEARCHING("\u00a72搜索中..."),
+		RESOLVING("\u00a72解析中..."),
+		UNKNOWN_HOST("\u00a74未知主机！"),
+		CANCELLED("\u00a74已取消！"),
+		DONE("\u00a72完成！"),
+		ERROR("\u00a74发生错误！");
 
 		private final String name;
 

@@ -45,23 +45,23 @@ public final class BowAimbotHack extends Hack
 	implements UpdateListener, RenderListener, GUIRenderListener
 {
 	private final EnumSetting<Priority> priority = new EnumSetting<>("Priority",
-		"Determines which entity will be attacked first.\n"
-			+ "\u00a7lDistance\u00a7r - Attacks the closest entity.\n"
-			+ "\u00a7lAngle\u00a7r - Attacks the entity that requires the least head movement.\n"
-			+ "\u00a7lAngle+Dist\u00a7r - A hybrid of Angle and Distance. This is usually the best at figuring out what you want to aim at.\n"
-			+ "\u00a7lHealth\u00a7r - Attacks the weakest entity.",
+		"决定哪个实体将首先被攻击。\n"
+			+ "\u00a7l距离\u00a7r - 攻击最近的实体。\n"
+			+ "\u00a7l角度\u00a7r - 攻击需要最小头部移动的实体。\n"
+			+ "\u00a7l角度+距离\u00a7r - 角度和距离的混合。这通常最擅长判断你想瞄准什么。\n"
+			+ "\u00a7l生命值\u00a7r - 攻击最弱的实体。",
 		Priority.values(), Priority.ANGLE_DIST);
 	
 	private final SliderSetting predictMovement = new SliderSetting(
 		"Predict movement",
-		"Controls the strength of BowAimbot's movement prediction algorithm.",
+		"控制 BowAimbot 移动预测算法的强度。",
 		0.2, 0, 2, 0.01, ValueDisplay.PERCENTAGE);
 	
 	private final EntityFilterList entityFilters =
 		EntityFilterList.genericCombat();
 	
 	private final ColorSetting color = new ColorSetting("ESP color",
-		"Color of the box that BowAimbot draws around the target.", Color.RED);
+		"BowAimbot 在目标周围绘制的方框的颜色。", Color.RED);
 	
 	private Entity target;
 	private float velocity;

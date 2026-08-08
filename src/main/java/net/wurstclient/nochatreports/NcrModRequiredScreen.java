@@ -52,7 +52,7 @@ public final class NcrModRequiredScreen extends Screen
 		OtfList otfs = WurstClient.INSTANCE.getOtfs();
 
 		vsButtonMsg =
-				() -> "VanillaSpoof: " + onOrOff(otfs.vanillaSpoofOtf.isEnabled());
+				() -> "原版伪装：" + onOrOff(otfs.vanillaSpoofOtf.isEnabled());
 	}
 
 	private String onOrOff(boolean on)
@@ -86,7 +86,7 @@ public final class NcrModRequiredScreen extends Screen
 				.bounds(buttonX + 102, signaturesY, 148, 20).build());
 
 		addRenderableWidget(Button
-				.builder(Component.literal("Reconnect"),
+				.builder(Component.literal("重新连接"),
 						b -> LastServerRememberer.reconnect(prevScreen))
 				.bounds(buttonX, reconnectY, 200, 20).build());
 

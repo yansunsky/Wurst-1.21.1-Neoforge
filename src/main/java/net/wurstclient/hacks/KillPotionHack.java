@@ -48,7 +48,7 @@ public final class KillPotionHack extends Hack
 		// check gamemode
 		if(!MC.player.getAbilities().instabuild)
 		{
-			ChatUtils.error("Creative mode only.");
+			ChatUtils.error("仅限创造模式。");
 			setEnabled(false);
 			return;
 		}
@@ -60,11 +60,11 @@ public final class KillPotionHack extends Hack
 		Inventory inventory = MC.player.getInventory();
 		int slot = inventory.getFreeSlot();
 		if(slot < 0)
-			ChatUtils.error("Cannot give potion. Your inventory is full.");
+			ChatUtils.error("无法给予药水。你的背包已满。");
 		else
 		{
 			InventoryUtils.setCreativeStack(slot, stack);
-			ChatUtils.message("Potion created.");
+			ChatUtils.message("药水已创建。");
 		}
 		
 		setEnabled(false);

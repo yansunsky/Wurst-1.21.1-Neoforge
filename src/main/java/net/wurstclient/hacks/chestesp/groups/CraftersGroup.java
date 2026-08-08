@@ -27,7 +27,7 @@ public final class CraftersGroup extends ChestEspBlockGroup
 	protected ColorSetting createColorSetting()
 	{
 		return new ColorSetting("Crafter color",
-			"Crafters will be highlighted in this color.", Color.WHITE);
+			"合成器将以此颜色高亮。", Color.WHITE);
 	}
 	
 	@Override

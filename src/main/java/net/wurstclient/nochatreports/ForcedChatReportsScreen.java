@@ -32,9 +32,9 @@ public final class ForcedChatReportsScreen extends Screen
 					"multiplayer.disconnect.unsigned_chat");
 
 	private static final List<String> LITERAL_DISCONNECT_REASONS =
-			Arrays.asList("An internal error occurred in your connection.",
-					"A secure profile is required to join this server.",
-					"Secure profile expired.", "Secure profile invalid.");
+			Arrays.asList("你的连接发生内部错误。",
+					"加入此服务器需要安全档案。",
+					"安全档案已过期。", "安全档案无效。");
 
 	private final Screen prevScreen;
 	private final Component reason;
@@ -78,7 +78,7 @@ public final class ForcedChatReportsScreen extends Screen
 
 
 		addRenderableWidget(Button
-				.builder(Component.literal("Reconnect"),
+				.builder(Component.literal("重新连接"),
 						b -> LastServerRememberer.reconnect(prevScreen))
 				.bounds(buttonX, reconnectY, 200, 20).build());
 

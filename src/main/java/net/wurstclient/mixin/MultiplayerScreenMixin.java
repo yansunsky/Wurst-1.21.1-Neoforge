@@ -42,20 +42,20 @@ public class MultiplayerScreenMixin extends Screen
 		lastServerButton =
 			addRenderableWidget(
 				Button
-					.builder(Component.literal("Last Server"),
+					.builder(Component.literal("上次服务器"),
 						b -> LastServerRememberer.joinLastServer(
 							(JoinMultiplayerScreen)(Object)this))
 					.bounds(width / 2 - 154, 10, 100, 20).build());
 		updateLastServerButton();
 		
 		addRenderableWidget(Button
-			.builder(Component.literal("Server Finder"),
+			.builder(Component.literal("服务器查找器"),
 				b -> minecraft.setScreen(new ServerFinderScreen(
 					(JoinMultiplayerScreen)(Object)this)))
 			.bounds(width / 2 + 154 + 4, height - 54, 100, 20).build());
 		
 		addRenderableWidget(Button
-			.builder(Component.literal("Clean Up"),
+			.builder(Component.literal("清理"),
 				b -> minecraft.setScreen(
 					new CleanUpScreen((JoinMultiplayerScreen)(Object)this)))
 			.bounds(width / 2 + 154 + 4, height - 30, 100, 20).build());

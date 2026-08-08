@@ -38,11 +38,11 @@ public final class FastBreakHack extends Hack
 		1, 0, 1, 0.01, ValueDisplay.PERCENTAGE);
 	
 	private final CheckboxSetting legitMode = new CheckboxSetting("Legit mode",
-		"Only removes the delay between breaking blocks, without speeding up"
-			+ " the breaking process itself.\n\n"
-			+ "This is much slower, but great at bypassing anti-cheat plugins."
-			+ " Use this if regular FastBreak is not working and the Activation"
-			+ " chance slider doesn't help.",
+		"仅移除破坏方块之间的延迟，而不加快"
+			+ "破坏过程本身。\n\n"
+			+ "这要慢得多，但非常适合绕过反作弊插件。"
+			+ "如果常规 FastBreak 不起作用，并且激活"
+			+ "几率滑块也没有帮助，请使用此选项。",
 		false);
 	
 	private final Random random = new Random();

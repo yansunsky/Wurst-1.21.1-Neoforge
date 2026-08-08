@@ -48,20 +48,20 @@ public final class SelectFileScreen extends Screen
 		addWidget(listGui);
 		
 		addRenderableWidget(
-			Button.builder(Component.literal("Open Folder"), b -> openFolder())
+			Button.builder(Component.literal("打开文件夹"), b -> openFolder())
 				.bounds(8, 8, 100, 20).build());
 		
 		addRenderableWidget(Button
-			.builder(Component.literal("Reset to Defaults"),
+			.builder(Component.literal("恢复默认"),
 				b -> askToConfirmReset())
 			.bounds(width - 108, 8, 100, 20).build());
 		
 		doneButton = addRenderableWidget(
-			Button.builder(Component.literal("Done"), b -> done())
+			Button.builder(Component.literal("完成"), b -> done())
 				.bounds(width / 2 - 102, height - 48, 100, 20).build());
 		
 		addRenderableWidget(
-			Button.builder(Component.literal("Cancel"), b -> openPrevScreen())
+			Button.builder(Component.literal("取消"), b -> openPrevScreen())
 				.bounds(width / 2 + 2, height - 48, 100, 20).build());
 	}
 	
@@ -89,12 +89,12 @@ public final class SelectFileScreen extends Screen
 	
 	private void askToConfirmReset()
 	{
-		Component title = Component.literal("Reset Folder");
+		Component title = Component.literal("重置文件夹");
 		
 		Component message = Component
-			.literal("This will empty the '" + setting.getFolder().getFileName()
-				+ "' folder and then re-generate the default files.\n"
-				+ "Are you sure you want to do this?");
+			.literal("这将清空 '" + setting.getFolder().getFileName()
+				+ "' 文件夹并重新生成默认文件。\n"
+				+ "你确定要这样做吗？");
 		
 		minecraft
 			.setScreen(new ConfirmScreen(this::confirmReset, title, message));
@@ -141,7 +141,7 @@ public final class SelectFileScreen extends Screen
 		if(doneButton.isHoveredOrFocused() && !doneButton.active)
 			context.renderComponentTooltip(font,
 				Arrays
-					.asList(Component.literal("You must first select a file.")),
+					.asList(Component.literal("你必须先选择一个文件。")),
 				mouseX, mouseY);
 	}
 	
@@ -171,7 +171,7 @@ public final class SelectFileScreen extends Screen
 		public Component getNarration()
 		{
 			return Component.translatable("narrator.select",
-				"File " + path.getFileName());
+				"文件 " + path.getFileName());
 		}
 		
 		@Override

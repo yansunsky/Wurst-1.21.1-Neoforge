@@ -19,7 +19,7 @@ import net.wurstclient.settings.CheckboxSetting;
 public final class NoBackgroundHack extends Hack
 {
 	public final CheckboxSetting allGuis = new CheckboxSetting("All GUIs",
-		"Removes the background for all GUIs, not just inventories.", false);
+		"移除所有界面的背景，而不只是背包。", false);
 	
 	public NoBackgroundHack()
 	{

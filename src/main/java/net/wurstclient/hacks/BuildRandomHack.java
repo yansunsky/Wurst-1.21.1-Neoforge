@@ -43,23 +43,23 @@ public final class BuildRandomHack extends Hack
 		new SliderSetting("Range", 5, 1, 6, 0.05, ValueDisplay.DECIMAL);
 	
 	private SliderSetting maxAttempts = new SliderSetting("Max attempts",
-		"Maximum number of random positions that BuildRandom will try to place"
-			+ " a block at in one tick.\n\n"
-			+ "Higher values speed up the building process at the cost of"
-			+ " increased lag.",
+		"BuildRandom 尝试放置的最大随机位置数"
+			+ "在同一个游戏刻内放置方块。\n\n"
+			+ "更高的值会加快建造速度，但代价是"
+			+ "更多的卡顿。",
 		128, 1, 1024, 1, ValueDisplay.INTEGER);
 	
 	private final CheckboxSetting checkItem =
 		new CheckboxSetting("Check held item",
-			"Only builds when you are actually holding a block.\n"
-				+ "Turn this off to build with fire, water, lava, spawn eggs,"
-				+ " or if you just want to right click with an empty hand"
-				+ " in random places.",
+			"只有当你实际手持方块时才建造。\n"
+				+ "关闭此选项可以用火、水、熔岩、刷怪蛋建造，"
+				+ "或者你只想用空手在随机位置右键点击"
+				+ "时使用。",
 			true);
 	
 	private final CheckboxSetting checkLOS =
 		new CheckboxSetting("Check line of sight",
-			"Ensure that BuildRandom won't try to place blocks behind walls.",
+			"确保 BuildRandom 不会尝试在墙后放置方块。",
 			false);
 	
 	private final FaceTargetSetting faceTarget =
@@ -70,11 +70,11 @@ public final class BuildRandomHack extends Hack
 	
 	private final CheckboxSetting fastPlace =
 		new CheckboxSetting("Always FastPlace",
-			"Builds as if FastPlace was enabled, even if it's not.", false);
+			"即使未启用快速放置，也像启用了一样建造。", false);
 	
 	private final CheckboxSetting placeWhileBreaking = new CheckboxSetting(
 		"Place while breaking",
-		"Builds even while you are breaking a block.\n"
+		"即使你在破坏方块时也会建造。\n"
 			+ "Possible with hacks, but wouldn't work in vanilla. May look suspicious.",
 		false);
 	
@@ -85,7 +85,7 @@ public final class BuildRandomHack extends Hack
 		false);
 	
 	private final CheckboxSetting indicator = new CheckboxSetting("Indicator",
-		"Shows where BuildRandom is placing blocks.", true);
+		"显示 BuildRandom 正在放置方块的位置。", true);
 	
 	private final Random random = new Random();
 	private BlockPos lastPos;

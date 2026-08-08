@@ -62,30 +62,30 @@ public final class EditBlockListScreen extends Screen
 		blockNameField.setMaxLength(256);
 		
 		addRenderableWidget(
-			addButton = Button.builder(Component.literal("Add"), b -> {
+			addButton = Button.builder(Component.literal("添加"), b -> {
 				blockList.add(blockToAdd);
 				minecraft.setScreen(EditBlockListScreen.this);
 			}).bounds(width / 2 - 2, height - 56, 30, 20).build());
 		
 		addRenderableWidget(removeButton =
-			Button.builder(Component.literal("Remove Selected"), b -> {
+			Button.builder(Component.literal("移除所选"), b -> {
 				blockList
 					.remove(blockList.indexOf(listGui.getSelectedBlockName()));
 				minecraft.setScreen(EditBlockListScreen.this);
 			}).bounds(width / 2 + 52, height - 56, 100, 20).build());
 		
 		addRenderableWidget(
-			Button.builder(Component.literal("Reset to Defaults"),
+			Button.builder(Component.literal("恢复默认"),
 				b -> minecraft.setScreen(new ConfirmScreen(b2 -> {
 					if(b2)
 						blockList.resetToDefaults();
 					minecraft.setScreen(EditBlockListScreen.this);
-				}, Component.literal("Reset to Defaults"),
-					Component.literal("Are you sure?"))))
+				}, Component.literal("恢复默认"),
+					Component.literal("你确定吗？"))))
 				.bounds(width - 108, 8, 100, 20).build());
 		
 		addRenderableWidget(doneButton = Button
-			.builder(Component.literal("Done"),
+			.builder(Component.literal("完成"),
 				b -> minecraft.setScreen(prevScreen))
 			.bounds(width / 2 - 100, height - 28, 200, 20).build());
 	}
@@ -158,7 +158,7 @@ public final class EditBlockListScreen extends Screen
 		matrixStack.translate(-64 + width / 2 - 152, 0, 0);
 		
 		if(blockNameField.getValue().isEmpty() && !blockNameField.isFocused())
-			context.drawString(minecraft.font, "block name or ID", 68,
+			context.drawString(minecraft.font, "方块名称或ID", 68,
 				height - 50, 0x808080);
 		
 		int border = blockNameField.isFocused() ? 0xFFFFFFFF : 0xFFA0A0A0;
@@ -212,7 +212,7 @@ public final class EditBlockListScreen extends Screen
 			ItemStack stack = new ItemStack(block);
 			
 			return Component.translatable("narrator.select",
-				"Block " + getDisplayName(stack) + ", " + blockName + ", "
+				"方块 " + getDisplayName(stack) + "，" + blockName + "，"
 					+ getIdText(block));
 		}
 		

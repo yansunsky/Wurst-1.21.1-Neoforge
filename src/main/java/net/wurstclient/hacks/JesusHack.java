@@ -33,7 +33,7 @@ public final class JesusHack extends Hack
 {
 	private final CheckboxSetting bypass =
 		new CheckboxSetting("NoCheat+ bypass",
-			"Bypasses NoCheat+ but slows down your movement.", false);
+			"绕过 NoCheat+，但会减慢你的移动速度。", false);
 	
 	private int tickTimer = 10;
 	private int packetTimer = 0;

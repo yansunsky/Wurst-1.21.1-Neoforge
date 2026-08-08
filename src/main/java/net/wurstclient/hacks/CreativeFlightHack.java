@@ -24,12 +24,12 @@ import net.wurstclient.settings.SliderSetting.ValueDisplay;
 public final class CreativeFlightHack extends Hack implements UpdateListener
 {
 	private final CheckboxSetting antiKick = new CheckboxSetting("Anti-Kick",
-		"Makes you fall a little bit every now and then to prevent you from getting kicked.",
+		"时不时让你下落一点，以防止你被踢出。",
 		false);
 	
 	private final SliderSetting antiKickInterval =
 		new SliderSetting("Anti-Kick Interval",
-			"How often Anti-Kick should prevent you from getting kicked.\n"
+			"防踢功能阻止你被踢出的频率。\n"
 				+ "Most servers will kick you after 80 ticks.",
 			30, 5, 80, 1, SliderSetting.ValueDisplay.INTEGER
 				.withSuffix(" ticks").withLabel(1, "1 tick"));

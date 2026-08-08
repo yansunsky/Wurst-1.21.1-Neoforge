@@ -65,13 +65,13 @@ public final class TunnellerHack extends Hack
 		"Tunnel size", TunnelSize.values(), TunnelSize.SIZE_3X3);
 	
 	private final SliderSetting limit = new SliderSetting("Limit",
-		"Automatically stops once the tunnel has reached the given length.\n\n"
+		"一旦隧道达到指定长度就自动停止。\n\n"
 			+ "0 = no limit",
 		0, 0, 1000, 1, ValueDisplay.INTEGER.withSuffix(" blocks")
 			.withLabel(1, "1 block").withLabel(0, "disabled"));
 	
 	private final CheckboxSetting torches = new CheckboxSetting("Place torches",
-		"Places just enough torches to prevent mobs from spawning inside the tunnel.",
+		"放置刚好足够的火把，防止生物在隧道内生成。",
 		false);
 	
 	private final OverlayRenderer overlay = new OverlayRenderer();
@@ -364,7 +364,7 @@ public final class TunnellerHack extends Hack
 					updateCyanBuffer();
 				else
 				{
-					ChatUtils.message("Tunnel completed.");
+					ChatUtils.message("隧道已完成。");
 					setEnabled(false);
 				}
 				
@@ -568,7 +568,7 @@ public final class TunnellerHack extends Hack
 			if(liquids.isEmpty())
 				return false;
 			
-			ChatUtils.error("The tunnel is flooded, cannot continue.");
+			ChatUtils.error("隧道被水淹了，无法继续。");
 			
 			if(vertexBuffers[3] != null)
 			{
@@ -696,7 +696,7 @@ public final class TunnellerHack extends Hack
 		{
 			if(!equipTorch())
 			{
-				ChatUtils.error("Out of torches.");
+				ChatUtils.error("火把用完了。");
 				setEnabled(false);
 				return;
 			}

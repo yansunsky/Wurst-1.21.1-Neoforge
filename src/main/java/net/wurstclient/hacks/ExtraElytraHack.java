@@ -33,7 +33,7 @@ public final class ExtraElytraHack extends Hack implements UpdateListener
 	
 	private final CheckboxSetting heightCtrl =
 		new CheckboxSetting("Height control",
-			"Control your height with the Jump and Sneak keys.\n"
+			"使用跳跃键和潜行键控制高度。\n"
 				+ "(default: Spacebar and Shift)\n" + "No fireworks needed!",
 			false);
 	

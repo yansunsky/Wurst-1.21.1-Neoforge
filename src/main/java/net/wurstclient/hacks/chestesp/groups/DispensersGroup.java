@@ -28,7 +28,7 @@ public final class DispensersGroup extends ChestEspBlockGroup
 	protected ColorSetting createColorSetting()
 	{
 		return new ColorSetting("Dispenser color",
-			"Dispensers will be highlighted in this color.",
+			"发射器将以此颜色高亮。",
 			new Color(0xFF8000));
 	}
 	

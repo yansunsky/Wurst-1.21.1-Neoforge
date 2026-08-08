@@ -31,7 +31,7 @@ public final class SavingFileState extends TemplateToolState
 	@Override
 	protected String getMessage(TemplateToolHack hack)
 	{
-		return "Saving file...";
+		return "正在保存文件...";
 	}
 	
 	@Override
@@ -48,13 +48,13 @@ public final class SavingFileState extends TemplateToolState
 		}catch(IOException e)
 		{
 			e.printStackTrace();
-			ChatUtils.error("File could not be saved.");
+			ChatUtils.error("文件无法保存。");
 			hack.setEnabled(false);
 			return;
 		}
 		
 		// Show success message
-		MutableComponent message = Component.literal("Saved template as ");
+		MutableComponent message = Component.literal("模板已保存为 ");
 		ClickEvent event = new ClickEvent(ClickEvent.Action.OPEN_FILE,
 			hack.getFile().getParentFile().getAbsolutePath());
 		MutableComponent link = Component.literal(hack.getFile().getName())

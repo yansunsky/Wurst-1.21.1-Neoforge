@@ -92,8 +92,8 @@ public final class NavigatorFeatureScreen extends NavigatorScreen
 								WurstClient.INSTANCE.getHax().tooManyHaxHack;
 						if(tooManyHax.isEnabled() && tooManyHax.isBlocked(feature))
 						{
-							ChatUtils.error(
-									feature.getName() + " is blocked by TooManyHax.");
+						ChatUtils.error(
+								feature.getName() + " 被 TooManyHax 阻止。");
 							return;
 						}
 
@@ -109,22 +109,22 @@ public final class NavigatorFeatureScreen extends NavigatorScreen
 		}
 
 		// type
-		text = "Type: ";
+		text = "类型：";
 		if(feature instanceof Hack)
 			text += "Hack";
 		else if(feature instanceof Command)
-			text += "Command";
+			text += "命令";
 		else
-			text += "Other Feature";
+			text += "其他功能";
 
 		// category
 		if(feature.getCategory() != null)
-			text += ", Category: " + feature.getCategory().getName();
+			text += "，分类：" + feature.getCategory().getName();
 
 		// description
 		String description = feature.getWrappedDescription(300);
 		if(!description.isEmpty())
-			text += "\n\nDescription:\n" + description;
+			text += "\n\n描述：\n" + description;
 
 		// area
 		Rectangle area = new Rectangle(middleX - 154, 60, 308, height - 103);
@@ -133,7 +133,7 @@ public final class NavigatorFeatureScreen extends NavigatorScreen
 		Collection<Setting> settings = feature.getSettings().values();
 		if(!settings.isEmpty())
 		{
-			text += "\n\nSettings:";
+			text += "\n\n设置：";
 			windowComponentY = getStringHeight(text) + 2;
 
 			for(int i = 0; i < Math.ceil(window.getInnerHeight() / 9.0); i++)
@@ -145,7 +145,7 @@ public final class NavigatorFeatureScreen extends NavigatorScreen
 		if(!possibleKeybinds.isEmpty())
 		{
 			// heading
-			text += "\n\nKeybinds:";
+			text += "\n\n按键绑定：";
 
 			// add keybind button
 			ButtonData addKeybindButton =
@@ -198,15 +198,15 @@ public final class NavigatorFeatureScreen extends NavigatorScreen
 							noKeybindsSet = false;
 						text +=
 								"\n" + keybind.getKey().replace("key.keyboard.", "")
-										+ ": " + "Toggle " + feature.getName();
+										+ ": " + "切换 " + feature.getName();
 						existingKeybinds.put(keybind.getKey(),
 								new PossibleKeybind(command,
-										"Toggle " + feature.getName()));
+										"切换 " + feature.getName()));
 					}
 				}
 			}
 			if(noKeybindsSet)
-				text += "\nNone";
+				text += "\n无";
 			else
 			{
 				// remove keybind button

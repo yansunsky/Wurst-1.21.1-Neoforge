@@ -38,9 +38,9 @@ public final class XRayHack extends Hack implements UpdateListener,
 	ShouldDrawSideListener, RenderBlockEntityListener
 {
 	private final BlockListSetting ores = new BlockListSetting("Ores",
-		"A list of blocks that X-Ray will show. They don't have to be just ores"
-			+ " - you can add any block you want.\n\n"
-			+ "Remember to restart X-Ray when changing this setting.",
+		"X-Ray 将显示的方块列表。它们不一定是矿石"
+			+ " - 你可以添加任何你想要的方块。\n\n"
+			+ "更改此设置时记得重启 X-Ray。",
 		"minecraft:amethyst_cluster", "minecraft:ancient_debris",
 		"minecraft:anvil", "minecraft:beacon", "minecraft:bone_block",
 		"minecraft:bookshelf", "minecraft:brewing_stand",
@@ -74,15 +74,15 @@ public final class XRayHack extends Hack implements UpdateListener,
 	
 	private final CheckboxSetting onlyExposed = new CheckboxSetting(
 		"Only show exposed",
-		"Only shows ores that would be visible in caves. This can help against"
-			+ " anti-X-Ray plugins.\n\n"
-			+ "Remember to restart X-Ray when changing this setting.",
+		"只显示在洞穴中可见的矿石。这有助于对抗"
+			+ "反 X-Ray 插件。\n\n"
+			+ "更改此设置时记得重启 X-Ray。",
 		false);
 	
 	private final SliderSetting opacity = new SliderSetting("Opacity",
-		"Opacity of non-ore blocks when X-Ray is enabled.\n\n"
-			+ "Does not work when Sodium is installed.\n\n"
-			+ "Remember to restart X-Ray when changing this setting.",
+		"启用 X-Ray 时非矿石方块的不透明度。\n\n"
+			+ "安装了 Sodium 时无效。\n\n"
+			+ "更改此设置时记得重启 X-Ray。",
 		0, 0, 0.99, 0.01, ValueDisplay.PERCENTAGE.withLabel(0, "off"));
 	
 

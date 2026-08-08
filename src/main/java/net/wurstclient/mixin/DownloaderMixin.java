@@ -20,22 +20,22 @@ import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 
 import net.minecraft.Util;
 import net.minecraft.client.User;
-import net.minecraft.client.resources.server.PackDownloader;
+import net.minecraft.server.packs.DownloadQueue;
 import net.wurstclient.WurstClient;
 
 /**
  * Patches a fingerprinting vulnerability by creating a separate cache
  * folder for each Minecraft account.
  * <p>
- * This mixin targets the anonymous PackDownloader implementation created
- * in {@code DownloadedPackSource.createDownloader()}.
+ * This mixin targets {@link DownloadQueue}, which resolves the download
+ * cache paths for server resource packs.
  * <p>
- * The {@code entries.forEach()} lambda in the {@code download(Config, Map)}
+ * The {@code entries.forEach()} lambda in the {@code runDownload(BatchConfig, Map)}
  * method resolves cache paths, and we inject our own UUID-based subdirectory.
  *
  * @see <a href="https://github.com/Wurst-Imperium/Wurst7/issues/1226">Issue #1226</a>
  */
-@Mixin(targets = "net/minecraft/client/resources/server/DownloadedPackSource$1", remap = false)
+@Mixin(DownloadQueue.class)
 public abstract class DownloaderMixin implements AutoCloseable
 {
 	@Shadow
@@ -49,7 +49,7 @@ public abstract class DownloaderMixin implements AutoCloseable
 	@WrapOperation(at = @At(value = "INVOKE",
 		target = "Ljava/nio/file/Path;resolve(Ljava/lang/String;)Ljava/nio/file/Path;",
 		ordinal = 0,
-		remap = false), method = "download", remap = false)
+		remap = false), method = "lambda$runDownload$0", remap = false)
 	private Path wrapResolve(Path instance, String filename,
 		Operation<Path> original)
 	{

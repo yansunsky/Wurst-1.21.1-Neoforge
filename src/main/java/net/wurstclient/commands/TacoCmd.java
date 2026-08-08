@@ -33,8 +33,8 @@ public final class TacoCmd extends Command
 
 	public TacoCmd()
 	{
-		super("taco", "Spawns a dancing taco on your hotbar.\n"
-				+ "\"I love that little guy. So cute!\" -WiZARD");
+		super("taco", "在你的快捷栏生成一个跳舞的玉米卷。\n"
+				+ "\"我爱那个小家伙。太可爱了！\" -WiZARD");
 		setCategory(Category.FUN);
 	}
 
@@ -42,7 +42,7 @@ public final class TacoCmd extends Command
 	public void call(String[] args) throws CmdException
 	{
 		if(args.length != 0)
-			throw new CmdSyntaxError("Tacos don't need arguments!");
+			throw new CmdSyntaxError("玉米卷不需要参数！");
 
 		enabled = !enabled;
 

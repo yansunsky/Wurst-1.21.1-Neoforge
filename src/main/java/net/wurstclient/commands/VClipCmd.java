@@ -22,8 +22,8 @@ public final class VClipCmd extends Command
 	public VClipCmd()
 	{
 		super("vclip",
-			"Lets you clip through blocks vertically.\n"
-				+ "The maximum distance is 10 blocks.",
+			"允许你垂直穿过方块。\n"
+				+ "最大距离为 10 格。",
 			".vclip <height>", ".vclip (up|down)");
 	}
 	
@@ -60,7 +60,7 @@ public final class VClipCmd extends Command
 		
 		AABB maxOffsetBox = box.move(0, direction.getStepY() * 10, 0);
 		if(!hasCollisions(box.minmax(maxOffsetBox)))
-			throw new CmdError("There is nothing to clip through!");
+			throw new CmdError("没有可以穿过的方块！");
 		
 		for(int i = 1; i <= 10; i++)
 		{
@@ -87,7 +87,7 @@ public final class VClipCmd extends Command
 			return height;
 		}
 		
-		throw new CmdError("There are no free blocks where you can fit!");
+		throw new CmdError("没有可以容纳你的空方块！");
 	}
 	
 	private boolean hasCollisions(AABB box)

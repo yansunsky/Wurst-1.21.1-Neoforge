@@ -53,7 +53,7 @@ public class WurstOptionsScreen extends Screen
 	public void init()
 	{
 		addRenderableWidget(Button
-				.builder(Component.literal("Back"),
+				.builder(Component.literal("返回"),
 						b -> minecraft.setScreen(prevScreen))
 				.bounds(width / 2 - 100, height / 4 + 144 - 16, 200, 20).build());
 
@@ -73,23 +73,23 @@ public class WurstOptionsScreen extends Screen
 				wurst.getOtfs().translationsOtf.getForceEnglish();
 
 		new WurstOptionsButton(-154, 24,
-				() -> "Click Friends: "
+				() -> "单击添加好友："
 						+ (middleClickFriends.isChecked() ? "ON" : "OFF"),
 				middleClickFriends.getWrappedDescription(200),
 				b -> middleClickFriends
 						.setChecked(!middleClickFriends.isChecked()));
 
 		new WurstOptionsButton(-154, 72,
-				() -> "Spoof Vanilla: "
+				() -> "原版伪装："
 						+ (vanillaSpoofOtf.isEnabled() ? "ON" : "OFF"),
 				vanillaSpoofOtf.getDescription(),
 				b -> vanillaSpoofOtf.doPrimaryAction());
 
 		new WurstOptionsButton(-154, 96,
-				() -> "Translations: " + (!forceEnglish.isChecked() ? "ON" : "OFF"),
-				"Allows text in Wurst to be displayed in other languages than"
-						+ " English. It will use the same language that Minecraft is"
-						+ " set to.\n\n" + "This is an experimental feature!",
+				() -> "翻译：" + (!forceEnglish.isChecked() ? "开" : "关"),
+				"允许 Wurst 中的文本以英语以外的其他语言显示。"
+						+ " 它将使用与 Minecraft 相同的语言。\n\n"
+						+ "这是一个实验性功能！",
 				b -> forceEnglish.setChecked(!forceEnglish.isChecked()));
 	}
 
@@ -97,18 +97,16 @@ public class WurstOptionsScreen extends Screen
 	{
 		XRayHack xRayHack = WurstClient.INSTANCE.getHax().xRayHack;
 
-		new WurstOptionsButton(-50, 24, () -> "Keybinds",
-				"Keybinds allow you to toggle any hack or command by simply"
-						+ " pressing a button.",
+		new WurstOptionsButton(-50, 24, () -> "按键绑定",
+				"按键绑定允许你只需按下一个按键就能切换任何作弊功能或命令。",
 				b -> minecraft.setScreen(new KeybindManagerScreen(this)));
 
-		new WurstOptionsButton(-50, 48, () -> "X-Ray Blocks",
-				"Manager for the blocks that X-Ray will show.",
+		new WurstOptionsButton(-50, 48, () -> "透视方块",
+				"管理 X-Ray 将显示的方块。",
 				b -> xRayHack.openBlockListEditor(this));
 
 		new WurstOptionsButton(-50, 72, () -> "Zoom",
-				"The Zoom Manager allows you to change the zoom key and how far it"
-						+ " will zoom in.",
+				"缩放管理器允许你更改缩放按键以及放大的程度。",
 				b -> minecraft.setScreen(new ZoomManagerScreen(this)));
 	}
 
@@ -116,7 +114,7 @@ public class WurstOptionsScreen extends Screen
 	{
 		OS os = Util.getPlatform();
 
-		new WurstOptionsButton(54, 24, () -> "Official Website",
+		new WurstOptionsButton(54, 24, () -> "官方网站",
 				"§n§lWurstClient.net",
 				b -> os.openUri("https://www.wurstclient.net/options-website/"));
 
@@ -129,12 +127,12 @@ public class WurstOptionsScreen extends Screen
 		new WurstOptionsButton(54, 96, () -> "Twitter", "@Wurst_Imperium",
 				b -> os.openUri("https://www.wurstclient.net/options-twitter/"));
 
-		new WurstOptionsButton(54, 120, () -> "Donate",
+		new WurstOptionsButton(54, 120, () -> "捐赠",
 				"§n§lWurstClient.net/donate\n"
-						+ "Donate now to help me keep the Wurst Client alive and free"
-						+ " to use for everyone.\n\n"
-						+ "Every bit helps and is much appreciated! You can also get a"
-						+ " few cool perks in return.",
+						+ "立即捐赠，帮助我让 Wurst Client 保持免费，"
+						+ "让每个人都能使用。\n\n"
+						+ "每一份帮助都非常感谢！作为回报，"
+						+ "你还可以获得一些很酷的特权。",
 				b -> os.openUri("https://www.wurstclient.net/options-donate/"));
 	}
 
@@ -164,11 +162,11 @@ public class WurstOptionsScreen extends Screen
 		int y1 = 40;
 		int y2 = height / 4 + 24 - 28;
 
-		context.drawCenteredString(tr, "Wurst Options", middleX, y1, 0xffffff);
+		context.drawCenteredString(tr, "Wurst 选项", middleX, y1, 0xffffff);
 
-		context.drawCenteredString(tr, "Settings", middleX - 104, y2, 0xcccccc);
-		context.drawCenteredString(tr, "Managers", middleX, y2, 0xcccccc);
-		context.drawCenteredString(tr, "Links", middleX + 104, y2, 0xcccccc);
+		context.drawCenteredString(tr, "设置", middleX - 104, y2, 0xcccccc);
+		context.drawCenteredString(tr, "管理", middleX, y2, 0xcccccc);
+		context.drawCenteredString(tr, "链接", middleX + 104, y2, 0xcccccc);
 	}
 
 	private void renderButtonTooltip(GuiGraphics context, int mouseX,

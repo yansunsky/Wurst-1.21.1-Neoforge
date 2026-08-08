@@ -30,7 +30,7 @@ public class NavigatorRemoveKeybindScreen extends NavigatorScreen
 	private TreeMap<String, PossibleKeybind> existingKeybinds;
 	private String hoveredKey = "";
 	private String selectedKey = "";
-	private String text = "Select the keybind you want to remove.";
+	private String text = "选择要移除的按键绑定。";
 	private Button removeButton;
 
 	private List<AbstractWidget> wurst_getButtons()
@@ -55,13 +55,13 @@ public class NavigatorRemoveKeybindScreen extends NavigatorScreen
 	protected void onResize()
 	{
 		removeButton =
-				Button.builder(Component.literal("Remove"), b -> remove())
+				Button.builder(Component.literal("移除"), b -> remove())
 						.bounds(width / 2 - 151, height - 65, 149, 18).build();
 		removeButton.active = !selectedKey.isEmpty();
 		addRenderableWidget(removeButton);
 
 		addRenderableWidget(Button
-				.builder(Component.literal("Cancel"),
+				.builder(Component.literal("取消"),
 						b -> minecraft.setScreen(parent))
 				.bounds(width / 2 + 2, height - 65, 149, 18).build());
 	}
@@ -140,7 +140,7 @@ public class NavigatorRemoveKeybindScreen extends NavigatorScreen
 		int txtColor = gui.getTxtColor();
 
 		// title bar
-		context.drawCenteredString(tr, "Remove Keybind", middleX, 32, txtColor);
+		context.drawCenteredString(tr, "移除按键绑定", middleX, 32, txtColor);
 
 		// background
 		int bgx1 = middleX - 154;
@@ -185,7 +185,7 @@ public class NavigatorRemoveKeybindScreen extends NavigatorScreen
 			drawBox(context, x1, y1, x2, y2, buttonColor);
 
 			// text
-			context.drawString(tr, key.replace("key.keyboard.", "") + ": "
+			context.drawString(tr, key.replace("key.keyboard.", "") + "："
 					+ keybind.getDescription(), x1 + 1, y1 + 1, txtColor);
 			context.drawString(tr, keybind.getCommand(), x1 + 1,
 					y1 + 1 + tr.lineHeight, txtColor);

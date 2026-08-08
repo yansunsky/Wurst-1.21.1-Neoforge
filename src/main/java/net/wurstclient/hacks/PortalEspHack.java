@@ -42,32 +42,32 @@ public final class PortalEspHack extends Hack implements UpdateListener,
 	private final PortalEspBlockGroup netherPortal =
 		new PortalEspBlockGroup(Blocks.NETHER_PORTAL,
 			new ColorSetting("Nether portal color",
-				"Nether portals will be highlighted in this color.", Color.RED),
+				"下界传送门将以此颜色高亮。", Color.RED),
 			new CheckboxSetting("Include nether portals", true));
 	
 	private final PortalEspBlockGroup endPortal =
 		new PortalEspBlockGroup(Blocks.END_PORTAL,
 			new ColorSetting("End portal color",
-				"End portals will be highlighted in this color.", Color.GREEN),
+				"末地传送门将以此颜色高亮。", Color.GREEN),
 			new CheckboxSetting("Include end portals", true));
 	
 	private final PortalEspBlockGroup endPortalFrame = new PortalEspBlockGroup(
 		Blocks.END_PORTAL_FRAME,
 		new ColorSetting("End portal frame color",
-			"End portal frames will be highlighted in this color.", Color.BLUE),
+			"末地传送门框架将以此颜色高亮。", Color.BLUE),
 		new CheckboxSetting("Include end portal frames", true));
 	
 	private final PortalEspBlockGroup endGateway = new PortalEspBlockGroup(
 		Blocks.END_GATEWAY,
 		new ColorSetting("End gateway color",
-			"End gateways will be highlighted in this color.", Color.YELLOW),
+			"末地折跃门将以此颜色高亮。", Color.YELLOW),
 		new CheckboxSetting("Include end gateways", true));
 	
 	private final List<PortalEspBlockGroup> groups =
 		Arrays.asList(netherPortal, endPortal, endPortalFrame, endGateway);
 	
 	private final ChunkAreaSetting area = new ChunkAreaSetting("Area",
-		"The area around the player to search in.\n"
+		"玩家周围要搜索的区域。\n"
 			+ "Higher values require a faster computer.");
 	
 	private final BiPredicate<BlockPos, BlockState> query =

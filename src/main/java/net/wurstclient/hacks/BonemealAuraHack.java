@@ -65,10 +65,10 @@ public final class BonemealAuraHack extends Hack implements HandleInputListener
 		new CheckboxSetting("Saplings", true);
 	
 	private final CheckboxSetting crops = new CheckboxSetting("Crops",
-		"Wheat, carrots, potatoes and beetroots.", true);
+		"小麦、胡萝卜、马铃薯和甜菜根。", true);
 	
 	private final CheckboxSetting stems =
-		new CheckboxSetting("Stems", "Pumpkins and melons.", true);
+		new CheckboxSetting("Stems", "南瓜和西瓜。", true);
 	
 	private final CheckboxSetting cocoa = new CheckboxSetting("Cocoa", true);
 	

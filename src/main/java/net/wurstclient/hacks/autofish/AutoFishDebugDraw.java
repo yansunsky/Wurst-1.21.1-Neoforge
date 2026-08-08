@@ -35,12 +35,12 @@ public final class AutoFishDebugDraw
 	private static final Minecraft MC = WurstClient.MC;
 	
 	private final CheckboxSetting debugDraw = new CheckboxSetting("Debug draw",
-		"Shows where bites are occurring and where they will be detected."
+		"显示咬钩发生的位置以及在哪里会被检测到。"
 			+ " Useful for optimizing your 'Valid range' setting.",
 		false);
 	
 	private final ColorSetting ddColor = new ColorSetting("DD color",
-		"Color of the debug draw, if enabled.", Color.RED);
+		"调试绘制的颜色（如果启用）。", Color.RED);
 	
 	private final SliderSetting validRange;
 	private final FishingSpotManager fishingSpots;

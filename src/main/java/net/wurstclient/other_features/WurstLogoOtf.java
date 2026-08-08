@@ -21,12 +21,12 @@ import net.wurstclient.settings.EnumSetting;
 public final class WurstLogoOtf extends OtherFeature
 {
 	private final ColorSetting bgColor = new ColorSetting("Background",
-		"Background color.\n"
+		"背景颜色。\n"
 			+ "Only visible when \u00a76RainbowUI\u00a7r is disabled.",
 		Color.WHITE);
 	
 	private final ColorSetting txtColor =
-		new ColorSetting("Text", "Text color.", Color.BLACK);
+		new ColorSetting("Text", "文字颜色。", Color.BLACK);
 	
 	private final EnumSetting<Visibility> visibility =
 		new EnumSetting<>("Visibility", Visibility.values(), Visibility.ALWAYS);

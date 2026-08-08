@@ -20,7 +20,7 @@ public final class FeaturesCmd extends Command
 	public FeaturesCmd()
 	{
 		super("features",
-			"Shows the number of features and some other\n" + "statistics.",
+			"显示功能数量和其他一些统计信息。",
 			".features");
 	}
 	
@@ -39,10 +39,10 @@ public final class FeaturesCmd extends Command
 		int otfs = WURST.getOtfs().countOtfs();
 		int all = hax + cmds + otfs;
 		
-		ChatUtils.message("All features: " + all);
-		ChatUtils.message("Hacks: " + hax);
-		ChatUtils.message("Commands: " + cmds);
-		ChatUtils.message("Other features: " + otfs);
+		ChatUtils.message("所有功能：" + all);
+		ChatUtils.message("功能：" + hax);
+		ChatUtils.message("命令：" + cmds);
+		ChatUtils.message("其他功能：" + otfs);
 		
 		int settings = 0;
 		for(Hack hack : WURST.getHax().getAllHax())
@@ -52,7 +52,7 @@ public final class FeaturesCmd extends Command
 		for(OtherFeature otf : WURST.getOtfs().getAllOtfs())
 			settings += otf.getSettings().size();
 		
-		ChatUtils.message("Settings: " + settings);
+		ChatUtils.message("设置：" + settings);
 	}
 	
 	@Override

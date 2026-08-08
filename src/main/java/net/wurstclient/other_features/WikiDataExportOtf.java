@@ -53,7 +53,7 @@ public final class WikiDataExportOtf extends OtherFeature
 			
 		}catch(Exception e)
 		{
-			ChatUtils.error("Failed to export data: " + e.getMessage());
+			ChatUtils.error("导出数据失败：" + e.getMessage());
 			e.printStackTrace();
 		}
 	}

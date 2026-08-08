@@ -27,7 +27,7 @@ public final class DroppersGroup extends ChestEspBlockGroup
 	protected ColorSetting createColorSetting()
 	{
 		return new ColorSetting("Dropper color",
-			"Droppers will be highlighted in this color.", Color.WHITE);
+			"投掷器将以此颜色高亮。", Color.WHITE);
 	}
 	
 	@Override

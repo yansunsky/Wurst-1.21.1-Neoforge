@@ -20,8 +20,8 @@ public final class AuthorCmd extends Command
 {
 	public AuthorCmd()
 	{
-		super("author", "Changes the author of a written book.\n"
-			+ "Requires creative mode.", ".author <author>");
+		super("author", "更改成书的作者。\n"
+			+ "需要创造模式。", ".author <author>");
 	}
 	
 	@Override
@@ -31,7 +31,7 @@ public final class AuthorCmd extends Command
 			throw new CmdSyntaxError();
 		
 		if(!MC.player.getAbilities().instabuild)
-			throw new CmdError("Creative mode only.");
+			throw new CmdError("仅限创造模式。");
 		
 		ItemStack heldStack = MC.player.getInventory().getSelected();
 		if(!heldStack.is(Items.WRITTEN_BOOK))
@@ -41,7 +41,7 @@ public final class AuthorCmd extends Command
 		WrittenBookContent oldData =
 			heldStack.getComponents().get(DataComponents.WRITTEN_BOOK_CONTENT);
 		if(oldData == null)
-			throw new CmdError("Can't find book data.");
+			throw new CmdError("找不到书的数据。");
 		
 		String author = String.join(" ", args);
 		WrittenBookContent newData = new WrittenBookContent(oldData.title(),

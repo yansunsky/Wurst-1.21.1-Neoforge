@@ -59,13 +59,13 @@ public final class EditBookOffersScreen extends Screen
 		addWidget(listGui);
 		
 		addRenderableWidget(Button
-			.builder(Component.literal("Add"),
+			.builder(Component.literal("添加"),
 				b -> minecraft
 					.setScreen(new AddBookOfferScreen(this, bookOffers)))
 			.bounds(width / 2 - 154, height - 56, 100, 20).build());
 		
 		addRenderableWidget(
-			editButton = Button.builder(Component.literal("Edit"), b -> {
+			editButton = Button.builder(Component.literal("编辑"), b -> {
 				BookOffer selected = listGui.getSelectedOffer();
 				if(selected == null)
 					return;
@@ -76,7 +76,7 @@ public final class EditBookOffersScreen extends Screen
 		editButton.active = false;
 		
 		addRenderableWidget(
-			removeButton = Button.builder(Component.literal("Remove"), b -> {
+			removeButton = Button.builder(Component.literal("移除"), b -> {
 				bookOffers
 					.remove(bookOffers.indexOf(listGui.getSelectedOffer()));
 				minecraft.setScreen(EditBookOffersScreen.this);
@@ -84,17 +84,17 @@ public final class EditBookOffersScreen extends Screen
 		removeButton.active = false;
 		
 		addRenderableWidget(
-			Button.builder(Component.literal("Reset to Defaults"),
+			Button.builder(Component.literal("恢复默认"),
 				b -> minecraft.setScreen(new ConfirmScreen(b2 -> {
 					if(b2)
 						bookOffers.resetToDefaults();
 					minecraft.setScreen(EditBookOffersScreen.this);
-				}, Component.literal("Reset to Defaults"),
-					Component.literal("Are you sure?"))))
+				}, Component.literal("恢复默认"),
+					Component.literal("你确定吗？"))))
 				.bounds(width - 106, 6, 100, 20).build());
 		
 		addRenderableWidget(doneButton = Button
-			.builder(Component.literal("Done"),
+			.builder(Component.literal("完成"),
 				b -> minecraft.setScreen(prevScreen))
 			.bounds(width / 2 - 100, height - 32, 200, 20).build());
 	}
@@ -192,7 +192,7 @@ public final class EditBookOffersScreen extends Screen
 		public Component getNarration()
 		{
 			return Component.translatable("narrator.select",
-				"Book offer " + bookOffer.getEnchantmentNameWithLevel()
+				"图书交易 " + bookOffer.getEnchantmentNameWithLevel()
 					+ ", ID " + bookOffer.id() + ", " + getPriceText());
 		}
 		
@@ -229,7 +229,7 @@ public final class EditBookOffersScreen extends Screen
 		private String getPriceText()
 		{
 			if(bookOffer.price() >= 64)
-				return "any price";
+				return "任意价格";
 			
 			return "max " + bookOffer.price();
 		}

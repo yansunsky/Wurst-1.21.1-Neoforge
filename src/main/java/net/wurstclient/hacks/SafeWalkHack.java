@@ -22,7 +22,7 @@ import net.wurstclient.settings.SliderSetting.ValueDisplay;
 public final class SafeWalkHack extends Hack
 {
 	private final CheckboxSetting sneak =
-		new CheckboxSetting("Sneak at edges", "Visibly sneak at edges.", false);
+		new CheckboxSetting("Sneak at edges", "在边缘处可见地潜行。", false);
 	
 	private final SliderSetting edgeDistance = new SliderSetting(
 		"Sneak edge distance",

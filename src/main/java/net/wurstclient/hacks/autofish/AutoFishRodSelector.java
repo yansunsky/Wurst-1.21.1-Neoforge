@@ -107,7 +107,7 @@ public final class AutoFishRodSelector
 		// stop if out of rods
 		if(stopWhenOutOfRods.isChecked() && bestRodSlot == -1)
 		{
-			ChatUtils.message("AutoFish has run out of fishing rods.");
+			ChatUtils.message("AutoFish 的钓鱼竿用完了。");
 			autoFish.setEnabled(false);
 			return false;
 		}

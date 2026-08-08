@@ -221,7 +221,7 @@ public final class NavigatorMainScreen extends NavigatorScreen
 		// search bar
 		if(!clickTimerRunning)
 		{
-			context.drawString(WurstClient.MC.font, "Search: ", middleX - 150,
+			context.drawString(WurstClient.MC.font, "搜索：", middleX - 150,
 					32, txtColor);
 			searchBar.render(context, mouseX, mouseY, partialTicks);
 		}

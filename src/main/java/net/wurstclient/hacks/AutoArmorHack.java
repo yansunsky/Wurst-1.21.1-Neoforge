@@ -54,7 +54,7 @@ public final class AutoArmorHack extends Hack
 		false);
 	
 	private final SliderSetting delay = new SliderSetting("Delay",
-		"Amount of ticks to wait before swapping the next piece of armor.", 2,
+		"交换下一件盔甲前等待的游戏刻数。", 2,
 		0, 20, 1, ValueDisplay.INTEGER);
 	
 	private int timer;

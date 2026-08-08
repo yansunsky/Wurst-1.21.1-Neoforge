@@ -29,7 +29,7 @@ public final class NormalChestsGroup extends ChestEspBlockGroup
 	protected ColorSetting createColorSetting()
 	{
 		return new ColorSetting("Chest color",
-			"Normal chests will be highlighted in this color.", Color.GREEN);
+			"普通箱子将以此颜色高亮。", Color.GREEN);
 	}
 	
 	@Override

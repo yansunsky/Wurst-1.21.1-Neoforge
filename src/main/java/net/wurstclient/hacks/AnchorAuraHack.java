@@ -106,7 +106,7 @@ public final class AnchorAuraHack extends Hack implements UpdateListener
 	{
 		if(MC.level.dimensionType().respawnAnchorWorks())
 		{
-			ChatUtils.error("Respawn anchors don't explode in this dimension.");
+			ChatUtils.error("重生锚在这个维度不会爆炸。");
 			setEnabled(false);
 		}
 		

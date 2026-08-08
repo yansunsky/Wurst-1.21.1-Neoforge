@@ -29,13 +29,13 @@ public final class BlockListCmd extends Command
 	public BlockListCmd()
 	{
 		super("blocklist",
-			"Changes a BlockList setting of a feature. Allows you\n"
-				+ "to change these settings through keybinds.",
+			"更改某个功能的 BlockList 设置。允许你\n"
+				+ "通过按键绑定更改这些设置。",
 			".blocklist <feature> <setting> add <block>",
 			".blocklist <feature> <setting> remove <block>",
 			".blocklist <feature> <setting> list [<page>]",
 			".blocklist <feature> <setting> reset",
-			"Example: .blocklist Nuker MultiID_List add gravel");
+			"示例：.blocklist Nuker MultiID_List add gravel");
 	}
 	
 	@Override
@@ -125,7 +125,7 @@ public final class BlockListCmd extends Command
 		pages = Math.max(pages, 1);
 		
 		if(page > pages || page < 1)
-			throw new CmdSyntaxError("Invalid page: " + page);
+			throw new CmdSyntaxError("无效页码：" + page);
 		
 		String total = "Total: " + blocks.size() + " block";
 		total += blocks.size() != 1 ? "s" : "";
@@ -146,7 +146,7 @@ public final class BlockListCmd extends Command
 			return 1;
 		
 		if(!MathUtils.isInteger(args[3]))
-			throw new CmdSyntaxError("Not a number: " + args[3]);
+			throw new CmdSyntaxError("不是数字：" + args[3]);
 		
 		return Integer.parseInt(args[3]);
 	}

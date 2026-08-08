@@ -48,19 +48,19 @@ public final class CaveFinderHack extends Hack
 	implements UpdateListener, RenderListener
 {
 	private final ChunkAreaSetting area = new ChunkAreaSetting("Area",
-		"The area around the player to search in.\n"
+		"玩家周围要搜索的区域。\n"
 			+ "Higher values require a faster computer.");
 	
 	private final SliderSetting limit = new SliderSetting("Limit",
-		"The maximum number of blocks to display.\n"
+		"要显示的最大方块数。\n"
 			+ "Higher values require a faster computer.",
 		5, 3, 6, 1, ValueDisplay.LOGARITHMIC);
 	
 	private final ColorSetting color = new ColorSetting("Color",
-		"Caves will be highlighted in this color.", Color.RED);
+		"洞穴将以此颜色高亮。", Color.RED);
 	
 	private final SliderSetting opacity = new SliderSetting("Opacity",
-		"How opaque the highlights should be.\n" + "0 = breathing animation", 0,
+		"高亮的不透明度。\n" + "0 = breathing animation", 0,
 		0, 1, 0.01, ValueDisplay.PERCENTAGE.withLabel(0, "breathing"));
 	
 	private int prevLimit;
@@ -216,9 +216,9 @@ public final class CaveFinderHack extends Hack
 			notify = true;
 		else if(notify)
 		{
-			ChatUtils.warning("CaveFinder found \u00a7lA LOT\u00a7r of blocks!"
-				+ " To prevent lag, it will only show the closest \u00a76"
-				+ limit.getValueString() + "\u00a7r results.");
+			ChatUtils.warning("CaveFinder 找到了 \u00a7l大量\u00a7r 方块！"
+				+ " 为防止卡顿，它只会显示最近的 \u00a76"
+				+ limit.getValueString() + "\u00a7r 个结果。");
 			notify = false;
 		}
 		

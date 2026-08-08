@@ -121,7 +121,7 @@ public final class AddBookOfferScreen extends Screen
 			.builder(Component.literal("+"), b -> updateLevel(1, true))
 			.bounds(width / 2 + 2, height - 74, 20, 12)
 			.createNarration(sup -> Component
-				.translatable("gui.narrate.button", "increase level")
+				.translatable("gui.narrate.button", "增加等级")
 				.append(", current value: " + levelField.getValue()))
 			.build());
 		levelPlusButton.active = false;
@@ -130,7 +130,7 @@ public final class AddBookOfferScreen extends Screen
 			.builder(Component.literal("-"), b -> updateLevel(-1, true))
 			.bounds(width / 2 + 26, height - 74, 20, 12)
 			.createNarration(sup -> Component
-				.translatable("gui.narrate.button", "decrease level")
+				.translatable("gui.narrate.button", "降低等级")
 				.append(", current value: " + levelField.getValue()))
 			.build());
 		levelMinusButton.active = false;
@@ -139,7 +139,7 @@ public final class AddBookOfferScreen extends Screen
 			.builder(Component.literal("+"), b -> updatePrice(1, true))
 			.bounds(width / 2 + 2, height - 58, 20, 12)
 			.createNarration(sup -> Component
-				.translatable("gui.narrate.button", "increase max price")
+				.translatable("gui.narrate.button", "提高最高价格")
 				.append(", current value: " + priceField.getValue()))
 			.build());
 		pricePlusButton.active = false;
@@ -148,20 +148,20 @@ public final class AddBookOfferScreen extends Screen
 			.builder(Component.literal("-"), b -> updatePrice(-1, true))
 			.bounds(width / 2 + 26, height - 58, 20, 12)
 			.createNarration(sup -> Component
-				.translatable("gui.narrate.button", "decrease max price")
+				.translatable("gui.narrate.button", "降低最高价格")
 				.append(", current value: " + priceField.getValue()))
 			.build());
 		priceMinusButton.active = false;
 		
 		addRenderableWidget(
-			addButton = Button.builder(Component.literal("Add"), b -> {
+			addButton = Button.builder(Component.literal("添加"), b -> {
 				bookOffers.add(offerToAdd);
 				minecraft.setScreen(prevScreen);
 			}).bounds(width / 2 - 102, height - 28, 100, 20).build());
 		addButton.active = false;
 		
 		addRenderableWidget(cancelButton = Button
-			.builder(Component.literal("Cancel"),
+			.builder(Component.literal("取消"),
 				b -> minecraft.setScreen(prevScreen))
 			.bounds(width / 2 + 2, height - 28, 100, 20).build());
 	}
@@ -294,8 +294,8 @@ public final class AddBookOfferScreen extends Screen
 		
 		matrixStack.translate(width / 2 - 100, 0, 0);
 		
-		context.drawString(tr, "Level:", 0, height - 72, 0xf0f0f0);
-		context.drawString(tr, "Max price:", 0, height - 56, 0xf0f0f0);
+		context.drawString(tr, "等级：", 0, height - 72, 0xf0f0f0);
+		context.drawString(tr, "最高价格：", 0, height - 56, 0xf0f0f0);
 		
 		if(alreadyAdded && offerToAdd != null)
 		{
@@ -343,7 +343,7 @@ public final class AddBookOfferScreen extends Screen
 			String levels = maxLevel + (maxLevel == 1 ? " level" : " levels");
 			
 			return Component.translatable("narrator.select",
-				"Enchantment " + bookOffer.getEnchantmentName() + ", ID "
+				"附魔 " + bookOffer.getEnchantmentName() + "，ID "
 					+ bookOffer.id() + ", " + levels);
 		}
 		

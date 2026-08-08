@@ -51,10 +51,10 @@ public final class KillauraLegitHack extends Hack implements UpdateListener,
 	
 	private final SliderSetting speedRandMS =
 		new SliderSetting("Speed randomization",
-			"Helps you bypass anti-cheat plugins by varying the delay between"
-				+ " attacks.\n\n" + "\u00b1100ms is recommended for Vulcan.\n\n"
-				+ "0 (off) is fine for NoCheat+, AAC, Grim, Verus, Spartan, and"
-				+ " vanilla servers.",
+			"通过改变攻击之间的延迟帮助你绕过反作弊插件"
+				+ "的攻击间隔。\n\n" + "Vulcan 推荐使用 \u00b1100ms。\n\n"
+				+ "0（关闭）适用于 NoCheat+、AAC、Grim、Verus、Spartan 和"
+				+ "原版服务器。",
 			100, 0, 1000, 50, ValueDisplay.INTEGER.withPrefix("\u00b1")
 				.withSuffix("ms").withLabel(0, "off"));
 	
@@ -63,15 +63,15 @@ public final class KillauraLegitHack extends Hack implements UpdateListener,
 			ValueDisplay.DEGREES.withSuffix("/s"));
 	
 	private final EnumSetting<Priority> priority = new EnumSetting<>("Priority",
-		"Determines which entity will be attacked first.\n"
-			+ "\u00a7lDistance\u00a7r - Attacks the closest entity.\n"
-			+ "\u00a7lAngle\u00a7r - Attacks the entity that requires the least head movement.\n"
-			+ "\u00a7lHealth\u00a7r - Attacks the weakest entity.",
+		"决定哪个实体将首先被攻击。\n"
+			+ "\u00a7l距离\u00a7r - 攻击最近的实体。\n"
+			+ "\u00a7l角度\u00a7r - 攻击需要最小头部移动的实体。\n"
+			+ "\u00a7l生命值\u00a7r - 攻击最弱的实体。",
 		Priority.values(), Priority.ANGLE);
 	
 	private final SliderSetting fov = new SliderSetting("FOV",
-		"Field Of View - how far away from your crosshair an entity can be before it's ignored.\n"
-			+ "360\u00b0 = entities can be attacked all around you.",
+		"视野 - 实体距离你的准星多远才会被忽略。\n"
+			+ "360\u00b0 = 可以攻击你周围的所有实体。",
 		360, 30, 360, 10, ValueDisplay.DEGREES);
 	
 	private final SwingHandSetting swingHand =

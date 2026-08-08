@@ -279,7 +279,7 @@ public final class ForceOpHack extends Hack implements ChatInputListener
 		
 		if(containsAny(msgLowerCase, "/help", "permission"))
 		{
-			ChatUtils.warning("It looks like this server doesn't have AuthMe.");
+			ChatUtils.warning("这个服务器似乎没有安装 AuthMe。");
 			return;
 		}
 		
@@ -289,7 +289,7 @@ public final class ForceOpHack extends Hack implements ChatInputListener
 		};
 		
 		if(containsAny(msgLowerCase, wordsForLoggedIn))
-			ChatUtils.warning("It looks like you are already logged in.");
+			ChatUtils.warning("你似乎已经登录了。");
 	}
 	
 	private boolean containsAny(String msg, String... words)

@@ -17,29 +17,29 @@ import net.wurstclient.settings.SliderSetting;
 public final class NameTagsHack extends Hack
 {
 	private final SliderSetting scale =
-		new SliderSetting("Scale", "How large the nametags should be.", 1, 0.05,
+		new SliderSetting("Scale", "名牌应有多大。", 1, 0.05,
 			5, 0.05, SliderSetting.ValueDisplay.PERCENTAGE);
 	
 	private final CheckboxSetting unlimitedRange =
 		new CheckboxSetting("Unlimited range",
-			"Removes the 64 block distance limit for nametags.", true);
+			"移除名牌的 64 格距离限制。", true);
 	
 	private final CheckboxSetting seeThrough = new CheckboxSetting(
 		"See-through mode",
-		"Renders nametags on the see-through text layer. This makes them"
-			+ " easier to read behind walls, but causes some graphical glitches"
-			+ " with water and other transparent things.",
+		"在透视文字层上渲染名牌。这使得它们"
+			+ "在墙后更容易阅读，但会导致一些图形故障"
+			+ "，比如水和其它透明物体。",
 		false);
 	
 	private final CheckboxSetting forceMobNametags = new CheckboxSetting(
-		"Always show named mobs", "Displays the nametags of named mobs even"
-			+ " when you are not looking directly at them.",
+		"始终显示有名字的生物", "即使你没有直接看着它们，也会显示"
+			+ "有名字的生物的名牌。",
 		true);
 	
 	private final CheckboxSetting forcePlayerNametags =
 		new CheckboxSetting("Always show player names",
-			"Displays your own nametag as well as any player names that would"
-				+ " normally be disabled by scoreboard team settings.",
+			"显示你自己的名牌以及任何"
+				+ "原本会被记分板队伍设置禁用的名牌。",
 			false);
 	
 	public NameTagsHack()

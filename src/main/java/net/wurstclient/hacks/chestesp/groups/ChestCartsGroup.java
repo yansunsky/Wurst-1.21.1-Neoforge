@@ -27,7 +27,7 @@ public final class ChestCartsGroup extends ChestEspEntityGroup
 	protected ColorSetting createColorSetting()
 	{
 		return new ColorSetting("Chest cart color",
-			"Minecarts with chests will be highlighted in this color.",
+			"带箱子的矿车将以此颜色高亮。",
 			Color.YELLOW);
 	}
 	

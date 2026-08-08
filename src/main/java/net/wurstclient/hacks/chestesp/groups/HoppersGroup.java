@@ -27,7 +27,7 @@ public final class HoppersGroup extends ChestEspBlockGroup
 	protected ColorSetting createColorSetting()
 	{
 		return new ColorSetting("Hopper color",
-			"Hoppers will be highlighted in this color.", Color.WHITE);
+			"漏斗将以此颜色高亮。", Color.WHITE);
 	}
 	
 	@Override

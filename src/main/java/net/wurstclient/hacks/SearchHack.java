@@ -46,15 +46,15 @@ public final class SearchHack extends Hack
 	implements UpdateListener, RenderListener
 {
 	private final BlockSetting block = new BlockSetting("Block",
-		"The type of block to search for.", "minecraft:diamond_ore", false);
+		"要搜索的方块类型。", "minecraft:diamond_ore", false);
 	private Block lastBlock;
 	
 	private final ChunkAreaSetting area = new ChunkAreaSetting("Area",
-		"The area around the player to search in.\n"
+		"玩家周围要搜索的区域。\n"
 			+ "Higher values require a faster computer.");
 	
 	private final SliderSetting limit = new SliderSetting("Limit",
-		"The maximum number of blocks to display.\n"
+		"要显示的最大方块数。\n"
 			+ "Higher values require a faster computer.",
 		4, 3, 6, 1, ValueDisplay.LOGARITHMIC);
 	private int prevLimit;
@@ -222,9 +222,9 @@ public final class SearchHack extends Hack
 			notify = true;
 		else if(notify)
 		{
-			ChatUtils.warning("Search found \u00a7lA LOT\u00a7r of blocks!"
-				+ " To prevent lag, it will only show the closest \u00a76"
-				+ limit.getValueString() + "\u00a7r results.");
+			ChatUtils.warning("Search 找到了 \u00a7l大量\u00a7r 方块！"
+				+ " 为防止卡顿，它只会显示最近的 \u00a76"
+				+ limit.getValueString() + "\u00a7r 个结果。");
 			notify = false;
 		}
 		

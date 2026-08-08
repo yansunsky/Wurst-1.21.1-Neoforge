@@ -32,14 +32,14 @@ public final class TooManyHaxCmd extends Command
 	public TooManyHaxCmd()
 	{
 		super("toomanyhax",
-			"Allows to manage which hacks should be blocked\n"
-				+ "when TooManyHax is enabled.",
+			"允许管理在 TooManyHax 启用时应阻止哪些功能。\n"
+				+ "（在 TooManyHax 启用时生效。）",
 			".toomanyhax block <feature>", ".toomanyhax unblock <feature>",
 			".toomanyhax block-all", ".toomanyhax unblock-all",
 			".toomanyhax list [<page>]", ".toomanyhax load-profile <file>",
 			".toomanyhax save-profile <file>",
 			".toomanyhax list-profiles [<page>]",
-			"Profiles are saved in '.minecraft/wurst/toomanyhax'.");
+			"配置方案保存在 '.minecraft/wurst/toomanyhax'。");
 	}
 	
 	@Override
@@ -97,21 +97,21 @@ public final class TooManyHaxCmd extends Command
 		String typeAndName = getType(feature) + " '" + name + "'";
 		
 		if(!feature.isSafeToBlock())
-			throw new CmdError("The " + typeAndName + " is not safe to block.");
+			throw new CmdError("阻止 " + typeAndName + " 不安全。");
 		
 		TooManyHaxHack tooManyHax = WURST.getHax().tooManyHaxHack;
 		if(tooManyHax.isBlocked(feature))
 		{
-			ChatUtils.error("The " + typeAndName + " is already blocked.");
+			ChatUtils.error("" + typeAndName + " 已被阻止。");
 			
 			if(!tooManyHax.isEnabled())
-				ChatUtils.message("Enable TooManyHax to see the effect.");
+				ChatUtils.message("启用 TooManyHax 以查看效果。");
 			
 			return;
 		}
 		
 		tooManyHax.setBlocked(feature, true);
-		ChatUtils.message("Added " + typeAndName + " to TooManyHax list.");
+		ChatUtils.message("已将 " + typeAndName + " 添加到 TooManyHax 列表。");
 	}
 	
 	private void unblock(String[] args) throws CmdException
@@ -125,25 +125,25 @@ public final class TooManyHaxCmd extends Command
 		
 		TooManyHaxHack tooManyHax = WURST.getHax().tooManyHaxHack;
 		if(!tooManyHax.isBlocked(feature))
-			throw new CmdError("The " + typeAndName + " is not blocked.");
+			throw new CmdError("未阻止 " + typeAndName + "。");
 		
 		tooManyHax.setBlocked(feature, false);
-		ChatUtils.message("Removed " + typeAndName + " from TooManyHax list.");
+		ChatUtils.message("已从 TooManyHax 列表移除 " + typeAndName + "。");
 	}
 	
 	private void blockAll()
 	{
 		WURST.getHax().tooManyHaxHack.blockAll();
-		ChatUtils.message("All* features blocked.");
+		ChatUtils.message("已阻止所有*功能。");
 		ChatUtils
 			.message("*Note: A few features cannot be blocked because they");
-		ChatUtils.message("are required for Wurst to work properly.");
+		ChatUtils.message("是 Wurst 正常运行所必需的。");
 	}
 	
 	private void unblockAll()
 	{
 		WURST.getHax().tooManyHaxHack.unblockAll();
-		ChatUtils.message("All features unblocked.");
+		ChatUtils.message("已取消阻止所有功能。");
 	}
 	
 	private Feature parseFeature(String name) throws CmdSyntaxError
@@ -182,7 +182,7 @@ public final class TooManyHaxCmd extends Command
 		pages = Math.max(pages, 1);
 		
 		if(page > pages || page < 1)
-			throw new CmdSyntaxError("Invalid page: " + page);
+			throw new CmdSyntaxError("无效页码：" + page);
 		
 		String total = "Total: " + blocked.size() + " blocked feature";
 		total += blocked.size() != 1 ? "s" : "";
@@ -191,7 +191,7 @@ public final class TooManyHaxCmd extends Command
 		int start = (page - 1) * 8;
 		int end = Math.min(page * 8, blocked.size());
 		
-		ChatUtils.message("TooManyHax list (page " + page + "/" + pages + ")");
+		ChatUtils.message("TooManyHax 列表（第 " + page + "/" + pages + " 页）");
 		for(int i = start; i < end; i++)
 			ChatUtils.message(blocked.get(i).getName());
 	}
@@ -202,7 +202,7 @@ public final class TooManyHaxCmd extends Command
 			return 1;
 		
 		if(!MathUtils.isInteger(args[1]))
-			throw new CmdSyntaxError("Not a number: " + args[1]);
+			throw new CmdSyntaxError("不是数字：" + args[1]);
 		
 		return Integer.parseInt(args[1]);
 	}
@@ -217,22 +217,22 @@ public final class TooManyHaxCmd extends Command
 		try
 		{
 			WURST.getHax().tooManyHaxHack.loadProfile(name);
-			ChatUtils.message("TooManyHax profile loaded: " + name);
+			ChatUtils.message("TooManyHax 配置方案已加载：" + name);
 			
 		}catch(NoSuchFileException e)
 		{
-			throw new CmdError("Profile '" + name + "' doesn't exist.");
+			throw new CmdError("配置方案 '" + name + "' 不存在。");
 			
 		}catch(JsonException e)
 		{
 			e.printStackTrace();
 			throw new CmdError(
-				"Profile '" + name + "' is corrupted: " + e.getMessage());
+				"配置方案 '" + name + "' 已损坏：" + e.getMessage());
 			
 		}catch(IOException e)
 		{
 			e.printStackTrace();
-			throw new CmdError("Couldn't load profile: " + e.getMessage());
+			throw new CmdError("无法加载配置方案：" + e.getMessage());
 		}
 	}
 	
@@ -246,12 +246,12 @@ public final class TooManyHaxCmd extends Command
 		try
 		{
 			WURST.getHax().tooManyHaxHack.saveProfile(name);
-			ChatUtils.message("TooManyHax profile saved: " + name);
+			ChatUtils.message("TooManyHax 配置方案已保存：" + name);
 			
 		}catch(IOException | JsonException e)
 		{
 			e.printStackTrace();
-			throw new CmdError("Couldn't save profile: " + e.getMessage());
+			throw new CmdError("无法保存配置方案：" + e.getMessage());
 		}
 	}
 	
@@ -275,7 +275,7 @@ public final class TooManyHaxCmd extends Command
 		pages = Math.max(pages, 1);
 		
 		if(page > pages || page < 1)
-			throw new CmdSyntaxError("Invalid page: " + page);
+			throw new CmdSyntaxError("无效页码：" + page);
 		
 		String total = "Total: " + files.size() + " profile";
 		total += files.size() != 1 ? "s" : "";

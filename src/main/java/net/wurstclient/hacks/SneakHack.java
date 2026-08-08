@@ -30,10 +30,10 @@ public final class SneakHack extends Hack
 	
 	private final CheckboxSetting offWhileFlying =
 		new CheckboxSetting("Turn off while flying",
-			"Automatically disables Legit Sneak while you are flying or using"
-				+ " Freecam, so that it doesn't force you to fly down.\n\n"
-				+ "Keep in mind that this also means you won't be hidden from"
-				+ " other players while doing these things.",
+			"当你飞行或使用"
+				+ "自由视角时自动关闭，这样它就不会强迫你向下飞。\n\n"
+				+ "请记住，这也意味着你在做这些事情时"
+				+ "不会对其他玩家隐身。",
 			false);
 	
 	public SneakHack()

@@ -83,7 +83,7 @@ public final class BaseFinderHack extends Hack
 		"minecraft:vine", "minecraft:water", "minecraft:white_tulip");
 	
 	private final ColorSetting color = new ColorSetting("Color",
-		"Man-made blocks will be highlighted in this color.", Color.RED);
+		"人造方块将以此颜色高亮。", Color.RED);
 	
 	private ArrayList<String> blockNames;
 	

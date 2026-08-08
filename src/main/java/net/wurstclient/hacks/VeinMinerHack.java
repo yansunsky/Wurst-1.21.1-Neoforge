@@ -54,7 +54,7 @@ public final class VeinMinerHack extends Hack
 		new SliderSetting("Range", 5, 1, 6, 0.05, ValueDisplay.DECIMAL);
 	
 	private final CheckboxSetting flat = new CheckboxSetting("Flat mode",
-		"Won't break any blocks below your feet.", false);
+		"不会破坏你脚下的任何方块。", false);
 	
 	private final NukerMultiIdListSetting multiIdList =
 		new NukerMultiIdListSetting("The types of blocks to mine as veins.");
@@ -68,7 +68,7 @@ public final class VeinMinerHack extends Hack
 	private BlockPos currentBlock;
 	
 	private final SliderSetting maxVeinSize = new SliderSetting("Max vein size",
-		"Maximum number of blocks to mine in a single vein.", 64, 1, 1000, 1,
+		"单条矿脉中最多开采的方块数。", 64, 1, 1000, 1,
 		ValueDisplay.INTEGER);
 	
 	private final CheckboxSetting checkLOS = new CheckboxSetting(

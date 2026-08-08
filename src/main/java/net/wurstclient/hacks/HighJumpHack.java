@@ -17,7 +17,7 @@ import net.wurstclient.settings.SliderSetting.ValueDisplay;
 public final class HighJumpHack extends Hack
 {
 	private final SliderSetting height = new SliderSetting("Height",
-		"Jump height in blocks.\n"
+		"跳跃高度（格）。\n"
 			+ "This gets very inaccurate at higher values.",
 		6, 1, 100, 1, ValueDisplay.INTEGER);
 	

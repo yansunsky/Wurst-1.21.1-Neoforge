@@ -47,7 +47,7 @@ public final class ChooseNameState extends TemplateToolState
 		if(file != null && file.exists())
 			return "WARNING: This file already exists.";
 		
-		return "Choose a name for this template.";
+		return "为此模板选择一个名称。";
 	}
 	
 	public static final class ChooseNameScreen extends Screen
@@ -83,16 +83,16 @@ public final class ChooseNameState extends TemplateToolState
 			setFocused(nameField);
 			
 			includeTypesBox =
-				Checkbox.builder(Component.literal("Include block types"), tr)
+				Checkbox.builder(Component.literal("包含方块类型"), tr)
 					.pos(middleX - 99, middleY + 32).selected(true).build();
 			addRenderableWidget(includeTypesBox);
 			
-			doneButton = Button.builder(Component.literal("Done"), b -> done())
+			doneButton = Button.builder(Component.literal("完成"), b -> done())
 				.bounds(middleX - 75, middleY + 56, 150, 20).build();
 			addRenderableWidget(doneButton);
 			
 			cancelButton =
-				Button.builder(Component.literal("Cancel"), b -> cancel())
+				Button.builder(Component.literal("取消"), b -> cancel())
 					.bounds(middleX - 50, middleY + 80, 100, 15).build();
 			addRenderableWidget(cancelButton);
 		}

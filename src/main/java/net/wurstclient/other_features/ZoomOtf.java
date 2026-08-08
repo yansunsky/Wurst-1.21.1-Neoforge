@@ -39,7 +39,7 @@ public final class ZoomOtf extends OtherFeature implements MouseScrollListener
 		false);
 	
 	private final TextFieldSetting keybind = new TextFieldSetting("Keybind",
-		"Determines the zoom keybind.\n\n"
+		"决定缩放的按键绑定。\n\n"
 			+ "Instead of editing this value manually, you should go to Wurst"
 			+ " Options -> Zoom and set it there.",
 		"key.keyboard.v", this::isValidKeybind);

@@ -28,7 +28,7 @@ public final class ShulkerBoxesGroup extends ChestEspBlockGroup
 	protected ColorSetting createColorSetting()
 	{
 		return new ColorSetting("Shulker color",
-			"Shulker boxes will be highlighted in this color.", Color.MAGENTA);
+			"潜影盒将以此颜色高亮。", Color.MAGENTA);
 	}
 	
 	@Override

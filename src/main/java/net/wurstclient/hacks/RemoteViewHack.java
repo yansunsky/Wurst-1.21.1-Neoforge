@@ -70,7 +70,7 @@ public final class RemoteViewHack extends Hack
 			// check if entity was found
 			if(entity == null)
 			{
-				ChatUtils.error("Could not find a valid entity.");
+				ChatUtils.error("找不到有效的实体。");
 				setEnabled(false);
 				return;
 			}
@@ -86,7 +86,7 @@ public final class RemoteViewHack extends Hack
 		fakePlayer = new FakePlayerEntity();
 		
 		// success message
-		ChatUtils.message("Now viewing " + entity.getName().getString() + ".");
+		ChatUtils.message("正在查看 " + entity.getName().getString() + "。");
 		
 		// add listener
 		EVENTS.add(UpdateListener.class, this);

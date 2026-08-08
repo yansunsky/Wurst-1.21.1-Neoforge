@@ -51,7 +51,7 @@ public final class EnterProfileNameScreen extends Screen
 		setFocused(valueField);
 		valueField.setFocused(true);
 
-		doneButton = Button.builder(Component.literal("Done"), b -> done())
+		doneButton = Button.builder(Component.literal("完成"), b -> done())
 				.bounds(x1, y2, 200, 20).build();
 		addRenderableWidget(doneButton);
 	}
@@ -87,7 +87,7 @@ public final class EnterProfileNameScreen extends Screen
 					   float partialTicks)
 	{
 		renderBackground(context, mouseX, mouseY, partialTicks);
-		context.drawCenteredString(minecraft.font, "Name your new profile",
+		context.drawCenteredString(minecraft.font, "为你的新配置命名",
 				width / 2, 20, 0xFFFFFF);
 
 		valueField.render(context, mouseX, mouseY, partialTicks);

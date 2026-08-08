@@ -58,7 +58,7 @@ public class NavigatorNewKeybindScreen extends NavigatorScreen
 	{
 		// OK button
 		okButton = new Button(width / 2 - 151, height - 65, 149, 18,
-				Component.literal("OK"), b -> {
+				Component.literal("确定"), b -> {
 			if(choosingKey)
 			{
 				String newCommands = selectedCommand.getCommand();
@@ -93,7 +93,7 @@ public class NavigatorNewKeybindScreen extends NavigatorScreen
 
 		// cancel button
 		addRenderableWidget(Button
-				.builder(Component.literal("Cancel"),
+				.builder(Component.literal("取消"),
 						b -> WurstClient.MC.setScreen(parent))
 				.bounds(width / 2 + 2, height - 65, 149, 18).build());
 	}
@@ -135,10 +135,10 @@ public class NavigatorNewKeybindScreen extends NavigatorScreen
 		// text
 		if(choosingKey)
 		{
-			text = "Now press the key that should trigger this keybind.";
+			text = "现在按下应该触发此按键绑定的按键。";
 			if(!selectedKey.equals("key.keyboard.unknown"))
 			{
-				text += "\n\nKey: " + selectedKey.replace("key.keyboard.", "");
+				text += "\n\n按键：" + selectedKey.replace("key.keyboard.", "");
 				String commands =
 						WurstClient.INSTANCE.getKeybinds().getCommands(selectedKey);
 				if(commands != null)
@@ -153,7 +153,7 @@ public class NavigatorNewKeybindScreen extends NavigatorScreen
 				}
 			}
 		}else
-			text = "Select what this keybind should do.";
+			text = "选择此按键绑定应该执行的操作。";
 
 		// content height
 		if(choosingKey)
@@ -171,7 +171,7 @@ public class NavigatorNewKeybindScreen extends NavigatorScreen
 		int txtColor = gui.getTxtColor();
 
 		// title bar
-		context.drawCenteredString(tr, "New Keybind", middleX, 32, txtColor);
+		context.drawCenteredString(tr, "新按键绑定", middleX, 32, txtColor);
 
 		// background
 		int bgx1 = middleX - 154;

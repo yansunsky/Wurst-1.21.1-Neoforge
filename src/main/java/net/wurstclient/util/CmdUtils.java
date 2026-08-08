@@ -34,7 +34,7 @@ public enum CmdUtils
 		
 		if(feature == null)
 			throw new CmdError(
-				"A feature named \"" + name + "\" could not be found.");
+				"找不到名为 \"" + name + "\" 的功能。");
 		
 		return feature;
 	}
@@ -46,8 +46,8 @@ public enum CmdUtils
 		Setting setting = feature.getSettings().get(name);
 		
 		if(setting == null)
-			throw new CmdError("A setting named \"" + name
-				+ "\" could not be found in " + feature.getName() + ".");
+			throw new CmdError("找不到名为 \"" + name
+				+ "\" 的设置：" + feature.getName() + "。");
 		
 		return setting;
 	}
@@ -68,7 +68,7 @@ public enum CmdUtils
 		Inventory inventory = MC.player.getInventory();
 		int slot = inventory.getFreeSlot();
 		if(slot < 0)
-			throw new CmdError("Cannot give item. Your inventory is full.");
+			throw new CmdError("无法给予物品。你的背包已满。");
 		
 		InventoryUtils.setCreativeStack(slot, stack);
 	}

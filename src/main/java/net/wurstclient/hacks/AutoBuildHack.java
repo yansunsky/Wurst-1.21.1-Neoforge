@@ -46,13 +46,13 @@ public final class AutoBuildHack extends Hack
 		new AABB(1 / 16.0, 1 / 16.0, 1 / 16.0, 15 / 16.0, 15 / 16.0, 15 / 16.0);
 	
 	private final FileSetting templateSetting = new FileSetting("Template",
-		"Determines what to build.\n\n"
+		"决定要建造什么。\n\n"
 			+ "Templates are just JSON files. Feel free to add your own or to edit / delete the default templates.\n\n"
 			+ "If you mess up, simply press the 'Reset to Defaults' button or delete the folder.",
 		"autobuild", DefaultAutoBuildTemplates::createFiles);
 	
 	private final SliderSetting range = new SliderSetting("Range",
-		"How far to reach when placing blocks.\n" + "Recommended values:\n"
+		"放置方块时的触及距离。\n" + "Recommended values:\n"
 			+ "6.0 for vanilla\n" + "4.25 for NoCheat+",
 		6, 1, 10, 0.05, ValueDisplay.DECIMAL);
 	
@@ -70,7 +70,7 @@ public final class AutoBuildHack extends Hack
 	
 	private final CheckboxSetting fastPlace =
 		new CheckboxSetting("Always FastPlace",
-			"Builds as if FastPlace was enabled, even if it's not.", true);
+			"即使未启用快速放置，也像启用了一样建造。", true);
 	
 	private final CheckboxSetting strictBuildOrder = new CheckboxSetting(
 		"Strict build order",
@@ -294,7 +294,7 @@ public final class AutoBuildHack extends Hack
 		}catch(IOException | JsonException e)
 		{
 			Path fileName = path.getFileName();
-			ChatUtils.error("Couldn't load template '" + fileName + "'.");
+			ChatUtils.error("无法加载模板 '" + fileName + "'。");
 			
 			String simpleClassName = e.getClass().getSimpleName();
 			String message = e.getMessage();

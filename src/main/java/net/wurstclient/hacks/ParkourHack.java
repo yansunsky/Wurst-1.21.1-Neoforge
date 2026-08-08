@@ -18,14 +18,14 @@ import net.wurstclient.settings.SliderSetting.ValueDisplay;
 public final class ParkourHack extends Hack implements UpdateListener
 {
 	private final SliderSetting minDepth = new SliderSetting("Min depth",
-		"Won't jump over a pit if it isn't at least this deep.\n"
+		"如果坑的深度不够，就不会跳过。\n"
 			+ "Increase to stop Parkour from jumping down stairs.\n"
 			+ "Decrease to make Parkour jump at the edge of carpets.",
 		0.5, 0.05, 10, 0.05, ValueDisplay.DECIMAL.withSuffix("m"));
 	
 	private final SliderSetting edgeDistance =
 		new SliderSetting("Edge distance",
-			"How close Parkour will let you get to the edge before jumping.",
+			"Parkour 会在起跳前允许你靠近边缘到什么程度。",
 			0.001, 0.001, 0.25, 0.001, ValueDisplay.DECIMAL.withSuffix("m"));
 	
 	private final CheckboxSetting sneak = new CheckboxSetting(

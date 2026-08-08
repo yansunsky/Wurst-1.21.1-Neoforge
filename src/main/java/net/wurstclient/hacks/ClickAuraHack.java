@@ -39,10 +39,10 @@ public final class ClickAuraHack extends Hack
 		new AttackSpeedSliderSetting();
 	
 	private final EnumSetting<Priority> priority = new EnumSetting<>("Priority",
-		"Determines which entity will be attacked first.\n"
-			+ "\u00a7lDistance\u00a7r - Attacks the closest entity.\n"
-			+ "\u00a7lAngle\u00a7r - Attacks the entity that requires the least head movement.\n"
-			+ "\u00a7lHealth\u00a7r - Attacks the weakest entity.",
+		"决定哪个实体将首先被攻击。\n"
+			+ "\u00a7l距离\u00a7r - 攻击最近的实体。\n"
+			+ "\u00a7l角度\u00a7r - 攻击需要最小头部移动的实体。\n"
+			+ "\u00a7l生命值\u00a7r - 攻击最弱的实体。",
 		Priority.values(), Priority.ANGLE);
 	
 	private final SliderSetting fov =

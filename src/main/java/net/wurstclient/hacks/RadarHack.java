@@ -37,7 +37,7 @@ public final class RadarHack extends Hack implements UpdateListener
 	private final ArrayList<Entity> entities = new ArrayList<>();
 	
 	private final SliderSetting radius = new SliderSetting("Radius",
-		"Radius in blocks.", 100, 1, 100, 1, ValueDisplay.INTEGER);
+		"半径（格）。", 100, 1, 100, 1, ValueDisplay.INTEGER);
 	private final CheckboxSetting rotate =
 		new CheckboxSetting("Rotate with player", true);
 	

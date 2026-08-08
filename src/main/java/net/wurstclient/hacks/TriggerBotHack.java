@@ -40,10 +40,10 @@ public final class TriggerBotHack extends Hack
 	
 	private final SliderSetting speedRandMS =
 		new SliderSetting("Speed randomization",
-			"Helps you bypass anti-cheat plugins by varying the delay between"
-				+ " attacks.\n\n" + "\u00b1100ms is recommended for Vulcan.\n\n"
-				+ "0 (off) is fine for NoCheat+, AAC, Grim, Verus, Spartan, and"
-				+ " vanilla servers.",
+			"通过改变攻击之间的延迟帮助你绕过反作弊插件"
+				+ "的攻击间隔。\n\n" + "Vulcan 推荐使用 \u00b1100ms。\n\n"
+				+ "0（关闭）适用于 NoCheat+、AAC、Grim、Verus、Spartan 和"
+				+ "原版服务器。",
 			100, 0, 1000, 50, ValueDisplay.INTEGER.withPrefix("\u00b1")
 				.withSuffix("ms").withLabel(0, "off"));
 	
@@ -52,21 +52,21 @@ public final class TriggerBotHack extends Hack
 	
 	private final CheckboxSetting attackWhileBlocking =
 		new CheckboxSetting("Attack while blocking",
-			"Attacks even while you're blocking with a shield or using"
-				+ " items.\n\n"
-				+ "This would not be possible in vanilla and won't work if"
-				+ " \"Simulate mouse click\" is enabled.",
+			"即使你在用盾牌格挡或使用"
+				+ "物品时也会攻击。\n\n"
+				+ "这在原版中是不可能的，并且如果"
+				+ "启用了 \"模拟鼠标点击\"，则无法工作。",
 			false);
 	
 	private final CheckboxSetting simulateMouseClick = new CheckboxSetting(
 		"Simulate mouse click",
-		"Simulates an actual mouse click (or key press) when attacking. Can be"
-			+ " used to trick CPS measuring tools into thinking that you're"
-			+ " attacking manually.\n\n"
-			+ "\u00a7c\u00a7lWARNING:\u00a7r Simulating mouse clicks can lead"
-			+ " to unexpected behavior, like in-game menus clicking themselves."
-			+ " Also, the \"Swing hand\" and \"Attack while blocking\" settings"
-			+ " will not work while this option is enabled.",
+		"攻击时模拟真实的鼠标点击（或按键）。可用于"
+			+ "欺骗 CPS 测量工具，让它们以为你"
+			+ "在手动攻击。\n\n"
+			+ "\u00a7c\u00a7l警告：\u00a7r 模拟鼠标点击可能导致"
+			+ "意外行为，比如游戏内菜单自行点击。"
+			+ "另外，\"挥动手臂\" 和 \"格挡时攻击\" 设置"
+			+ "在此选项启用时将无法工作。",
 		false);
 	
 	private final EntityFilterList entityFilters =

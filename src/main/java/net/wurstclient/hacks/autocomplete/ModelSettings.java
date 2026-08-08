@@ -62,20 +62,20 @@ public final class ModelSettings
 	}
 	
 	public final SliderSetting maxTokens = new SliderSetting("Max tokens",
-		"The maximum number of tokens that the model can generate.\n\n"
+		"模型可以生成的最大令牌数。\n\n"
 			+ "Higher values allow the model to predict longer chat messages,"
 			+ " but also increase the time it takes to generate predictions.\n\n"
 			+ "The default value of 16 is fine for most use cases.",
 		16, 1, 100, 1, ValueDisplay.INTEGER);
 	
 	public final SliderSetting temperature = new SliderSetting("Temperature",
-		"Controls the model's creativity and randomness. A higher value will"
+		"控制模型的创造力和随机性。更高的值会"
 			+ " result in more creative and sometimes nonsensical completions,"
 			+ " while a lower value will result in more boring completions.",
 		1, 0, 2, 0.01, ValueDisplay.DECIMAL);
 	
 	public final SliderSetting topP = new SliderSetting("Top P",
-		"An alternative to temperature. Makes the model less random by only"
+		"温度参数的替代方案。通过只"
 			+ " letting it choose from the most likely tokens.\n\n"
 			+ "A value of 100% disables this feature by letting the model"
 			+ " choose from all tokens.",
@@ -83,7 +83,7 @@ public final class ModelSettings
 	
 	public final SliderSetting presencePenalty =
 		new SliderSetting("Presence penalty",
-			"Penalty for choosing tokens that already appear in the chat"
+			"对选择聊天中已出现的令牌进行惩罚"
 				+ " history.\n\n"
 				+ "Positive values encourage the model to use synonyms and"
 				+ " talk about different topics. Negative values encourage the"
@@ -92,7 +92,7 @@ public final class ModelSettings
 	
 	public final SliderSetting frequencyPenalty =
 		new SliderSetting("Frequency penalty",
-			"Similar to presence penalty, but based on how often the token"
+			"与存在惩罚类似，但基于令牌出现的频率"
 				+ " appears in the chat history.\n\n"
 				+ "Positive values encourage the model to use synonyms and"
 				+ " talk about different topics. Negative values encourage the"
@@ -146,7 +146,7 @@ public final class ModelSettings
 	
 	public final CheckboxSetting filterServerMessages =
 		new CheckboxSetting("Filter server messages",
-			"Only shows player-made chat messages to the model.\n\n"
+			"只向模型显示玩家发出的聊天消息。\n\n"
 				+ "This can help you save tokens and get more out of a low"
 				+ " context length, but it also means that the model will have"
 				+ " no idea about events like players joining, leaving, dying,"
@@ -200,7 +200,7 @@ public final class ModelSettings
 	
 	public final TextFieldSetting openaiLegacyEndpoint =
 		new TextFieldSetting("OpenAI legacy endpoint",
-			"Endpoint for OpenAI's legacy completion API.",
+			"OpenAI 旧版补全 API 的端点。",
 			"https://api.openai.com/v1/completions");
 	
 	private final List<Setting> settings =

@@ -31,11 +31,11 @@ public final class GlideHack extends Hack
 		0.125, 0.005, 0.25, 0.005, ValueDisplay.DECIMAL);
 	
 	private final SliderSetting moveSpeed =
-		new SliderSetting("Move speed", "Horizontal movement factor.", 1.2, 1,
+		new SliderSetting("Move speed", "水平移动系数。", 1.2, 1,
 			5, 0.05, ValueDisplay.PERCENTAGE);
 	
 	private final SliderSetting minHeight = new SliderSetting("Min height",
-		"Won't glide when you are too close to the ground.", 0, 0, 2, 0.01,
+		"当你离地面太近时不会滑翔。", 0, 0, 2, 0.01,
 		ValueDisplay.DECIMAL.withLabel(0, "disabled"));
 	
 	private final CheckboxSetting pauseOnSneak =

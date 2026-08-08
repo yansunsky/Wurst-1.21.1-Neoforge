@@ -27,7 +27,7 @@ public final class ChestBoatsGroup extends ChestEspEntityGroup
 	protected ColorSetting createColorSetting()
 	{
 		return new ColorSetting("Chest boat color",
-			"Boats with chests will be highlighted in this color.",
+			"带箱子的船将以此颜色高亮。",
 			Color.YELLOW);
 	}
 	

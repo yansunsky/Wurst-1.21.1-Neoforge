@@ -44,8 +44,8 @@ public final class KillauraHack extends Hack
 	implements UpdateListener, HandleInputListener, RenderListener
 {
 	private final SliderSetting range = new SliderSetting("Range",
-		"Determines how far Killaura will reach to attack entities.\n"
-			+ "Anything that is further away than the specified value will not be attacked.",
+		"决定 Killaura 攻击实体的触及距离。\n"
+			+ "任何比指定值更远的实体都不会被攻击。",
 		5, 1, 10, 0.05, ValueDisplay.DECIMAL);
 	
 	private final AttackSpeedSliderSetting speed =
@@ -53,18 +53,18 @@ public final class KillauraHack extends Hack
 	
 	private final SliderSetting speedRandMS =
 		new SliderSetting("Speed randomization",
-			"Helps you bypass anti-cheat plugins by varying the delay between"
-				+ " attacks.\n\n" + "\u00b1100ms is recommended for Vulcan.\n\n"
-				+ "0 (off) is fine for NoCheat+, AAC, Grim, Verus, Spartan, and"
-				+ " vanilla servers.",
+			"通过改变攻击之间的延迟帮助你绕过反作弊插件"
+				+ "的攻击间隔。\n\n" + "Vulcan 推荐使用 \u00b1100ms。\n\n"
+				+ "0（关闭）适用于 NoCheat+、AAC、Grim、Verus、Spartan 和"
+				+ "原版服务器。",
 			100, 0, 1000, 50, ValueDisplay.INTEGER.withPrefix("\u00b1")
 				.withSuffix("ms").withLabel(0, "off"));
 	
 	private final EnumSetting<Priority> priority = new EnumSetting<>("Priority",
-		"Determines which entity will be attacked first.\n"
-			+ "\u00a7lDistance\u00a7r - Attacks the closest entity.\n"
-			+ "\u00a7lAngle\u00a7r - Attacks the entity that requires the least head movement.\n"
-			+ "\u00a7lHealth\u00a7r - Attacks the weakest entity.",
+		"决定哪个实体将首先被攻击。\n"
+			+ "\u00a7l距离\u00a7r - 攻击最近的实体。\n"
+			+ "\u00a7l角度\u00a7r - 攻击需要最小头部移动的实体。\n"
+			+ "\u00a7l生命值\u00a7r - 攻击最弱的实体。",
 		Priority.values(), Priority.ANGLE);
 	
 	private final SliderSetting fov =
@@ -83,8 +83,8 @@ public final class KillauraHack extends Hack
 	
 	private final CheckboxSetting checkLOS =
 		new CheckboxSetting("Check line of sight",
-			"Ensures that you don't reach through blocks when attacking.\n\n"
-				+ "Slower but can help with anti-cheat plugins.",
+			"确保你在攻击时不会隔墙触及目标。\n\n"
+				+ "较慢，但有助于对抗反作弊插件。",
 			false);
 	
 	private final EntityFilterList entityFilters =

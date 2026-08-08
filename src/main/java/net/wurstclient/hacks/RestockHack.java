@@ -38,10 +38,10 @@ public final class RestockHack extends Hack implements UpdateListener
 			.collect(Collectors.toCollection(ArrayList::new));
 	
 	private ItemListSetting items = new ItemListSetting("Items",
-		"Item(s) to be restocked.", "minecraft:minecart");
+		"要补货的物品。", "minecraft:minecart");
 	
 	private final SliderSetting restockSlot = new SliderSetting("Slot",
-		"To which slot should we restock.", 0, -1, 9, 1,
+		"应该补货到哪个槽位。", 0, -1, 9, 1,
 		ValueDisplay.INTEGER.withLabel(9, "offhand").withLabel(-1, "current"));
 	
 	private final SliderSetting restockAmount = new SliderSetting(

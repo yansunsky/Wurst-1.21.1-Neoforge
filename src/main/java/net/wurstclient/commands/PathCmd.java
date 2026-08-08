@@ -45,10 +45,10 @@ public final class PathCmd extends Command
 	public PathCmd()
 	{
 		super("path",
-			"Shows the shortest path to a specific point.\n"
-				+ "Useful for labyrinths and caves.",
+			"显示到指定点的最短路径。\n"
+				+ "对迷宫和洞穴很有用。",
 			".path <x> <y> <z>", ".path <entity>", ".path -debug",
-			".path -depth", ".path -refresh", "Turn off: .path");
+			".path -depth", ".path -refresh", "关闭：.path");
 		
 		addSetting(debugMode);
 		addSetting(depthTest);
@@ -64,19 +64,19 @@ public final class PathCmd extends Command
 			{
 				case "-debug":
 				debugMode.setChecked(!debugMode.isChecked());
-				ChatUtils.message("Debug mode "
+				ChatUtils.message("调试模式"
 					+ (debugMode.isChecked() ? "on" : "off") + ".");
 				return;
 				
 				case "-depth":
 				depthTest.setChecked(!depthTest.isChecked());
-				ChatUtils.message("Depth test "
+				ChatUtils.message("深度测试"
 					+ (depthTest.isChecked() ? "on" : "off") + ".");
 				return;
 				
 				case "-refresh":
 				if(lastGoal == null)
-					throw new CmdError("Cannot refresh: no previous path.");
+					throw new CmdError("无法刷新：没有之前的路径。");
 				refresh = true;
 				break;
 			}
@@ -116,7 +116,7 @@ public final class PathCmd extends Command
 		switch(args.length)
 		{
 			default:
-			throw new CmdSyntaxError("Invalid coordinates.");
+			throw new CmdSyntaxError("无效的坐标。");
 			
 			case 1:
 			return argsToEntityPos(args[0]);
@@ -159,7 +159,7 @@ public final class PathCmd extends Command
 				&& MathUtils.isInteger(xyz[i].substring(1)))
 				pos[i] = player[i] + Integer.parseInt(xyz[i].substring(1));
 			else
-				throw new CmdSyntaxError("Invalid coordinates.");
+				throw new CmdSyntaxError("无效的坐标。");
 			
 		return new BlockPos(pos[0], pos[1], pos[2]);
 	}
@@ -178,7 +178,7 @@ public final class PathCmd extends Command
 			if(foundPath)
 				path = pathFinder.formatPath();
 			else
-				ChatUtils.error("Could not find a path.");
+				ChatUtils.error("找不到路径。");
 			
 			EVENTS.remove(UpdateListener.class, this);
 			

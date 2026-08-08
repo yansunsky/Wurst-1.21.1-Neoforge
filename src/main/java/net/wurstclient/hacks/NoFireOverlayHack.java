@@ -17,7 +17,7 @@ import net.wurstclient.settings.SliderSetting.ValueDisplay;
 public final class NoFireOverlayHack extends Hack
 {
 	private final SliderSetting offset =
-		new SliderSetting("Offset", "The amount to lower the fire overlay by.",
+		new SliderSetting("Offset", "降低火焰覆盖层的程度。",
 			0.6, 0.01, 0.6, 0.01, ValueDisplay.DECIMAL);
 	
 	public NoFireOverlayHack()

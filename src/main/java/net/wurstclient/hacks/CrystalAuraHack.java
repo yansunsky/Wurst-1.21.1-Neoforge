@@ -48,7 +48,7 @@ import net.wurstclient.util.RotationUtils;
 public final class CrystalAuraHack extends Hack implements UpdateListener
 {
 	private final SliderSetting range = new SliderSetting("Range",
-		"Determines how far CrystalAura will reach to place and detonate crystals.",
+		"决定 CrystalAura 放置和引爆末影水晶的触及距离。",
 		6, 1, 6, 0.05, ValueDisplay.DECIMAL);
 	
 	private final CheckboxSetting autoPlace = new CheckboxSetting(

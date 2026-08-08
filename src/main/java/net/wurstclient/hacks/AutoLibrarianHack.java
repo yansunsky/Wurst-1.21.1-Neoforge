@@ -69,13 +69,11 @@ public final class AutoLibrarianHack extends Hack
 	implements UpdateListener, RenderListener
 {
 	private final BookOffersSetting wantedBooks = new BookOffersSetting(
-		"Wanted books",
-		"A list of enchanted books that you want your villagers to sell.\n\n"
-			+ "AutoLibrarian will stop training the current villager"
-			+ " once it has learned to sell one of these books.\n\n"
-			+ "You can also set a maximum price for each book, in case you"
-			+ " already have a villager selling it but you want it for a"
-			+ " cheaper price.",
+		"需要的书",
+		"你希望村民出售的附魔书列表。\n\n"
+			+ "一旦村民学会出售其中一本，AutoLibrarian 就会停止训练当前村民。\n\n"
+			+ "你还可以为每本书设置最高价格，"
+			+ "以防你已经有村民在出售它但想要更便宜的价格。",
 		"minecraft:depth_strider;3", "minecraft:efficiency;5",
 		"minecraft:feather_falling;4", "minecraft:fortune;3",
 		"minecraft:looting;3", "minecraft:mending;1", "minecraft:protection;4",
@@ -83,13 +81,12 @@ public final class AutoLibrarianHack extends Hack
 		"minecraft:silk_touch;1", "minecraft:unbreaking;3");
 	
 	private final CheckboxSetting lockInTrade = new CheckboxSetting(
-		"Lock in trade",
-		"Automatically buys something from the villager once it has learned to"
-			+ " sell the book you want. This prevents the villager from"
-			+ " changing its trade offers later.\n\n"
-			+ "Make sure you have at least 24 paper and 9 emeralds in your"
-			+ " inventory when using this feature. Alternatively, 1 book and"
-			+ " 64 emeralds will also work.",
+		"锁定交易",
+		"一旦村民学会出售你想要的书，就自动从村民那里购买。"
+			+ "这样可以防止村民之后更改交易内容。\n\n"
+			+ "使用此功能时，请确保你的背包里至少有"
+			+ " 24 张纸和 9 个绿宝石。或者，1 本书和"
+			+ " 64 个绿宝石也可以。",
 		false);
 	
 	private final UpdateBooksSetting updateBooks = new UpdateBooksSetting();
@@ -103,11 +100,11 @@ public final class AutoLibrarianHack extends Hack
 	private final SwingHandSetting swingHand =
 		new SwingHandSetting(this, SwingHand.SERVER);
 	
-	private final SliderSetting repairMode = new SliderSetting("Repair mode",
-		"Prevents AutoLibrarian from using your axe when its durability reaches"
-			+ " the given threshold, so you can repair it before it breaks.\n"
-			+ "Can be adjusted from 0 (off) to 100 remaining uses.",
-		1, 0, 100, 1, ValueDisplay.INTEGER.withLabel(0, "off"));
+	private final SliderSetting repairMode = new SliderSetting("修复模式",
+		"当斧头的耐久度达到指定阈值时，"
+			+ "阻止 AutoLibrarian 使用你的斧头，这样你可以在它损坏前修复它。\n"
+			+ "可以从 0（关闭）调整到 100 次剩余使用次数。",
+		1, 0, 100, 1, ValueDisplay.INTEGER.withLabel(0, "关"));
 	
 	private final OverlayRenderer overlay = new OverlayRenderer();
 	private final HashSet<Villager> experiencedVillagers = new HashSet<>();
@@ -205,10 +202,10 @@ public final class AutoLibrarianHack extends Hack
 		int experience = tradeScreen.getMenu().getTraderXp();
 		if(experience > 0)
 		{
-			ChatUtils.warning("Villager at "
+			ChatUtils.warning("位于 "
 				+ villager.blockPosition().toShortString()
-				+ " is already experienced, meaning it can't be trained anymore.");
-			ChatUtils.message("Looking for another villager...");
+				+ " 的村民已经有经验了，意味着它无法再被训练。");
+			ChatUtils.message("正在寻找另一个村民...");
 			experiencedVillagers.add(villager);
 			villager = null;
 			jobSite = null;
@@ -222,7 +219,7 @@ public final class AutoLibrarianHack extends Hack
 		
 		if(bookOffer == null)
 		{
-			ChatUtils.message("Villager is not selling an enchanted book.");
+			ChatUtils.message("村民没有在出售附魔书。");
 			closeTradeScreen();
 			breakingJobSite = true;
 			System.out.println("Breaking job site...");
@@ -230,8 +227,8 @@ public final class AutoLibrarianHack extends Hack
 		}
 		
 		ChatUtils.message(
-			"Villager is selling " + bookOffer.getEnchantmentNameWithLevel()
-				+ " for " + bookOffer.getFormattedPrice() + ".");
+			"村民正在出售 " + bookOffer.getEnchantmentNameWithLevel()
+				+ "，价格 " + bookOffer.getFormattedPrice() + "。");
 		
 		// if wrong enchantment, break job site and start over
 		if(!wantedBooks.isWanted(bookOffer))
@@ -262,7 +259,7 @@ public final class AutoLibrarianHack extends Hack
 		// update wanted books based on the user's settings
 		updateBooks.getSelected().update(wantedBooks, bookOffer);
 		
-		ChatUtils.message("Done!");
+		ChatUtils.message("完成！");
 		setEnabled(false);
 	}
 	
@@ -370,8 +367,8 @@ public final class AutoLibrarianHack extends Hack
 		
 		if(player.distanceToSqr(villager) > range.getValueSq())
 		{
-			ChatUtils.error("Villager is out of range. Consider trapping"
-				+ " the villager so it doesn't wander away.");
+			ChatUtils.error("村民超出范围。请考虑把村民"
+				+ "困住，以免它走开。");
 			setEnabled(false);
 			return;
 		}
@@ -463,16 +460,16 @@ public final class AutoLibrarianHack extends Hack
 		
 		if(villager == null)
 		{
-			String errorMsg = "Couldn't find a nearby librarian.";
+			String errorMsg = "找不到附近的图书管理员。";
 			int numExperienced = experiencedVillagers.size();
 			if(numExperienced > 0)
-				errorMsg += " (Except for " + numExperienced + " that "
+				errorMsg += "（除了 " + numExperienced + " 个"
 					+ (numExperienced == 1 ? "is" : "are")
-					+ " already experienced.)";
+					+ " 已有经验的。）";
 			
 			ChatUtils.error(errorMsg);
-			ChatUtils.message("Make sure both the librarian and the lectern"
-				+ " are reachable from where you are standing.");
+			ChatUtils.message("请确保图书管理员和讲台"
+				+ "在你站立的位置都够得着。");
 			setEnabled(false);
 			return;
 		}
@@ -499,9 +496,9 @@ public final class AutoLibrarianHack extends Hack
 		
 		if(jobSite == null)
 		{
-			ChatUtils.error("Couldn't find the librarian's lectern.");
-			ChatUtils.message("Make sure both the librarian and the lectern"
-				+ " are reachable from where you are standing.");
+			ChatUtils.error("找不到图书管理员的讲台。");
+			ChatUtils.message("请确保图书管理员和讲台"
+				+ "在你站立的位置都够得着。");
 			setEnabled(false);
 			return;
 		}

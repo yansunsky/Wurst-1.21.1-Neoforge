@@ -41,7 +41,7 @@ public final class FreecamHack extends Hack implements UpdateListener,
 		new SliderSetting("Speed", 1, 0.05, 10, 0.05, ValueDisplay.DECIMAL);
 	
 	private final CheckboxSetting tracer = new CheckboxSetting("Tracer",
-		"Draws a line to your character's actual position.", false);
+		"绘制一条到你角色实际位置的线。", false);
 	
 	private final ColorSetting color =
 		new ColorSetting("Tracer color", Color.WHITE);

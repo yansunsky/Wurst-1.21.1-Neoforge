@@ -30,13 +30,13 @@ public final class ItemListCmd extends Command
 	public ItemListCmd()
 	{
 		super("itemlist",
-			"Changes a ItemList setting of a feature. Allows you\n"
-				+ "to change these settings through keybinds.",
+			"更改某个功能的 ItemList 设置。允许你\n"
+				+ "通过按键绑定更改这些设置。",
 			".itemlist <feature> <setting> add <item>",
 			".itemlist <feature> <setting> remove <item>",
 			".itemlist <feature> <setting> list [<page>]",
 			".itemlist <feature> <setting> reset",
-			"Example: .itemlist AutoDrop Items add dirt");
+			"示例：.itemlist AutoDrop Items add dirt");
 	}
 	
 	@Override
@@ -119,7 +119,7 @@ public final class ItemListCmd extends Command
 		pages = Math.max(pages, 1);
 		
 		if(page > pages || page < 1)
-			throw new CmdSyntaxError("Invalid page: " + page);
+			throw new CmdSyntaxError("无效页码：" + page);
 		
 		String total = "Total: " + items.size() + " item";
 		total += items.size() != 1 ? "s" : "";
@@ -140,7 +140,7 @@ public final class ItemListCmd extends Command
 			return 1;
 		
 		if(!MathUtils.isInteger(args[3]))
-			throw new CmdSyntaxError("Not a number: " + args[3]);
+			throw new CmdSyntaxError("不是数字：" + args[3]);
 		
 		return Integer.parseInt(args[3]);
 	}

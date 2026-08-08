@@ -39,16 +39,16 @@ import net.wurstclient.util.RotationUtils;
 public final class TillauraHack extends Hack implements HandleInputListener
 {
 	private final SliderSetting range = new SliderSetting("Range",
-		"How far Tillaura will reach to till blocks.", 5, 1, 6, 0.05,
+		"Tillaura 耕地时的触及距离。", 5, 1, 6, 0.05,
 		ValueDisplay.DECIMAL);
 	
 	private final CheckboxSetting multiTill =
-		new CheckboxSetting("MultiTill", "Tills multiple blocks at once.\n"
+		new CheckboxSetting("MultiTill", "一次耕多块地。\n"
 			+ "Faster, but can't bypass NoCheat+.", false);
 	
 	private final CheckboxSetting checkLOS =
 		new CheckboxSetting("Check line of sight",
-			"Prevents Tillaura from reaching through blocks.\n"
+			"防止 Tillaura 隔墙耕地。\n"
 				+ "Good for NoCheat+ servers, but unnecessary in vanilla.",
 			true);
 	

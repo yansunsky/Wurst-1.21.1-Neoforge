@@ -94,6 +94,6 @@ public final class ScanningAreaState extends TemplateToolState
 	@Override
 	protected String getMessage(TemplateToolHack hack)
 	{
-		return "Scanning area...";
+		return "正在扫描区域...";
 	}
 }

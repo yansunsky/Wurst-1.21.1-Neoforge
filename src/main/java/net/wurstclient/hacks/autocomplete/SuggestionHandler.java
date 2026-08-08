@@ -25,7 +25,7 @@ public final class SuggestionHandler
 	
 	private final SliderSetting maxSuggestionsPerDraft =
 		new SliderSetting("Max suggestions per draft",
-			"How many suggestions the AI is allowed to generate for the same"
+			"AI 被允许为同一"
 				+ " draft message.",
 			3, 1, 10, 1, ValueDisplay.INTEGER);
 	

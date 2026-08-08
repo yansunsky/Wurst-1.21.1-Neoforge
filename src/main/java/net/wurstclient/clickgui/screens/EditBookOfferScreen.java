@@ -128,7 +128,7 @@ public final class EditBookOfferScreen extends Screen
 		priceMinusButton.active = false;
 		
 		addRenderableWidget(
-			saveButton = Button.builder(Component.literal("Save"), b -> {
+			saveButton = Button.builder(Component.literal("保存"), b -> {
 				if(offerToSave == null || !offerToSave.isFullyValid())
 					return;
 				
@@ -138,7 +138,7 @@ public final class EditBookOfferScreen extends Screen
 		saveButton.active = false;
 		
 		addRenderableWidget(cancelButton = Button
-			.builder(Component.literal("Cancel"),
+			.builder(Component.literal("取消"),
 				b -> minecraft.setScreen(prevScreen))
 			.bounds(width / 2 + 2, height / 3 * 2, 100, 20).build());
 		
@@ -264,7 +264,7 @@ public final class EditBookOfferScreen extends Screen
 		matrixStack.translate(0, 0, 300);
 		
 		Font tr = minecraft.font;
-		String titleText = "Edit Book Offer";
+		String titleText = "编辑图书交易";
 		context.drawCenteredString(tr, titleText, width / 2, 12, 0xffffff);
 		
 		int x = width / 2 - 100;
@@ -287,7 +287,7 @@ public final class EditBookOfferScreen extends Screen
 		
 		String price;
 		if(bookOffer.price() >= 64)
-			price = "any price";
+			price = "任意价格";
 		else
 		{
 			price = "max " + bookOffer.price();
@@ -305,8 +305,8 @@ public final class EditBookOfferScreen extends Screen
 		
 		matrixStack.translate(width / 2 - 100, 112, 0);
 		
-		context.drawString(tr, "Level:", 0, 0, 0xf0f0f0);
-		context.drawString(tr, "Max price:", 0, 16, 0xf0f0f0);
+		context.drawString(tr, "等级：", 0, 0, 0xf0f0f0);
+		context.drawString(tr, "最高价格：", 0, 16, 0xf0f0f0);
 		
 		if(alreadyAdded && offerToSave != null)
 		{

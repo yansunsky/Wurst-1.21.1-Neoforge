@@ -40,9 +40,9 @@
 			true);
 
 		private final SliderSetting releaseTime = new SliderSetting("Release time",
-			"Time until AutoSword will switch back from the weapon to the"
-				+ " previously selected slot.\n\n"
-				+ "Only works when \u00a7lSwitch back\u00a7r is checked.",
+			"AutoSword 从武器切换回"
+				+ "之前选中的槽位。\n\n"
+				+ "仅在勾选 \u00a7l切换回来\u00a7r 时有效。",
 			10, 1, 200, 1,
 			ValueDisplay.INTEGER.withSuffix(" ticks").withLabel(1, "1 tick"));
 

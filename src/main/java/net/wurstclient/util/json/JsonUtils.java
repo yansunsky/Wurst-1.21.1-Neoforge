@@ -184,7 +184,7 @@ public enum JsonUtils
 	public static int getAsInt(JsonElement json) throws JsonException
 	{
 		if(!isNumber(json))
-			throw new JsonException("Not a number: " + json);
+			throw new JsonException("不是数字：" + json);
 		
 		return json.getAsInt();
 	}
@@ -200,7 +200,7 @@ public enum JsonUtils
 	public static long getAsLong(JsonElement json) throws JsonException
 	{
 		if(!isNumber(json))
-			throw new JsonException("Not a number: " + json);
+			throw new JsonException("不是数字：" + json);
 		
 		return json.getAsLong();
 	}
@@ -216,7 +216,7 @@ public enum JsonUtils
 	public static float getAsFloat(JsonElement json) throws JsonException
 	{
 		if(!isNumber(json))
-			throw new JsonException("Not a number: " + json);
+			throw new JsonException("不是数字：" + json);
 		
 		return json.getAsFloat();
 	}
@@ -232,7 +232,7 @@ public enum JsonUtils
 	public static double getAsDouble(JsonElement json) throws JsonException
 	{
 		if(!isNumber(json))
-			throw new JsonException("Not a number: " + json);
+			throw new JsonException("不是数字：" + json);
 		
 		return json.getAsDouble();
 	}

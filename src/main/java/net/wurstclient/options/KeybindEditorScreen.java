@@ -50,16 +50,16 @@ public final class KeybindEditorScreen extends Screen
 	public void init()
 	{
 		addRenderableWidget(Button
-				.builder(Component.literal("Change Key"),
+				.builder(Component.literal("更改按键"),
 						b -> minecraft.setScreen(new PressAKeyScreen(this)))
 				.bounds(width / 2 - 100, 60, 200, 20).build());
 
 		addRenderableWidget(
-				Button.builder(Component.literal("Save"), b -> save())
+				Button.builder(Component.literal("保存"), b -> save())
 						.bounds(width / 2 - 100, height / 4 + 72, 200, 20).build());
 
 		addRenderableWidget(Button
-				.builder(Component.literal("Cancel"),
+				.builder(Component.literal("取消"),
 						b -> minecraft.setScreen(prevScreen))
 				.bounds(width / 2 - 100, height / 4 + 96, 200, 20).build());
 
@@ -100,7 +100,7 @@ public final class KeybindEditorScreen extends Screen
 				(oldKey != null ? "Edit" : "Add") + " Keybind", width / 2, 20,
 				0xffffff);
 
-		context.drawString(font, "Key: " + key.replace("key.keyboard.", ""),
+		context.drawString(font, "按键：" + key.replace("key.keyboard.", ""),
 				width / 2 - 100, 47, 0xa0a0a0);
 		context.drawString(font, "Commands (separated by ';')", width / 2 - 100,
 				87, 0xa0a0a0);

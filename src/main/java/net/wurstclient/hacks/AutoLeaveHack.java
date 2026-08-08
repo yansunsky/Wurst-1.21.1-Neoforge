@@ -24,19 +24,19 @@ import net.wurstclient.util.InventoryUtils;
 public final class AutoLeaveHack extends Hack implements UpdateListener
 {
 	private final SliderSetting health = new SliderSetting("Health",
-		"Leaves the server when your health reaches this value or falls below it.",
+		"当你的生命值达到或低于此值时离开服务器。",
 		4, 0.5, 9.5, 0.5, ValueDisplay.DECIMAL.withSuffix(" hearts"));
 	
 	public final EnumSetting<Mode> mode = new EnumSetting<>("Mode",
-		"\u00a7lQuit\u00a7r mode just quits the game normally.\n"
-			+ "Bypasses NoCheat+ but not CombatLog.\n\n"
-			+ "\u00a7lChars\u00a7r mode sends a special chat message that"
-			+ " causes the server to kick you.\n"
-			+ "Bypasses NoCheat+ and some versions of CombatLog.\n\n"
-			+ "\u00a7lSelfHurt\u00a7r mode sends the packet for attacking"
-			+ " another player, but with yourself as both the attacker and the"
-			+ " target, causing the server to kick you.\n"
-			+ "Bypasses both CombatLog and NoCheat+.",
+		"\u00a7l退出\u00a7r 模式只是正常退出游戏。\n"
+			+ "绕过 NoCheat+，但不能绕过 CombatLog。\n\n"
+			+ "\u00a7l字符\u00a7r 模式发送一条特殊的聊天消息，"
+			+ "使服务器将你踢出。\n"
+			+ "绕过 NoCheat+ 和某些版本的 CombatLog。\n\n"
+			+ "\u00a7l自伤\u00a7r 模式发送攻击另一个玩家的数据包，"
+			+ "但将你自己同时作为攻击者和"
+			+ "目标，使服务器将你踢出。\n"
+			+ "同时绕过 CombatLog 和 NoCheat+。",
 		Mode.values(), Mode.QUIT);
 	
 	private final CheckboxSetting disableAutoReconnect = new CheckboxSetting(
@@ -45,9 +45,9 @@ public final class AutoLeaveHack extends Hack implements UpdateListener
 		true);
 	
 	private final SliderSetting totems = new SliderSetting("Totems",
-		"Won't leave the server until the number of totems you have reaches"
-			+ " this value or falls below it.\n\n"
-			+ "11 = always able to leave",
+		"在你拥有的图腾数量达到"
+			+ "此值或低于此值时才会离开。\n\n"
+			+ "11 = 始终可以离开",
 		11, 0, 11, 1, ValueDisplay.INTEGER.withSuffix(" totems")
 			.withLabel(1, "1 totem").withLabel(11, "ignore"));
 	

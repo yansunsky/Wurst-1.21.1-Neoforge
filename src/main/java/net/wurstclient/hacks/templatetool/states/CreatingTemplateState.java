@@ -126,6 +126,6 @@ public final class CreatingTemplateState extends TemplateToolState
 	@Override
 	protected String getMessage(TemplateToolHack hack)
 	{
-		return "Creating template...";
+		return "正在创建模板...";
 	}
 }

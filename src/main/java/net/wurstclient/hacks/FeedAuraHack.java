@@ -45,7 +45,7 @@ public final class FeedAuraHack extends Hack
 	implements UpdateListener, HandleInputListener, RenderListener
 {
 	private final SliderSetting range = new SliderSetting("Range",
-		"Determines how far FeedAura will reach to feed animals.\n"
+		"决定 FeedAura 喂食动物的触及距离。\n"
 			+ "Anything that is further away than the specified value will not be fed.",
 		5, 1, 10, 0.05, ValueDisplay.DECIMAL);
 	
@@ -55,7 +55,7 @@ public final class FeedAuraHack extends Hack
 	
 	private final CheckboxSetting filterUntamed =
 		new CheckboxSetting("Filter untamed",
-			"Won't feed tameable animals that haven't been tamed yet.", false);
+			"不会喂食尚未驯服的可驯服动物。", false);
 	
 	private final CheckboxSetting filterHorses = new CheckboxSetting(
 		"Filter horse-like animals",

@@ -42,13 +42,13 @@ public final class InstaBuildHack extends Hack
 	implements UpdateListener, RightClickListener
 {
 	private final FileSetting templateSetting = new FileSetting("Template",
-		"Determines what to build.\n\n"
+		"决定要建造什么。\n\n"
 			+ "Templates are just JSON files. Feel free to add your own or to edit / delete the default templates.\n\n"
 			+ "If you mess up, simply press the 'Reset to Defaults' button or delete the folder.",
 		"autobuild", path -> {});
 	
 	private final SliderSetting range = new SliderSetting("Range",
-		"How far to reach when placing blocks.\n" + "Recommended values:\n"
+		"放置方块时的触及距离。\n" + "Recommended values:\n"
 			+ "6.0 for vanilla\n" + "4.25 for NoCheat+",
 		6, 1, 10, 0.05, ValueDisplay.DECIMAL);
 	
@@ -221,7 +221,7 @@ public final class InstaBuildHack extends Hack
 		}catch(IOException | JsonException e)
 		{
 			Path fileName = path.getFileName();
-			ChatUtils.error("Couldn't load template '" + fileName + "'.");
+			ChatUtils.error("无法加载模板 '" + fileName + "'。");
 			
 			String simpleClassName = e.getClass().getSimpleName();
 			String message = e.getMessage();

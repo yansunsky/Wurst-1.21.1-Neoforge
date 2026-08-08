@@ -27,11 +27,11 @@ import net.wurstclient.util.InventoryUtils;
 public final class ItemGeneratorHack extends Hack implements UpdateListener
 {
 	private final SliderSetting speed = new SliderSetting("Speed",
-		"\u00a74\u00a7lWARNING:\u00a7r High speeds will cause a ton of lag and can easily crash the game!",
+		"\u00a74\u00a7l警告：\u00a7r 高速度会造成大量卡顿，并且很容易让游戏崩溃！",
 		1, 1, 36, 1, ValueDisplay.INTEGER);
 	
 	private final SliderSetting stackSize = new SliderSetting("Stack size",
-		"How many items to place in each stack.\n"
+		"每个堆叠放置多少物品。\n"
 			+ "Doesn't seem to affect performance.",
 		1, 1, 64, 1, ValueDisplay.INTEGER);
 	
@@ -64,7 +64,7 @@ public final class ItemGeneratorHack extends Hack implements UpdateListener
 	{
 		if(!MC.player.hasInfiniteMaterials())
 		{
-			ChatUtils.error("Creative mode only.");
+			ChatUtils.error("仅限创造模式。");
 			setEnabled(false);
 		}
 		

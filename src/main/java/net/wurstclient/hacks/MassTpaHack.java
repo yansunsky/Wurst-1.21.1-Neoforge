@@ -36,25 +36,25 @@ public final class MassTpaHack extends Hack
 	
 	private final TextFieldSetting commandSetting =
 		new TextFieldSetting("Command",
-			"The command to use for teleporting.\n"
-				+ "Examples: /tp, /tpa, /tpahere, /tpo",
+			"用于传送的命令。\n"
+				+ "示例：/tp、/tpa、/tpahere、/tpo",
 			"/tpa",
 			s -> s.length() < 64 && ALLOWED_COMMANDS.matcher(s).matches());
 	
 	private final SliderSetting delay = new SliderSetting("Delay",
-		"The delay between each teleportation request.", 20, 1, 200, 1,
+		"每次传送请求之间的延迟。", 20, 1, 200, 1,
 		ValueDisplay.INTEGER.withSuffix(" ticks").withLabel(1, "1 tick"));
 	
 	private final CheckboxSetting ignoreErrors =
 		new CheckboxSetting("Ignore errors",
-			"Whether to ignore messages from the server telling you that the"
-				+ " teleportation command isn't valid or that you don't have"
-				+ " permission to use it.",
+			"是否忽略服务器告诉你"
+				+ "传送命令无效或你没有"
+				+ "使用它的权限的消息。",
 			false);
 	
 	private final CheckboxSetting stopWhenAccepted = new CheckboxSetting(
-		"Stop when accepted", "Whether to stop sending more teleportation"
-			+ " requests when someone accepts one of them.",
+		"接受后停止", "是否在有人接受某个传送请求后停止发送更多"
+			+ "传送请求。",
 		true);
 	
 	private final Random random = new Random();
@@ -105,7 +105,7 @@ public final class MassTpaHack extends Hack
 		
 		if(players.isEmpty())
 		{
-			ChatUtils.error("Couldn't find any players.");
+			ChatUtils.error("找不到任何玩家。");
 			setEnabled(false);
 		}
 	}
@@ -151,8 +151,8 @@ public final class MassTpaHack extends Hack
 				return;
 			
 			event.cancel();
-			ChatUtils.error("This server doesn't have a "
-				+ command.toUpperCase() + " command.");
+			ChatUtils.error("这个服务器没有 "
+				+ command.toUpperCase() + " 命令。");
 			setEnabled(false);
 			
 		}else if(message.contains("accepted") && message.contains("request")
@@ -162,8 +162,8 @@ public final class MassTpaHack extends Hack
 				return;
 			
 			event.cancel();
-			ChatUtils.message("Someone accepted your " + command.toUpperCase()
-				+ " request. Stopping.");
+			ChatUtils.message("有人接受了你的 " + command.toUpperCase()
+				+ " 请求。正在停止。");
 			setEnabled(false);
 		}
 	}

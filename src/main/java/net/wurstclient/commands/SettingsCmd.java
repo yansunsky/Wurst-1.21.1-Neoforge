@@ -26,10 +26,10 @@ public final class SettingsCmd extends Command
 {
 	public SettingsCmd()
 	{
-		super("settings", "Allows you to make profiles of your settings.",
+		super("settings", "允许你为设置创建配置方案。",
 			".settings load-profile <file>", ".settings save-profile <file>",
 			".settings list-profiles [<page>]",
-			"Profiles are saved in '.minecraft/wurst/settings'.");
+			"配置方案保存在 '.minecraft/wurst/settings'。");
 	}
 	
 	@Override
@@ -67,22 +67,22 @@ public final class SettingsCmd extends Command
 		try
 		{
 			WURST.loadSettingsProfile(name);
-			ChatUtils.message("Settings loaded: " + name);
+			ChatUtils.message("设置已加载：" + name);
 			
 		}catch(NoSuchFileException e)
 		{
-			throw new CmdError("Profile '" + name + "' doesn't exist.");
+			throw new CmdError("配置方案 '" + name + "' 不存在。");
 			
 		}catch(JsonException e)
 		{
 			e.printStackTrace();
 			throw new CmdError(
-				"Profile '" + name + "' is corrupted: " + e.getMessage());
+				"配置方案 '" + name + "' 已损坏：" + e.getMessage());
 			
 		}catch(IOException e)
 		{
 			e.printStackTrace();
-			throw new CmdError("Couldn't load profile: " + e.getMessage());
+			throw new CmdError("无法加载配置方案：" + e.getMessage());
 		}
 	}
 	
@@ -96,12 +96,12 @@ public final class SettingsCmd extends Command
 		try
 		{
 			WURST.saveSettingsProfile(name);
-			ChatUtils.message("Settings saved: " + name);
+			ChatUtils.message("设置已保存：" + name);
 			
 		}catch(IOException | JsonException e)
 		{
 			e.printStackTrace();
-			throw new CmdError("Couldn't save profile: " + e.getMessage());
+			throw new CmdError("无法保存配置方案：" + e.getMessage());
 		}
 	}
 	
@@ -125,7 +125,7 @@ public final class SettingsCmd extends Command
 		pages = Math.max(pages, 1);
 		
 		if(page > pages || page < 1)
-			throw new CmdSyntaxError("Invalid page: " + page);
+			throw new CmdSyntaxError("无效页码：" + page);
 		
 		String total = "Total: " + files.size() + " profile";
 		total += files.size() != 1 ? "s" : "";
@@ -146,7 +146,7 @@ public final class SettingsCmd extends Command
 			return 1;
 		
 		if(!MathUtils.isInteger(args[1]))
-			throw new CmdSyntaxError("Not a number: " + args[1]);
+			throw new CmdSyntaxError("不是数字：" + args[1]);
 		
 		return Integer.parseInt(args[1]);
 	}

@@ -48,24 +48,23 @@ public final class AutoFishHack extends Hack
 			AutoFishHack.BiteMode.values(), AutoFishHack.BiteMode.SOUND);
 	
 	private final SliderSetting validRange = new SliderSetting("Valid range",
-		"Any bites that occur outside of this range will be ignored.\n\n"
-			+ "Increase your range if bites are not being detected, decrease it"
-			+ " if other people's bites are being detected as yours.\n\n"
-			+ "This setting has no effect when \"Bite mode\" is set to \"Entity\".",
+		"发生在该范围之外的咬钩将被忽略。\n\n"
+			+ "如果咬钩未被检测到就增大范围，如果别人"
+			+ "的咬钩被误认为是你自己的就减小范围。\n\n"
+			+ "当 \"咬钩模式\" 设置为 \"实体\" 时，此设置无效。",
 		1.5, 0.25, 8, 0.25, ValueDisplay.DECIMAL);
 	
 	private final SliderSetting catchDelay = new SliderSetting("Catch delay",
-		"How long AutoFish will wait after a bite before reeling in.", 0, 0, 60,
+		"AutoFish 咬钩后等待多久才收竿。", 0, 0, 60,
 		1, ValueDisplay.INTEGER.withSuffix(" ticks").withLabel(1, "1 tick"));
 	
 	private final SliderSetting retryDelay = new SliderSetting("Retry delay",
-		"If casting or reeling in the fishing rod fails, this is how long"
-			+ " AutoFish will wait before trying again.",
+		"如果抛竿或收竿失败，AutoFish 将等待这么久后再试一次。",
 		15, 0, 100, 1,
 		ValueDisplay.INTEGER.withSuffix(" ticks").withLabel(1, "1 tick"));
 	
 	private final SliderSetting patience = new SliderSetting("Patience",
-		"How long AutoFish will wait if it doesn't get a bite before reeling in.",
+		"如果没有咬钩，AutoFish 收竿前会等待多久。",
 		60, 10, 120, 1, ValueDisplay.INTEGER.withSuffix("s"));
 	
 	private final ShallowWaterWarningCheckbox shallowWaterWarning =

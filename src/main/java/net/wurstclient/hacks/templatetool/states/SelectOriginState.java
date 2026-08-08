@@ -17,7 +17,7 @@ public final class SelectOriginState extends SelectPositionState
 	@Override
 	protected String getDefaultMessage()
 	{
-		return "Select the first block to be placed by AutoBuild.";
+		return "选择要由自动建造放置的第一个方块。";
 	}
 	
 	@Override

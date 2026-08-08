@@ -44,13 +44,13 @@ public abstract class ShulkerBoxScreenMixin
 		if(autoSteal.areButtonsVisible())
 		{
 			addRenderableWidget(Button
-				.builder(Component.literal("Steal"),
+				.builder(Component.literal("拿走"),
 					b -> autoSteal.steal(this, 3))
 				.bounds(leftPos + imageWidth - 108, topPos + 4, 50, 12)
 				.build());
 			
 			addRenderableWidget(Button
-				.builder(Component.literal("Store"),
+				.builder(Component.literal("存入"),
 					b -> autoSteal.store(this, 3))
 				.bounds(leftPos + imageWidth - 56, topPos + 4, 50, 12).build());
 		}

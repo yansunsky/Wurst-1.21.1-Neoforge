@@ -50,7 +50,7 @@ public abstract class TitleScreenMixin extends Screen
 		realmsButton.setWidth(98);
 
 		addRenderableWidget(altsButton = Button
-				.builder(Component.literal("Alt Manager"),
+				.builder(Component.literal("账户管理"),
 						b -> minecraft.setScreen(new AltManagerScreen(this,
 								WurstClient.INSTANCE.getAltManager())))
 				.bounds(width / 2 + 2, realmsButton.getY(), 98, 20).build());

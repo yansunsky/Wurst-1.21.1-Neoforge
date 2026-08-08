@@ -28,8 +28,8 @@ public final class AutoMineHack extends Hack
 {
 	private final CheckboxSetting superFastMode =
 		new CheckboxSetting("Super fast mode",
-			"Breaks blocks faster than you normally could. May get detected by"
-				+ " anti-cheat plugins.",
+			"以比平时更快的速度破坏方块。可能会被"
+				+ "反作弊插件检测。",
 			false);
 	
 	public AutoMineHack()

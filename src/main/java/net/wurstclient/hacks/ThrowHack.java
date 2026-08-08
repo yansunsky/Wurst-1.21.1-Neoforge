@@ -19,7 +19,7 @@ import net.wurstclient.settings.SliderSetting.ValueDisplay;
 public final class ThrowHack extends Hack implements RightClickListener
 {
 	private final SliderSetting amount = new SliderSetting("Amount",
-		"Amount of uses per click.", 16, 2, 1000000, 1, ValueDisplay.INTEGER);
+		"每次点击的使用次数。", 16, 2, 1000000, 1, ValueDisplay.INTEGER);
 	
 	public ThrowHack()
 	{

@@ -26,7 +26,7 @@ import net.wurstclient.settings.SliderSetting.ValueDisplay;
 public final class AutoStealHack extends Hack
 {
 	private final SliderSetting delay = new SliderSetting("Delay",
-		"Delay between moving stacks of items.\n"
+		"移动物品堆之间的延迟。\n"
 			+ "Should be at least 70ms for NoCheat+ servers.",
 		100, 0, 500, 10, ValueDisplay.INTEGER.withSuffix("ms"));
 	

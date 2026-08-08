@@ -32,7 +32,7 @@ public final class PotionCmd extends Command
 {
 	public PotionCmd()
 	{
-		super("potion", "Changes the effects of the held potion.",
+		super("potion", "更改手持药水的效果。",
 				".potion add (<effect> <amplifier> <duration>)...",
 				".potion set (<effect> <amplifier> <duration>)...",
 				".potion remove <effect>");
@@ -45,11 +45,11 @@ public final class PotionCmd extends Command
 			throw new CmdSyntaxError();
 
 		if(!MC.player.getAbilities().instabuild)
-			throw new CmdError("Creative mode only.");
+			throw new CmdError("仅限创造模式。");
 
 		ItemStack stack = MC.player.getInventory().getSelected();
 		if(!(stack.getItem() instanceof PotionItem))
-			throw new CmdError("You must hold a potion in your main hand.");
+			throw new CmdError("你必须在主手拿一瓶药水。");
 
 		// remove
 		if(args[0].equalsIgnoreCase("remove"))
@@ -95,7 +95,7 @@ public final class PotionCmd extends Command
 
 		stack.set(DataComponents.POTION_CONTENTS,
 				new PotionContents(potion, oldContents.customColor(), effects));
-		ChatUtils.message("Potion modified.");
+		ChatUtils.message("药水已修改。");
 	}
 
 	private void remove(ItemStack stack, String[] args) throws CmdSyntaxError
@@ -125,7 +125,7 @@ public final class PotionCmd extends Command
 		stack.set(DataComponents.POTION_CONTENTS, new PotionContents(newPotion,
 				oldContents.customColor(), newEffects));
 
-		ChatUtils.message("Effect removed.");
+		ChatUtils.message("效果已移除。");
 	}
 
 	private Holder<MobEffect> parseEffect(String input) throws CmdSyntaxError
@@ -142,11 +142,11 @@ public final class PotionCmd extends Command
 
 			}catch(ResourceLocationException e)
 			{
-				throw new CmdSyntaxError("Invalid effect: " + input);
+				throw new CmdSyntaxError("无效的药水效果：" + input);
 			}
 
 		if(effect == null)
-			throw new CmdSyntaxError("Invalid effect: " + input);
+			throw new CmdSyntaxError("无效的药水效果：" + input);
 
 		return BuiltInRegistries.MOB_EFFECT.wrapAsHolder(effect);
 	}
@@ -159,7 +159,7 @@ public final class PotionCmd extends Command
 
 		}catch(NumberFormatException e)
 		{
-			throw new CmdSyntaxError("Not a number: " + s);
+			throw new CmdSyntaxError("不是数字：" + s);
 		}
 	}
 }

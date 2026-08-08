@@ -28,7 +28,7 @@ public final class TrapChestsGroup extends ChestEspBlockGroup
 	protected ColorSetting createColorSetting()
 	{
 		return new ColorSetting("Trap chest color",
-			"Trapped chests will be highlighted in this color.",
+			"陷阱箱将以此颜色高亮。",
 			new Color(0xFF8000));
 	}
 	

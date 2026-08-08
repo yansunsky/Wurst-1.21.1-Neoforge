@@ -19,9 +19,9 @@ public final class IpCmd extends Command
 	public IpCmd()
 	{
 		super("ip",
-			"Shows the IP of the server you are currently\n"
-				+ "connected to or copies it to the clipboard.",
-			".ip", "Copy to clipboard: .ip copy");
+			"显示你当前连接的服务器的 IP\n"
+				+ "或将其复制到剪贴板。",
+			".ip", "复制到剪贴板：.ip copy");
 	}
 	
 	@Override
@@ -32,12 +32,12 @@ public final class IpCmd extends Command
 		switch(String.join(" ", args).toLowerCase())
 		{
 			case "":
-			ChatUtils.message("IP: " + ip);
+			ChatUtils.message("IP：" + ip);
 			break;
 			
 			case "copy":
 			MC.keyboardHandler.setClipboard(ip);
-			ChatUtils.message("IP copied to clipboard.");
+			ChatUtils.message("IP 已复制到剪贴板。");
 			break;
 			
 			default:

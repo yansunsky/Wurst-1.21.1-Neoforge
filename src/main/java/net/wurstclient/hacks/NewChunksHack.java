@@ -52,7 +52,7 @@ public final class NewChunksHack extends Hack
 	
 	private final CheckboxSetting showCounter =
 		new CheckboxSetting("Show counter",
-			"Shows the number of new/old chunks found so far.", false);
+			"显示到目前为止找到的新/旧区块数量。", false);
 	
 	private final SliderSetting altitude =
 		new SliderSetting("Altitude", 0, -64, 320, 1, ValueDisplay.INTEGER);
@@ -70,7 +70,7 @@ public final class NewChunksHack extends Hack
 		new ColorSetting("Old chunks color", Color.BLUE);
 	
 	private final CheckboxSetting logChunks = new CheckboxSetting("Log chunks",
-		"Writes to the log file when a new/old chunk is found.", false);
+		"找到新/旧区块时写入日志文件。", false);
 	
 	private final Set<ChunkPos> newChunks = ConcurrentHashMap.newKeySet();
 	private final Set<ChunkPos> oldChunks = ConcurrentHashMap.newKeySet();

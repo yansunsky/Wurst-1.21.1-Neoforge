@@ -27,7 +27,7 @@ public final class HopperCartsGroup extends ChestEspEntityGroup
 	protected ColorSetting createColorSetting()
 	{
 		return new ColorSetting("Hopper cart color",
-			"Minecarts with hoppers will be highlighted in this color.",
+			"带漏斗的矿车将以此颜色高亮。",
 			Color.YELLOW);
 	}
 

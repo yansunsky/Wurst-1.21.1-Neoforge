@@ -46,7 +46,7 @@ public final class FollowHack extends Hack
 	private int ticksProcessing;
 	
 	private final SliderSetting distance =
-		new SliderSetting("Distance", "How closely to follow the target.", 1, 1,
+		new SliderSetting("Distance", "跟随目标的紧密程度。", 1, 1,
 			12, 0.5, ValueDisplay.DECIMAL);
 	
 	private final CheckboxSetting useAi =
@@ -100,7 +100,7 @@ public final class FollowHack extends Hack
 			
 			if(entity == null)
 			{
-				ChatUtils.error("Could not find a valid entity.");
+				ChatUtils.error("找不到有效的实体。");
 				setEnabled(false);
 				return;
 			}
@@ -109,7 +109,7 @@ public final class FollowHack extends Hack
 		pathFinder = new EntityPathFinder();
 		EVENTS.add(UpdateListener.class, this);
 		EVENTS.add(RenderListener.class, this);
-		ChatUtils.message("Now following " + entity.getName().getString());
+		ChatUtils.message("正在跟随 " + entity.getName().getString());
 	}
 	
 	@Override
@@ -137,7 +137,7 @@ public final class FollowHack extends Hack
 		if(MC.player.getHealth() <= 0)
 		{
 			if(entity == null)
-				ChatUtils.message("No longer following entity");
+				ChatUtils.message("不再跟随实体");
 			setEnabled(false);
 			return;
 		}
@@ -161,7 +161,7 @@ public final class FollowHack extends Hack
 			
 			if(entity == null)
 			{
-				ChatUtils.message("No longer following entity");
+				ChatUtils.message("不再跟随实体");
 				setEnabled(false);
 				return;
 			}

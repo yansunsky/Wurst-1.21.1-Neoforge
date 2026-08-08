@@ -30,10 +30,10 @@ public final class ViewCompCmd extends Command
 {
 	public ViewCompCmd()
 	{
-		super("viewcomp", "Shows you the component data of an item.",
+		super("viewcomp", "向你显示物品的组件数据。",
 			".viewcomp", ".viewcomp type <query>",
-			"Copy to clipboard: .viewcomp copy",
-			"Example: .viewcomp type name");
+			"复制到剪贴板：.viewcomp copy",
+			"示例：.viewcomp type name");
 	}
 	
 	@Override
@@ -42,7 +42,7 @@ public final class ViewCompCmd extends Command
 		LocalPlayer player = MC.player;
 		ItemStack stack = player.getInventory().getSelected();
 		if(stack.isEmpty())
-			throw new CmdError("You must hold an item in your main hand.");
+			throw new CmdError("你必须在主手拿一个物品。");
 		
 		String query = null;
 		boolean copy = false;
@@ -70,9 +70,9 @@ public final class ViewCompCmd extends Command
 		if(copy)
 		{
 			MC.keyboardHandler.setClipboard(compString);
-			ChatUtils.message("Component data copied to clipboard.");
+			ChatUtils.message("组件数据已复制到剪贴板。");
 		}else
-			ChatUtils.message("Components: " + compString);
+			ChatUtils.message("组件：" + compString);
 	}
 	
 	private String getComponentString(ItemStack stack, String query)

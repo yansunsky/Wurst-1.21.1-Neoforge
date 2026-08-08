@@ -26,7 +26,7 @@ public final class BlinkHack extends Hack
 	implements UpdateListener, PacketOutputListener
 {
 	private final SliderSetting limit = new SliderSetting("Limit",
-		"Automatically restarts Blink once the given number of packets have been suspended.\n\n"
+		"一旦挂起的包数量达到指定值，自动重新启动 Blink。\n\n"
 			+ "0 = no limit",
 		0, 0, 500, 1, ValueDisplay.INTEGER.withLabel(0, "disabled"));
 	

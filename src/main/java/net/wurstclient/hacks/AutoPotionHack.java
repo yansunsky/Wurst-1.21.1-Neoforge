@@ -24,7 +24,7 @@ import net.wurstclient.util.Rotation;
 public final class AutoPotionHack extends Hack implements UpdateListener
 {
 	private final SliderSetting health = new SliderSetting("Health",
-		"Throws a potion when your health reaches this value or falls below it.",
+		"当你的生命值达到或低于此值时投掷药水。",
 		6, 0.5, 9.5, 0.5, ValueDisplay.DECIMAL.withSuffix(" hearts"));
 	
 	private int timer;

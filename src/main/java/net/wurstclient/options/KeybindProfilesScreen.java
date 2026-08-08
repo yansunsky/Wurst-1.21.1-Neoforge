@@ -48,21 +48,21 @@ public final class KeybindProfilesScreen extends Screen
 		addWidget(listGui);
 
 		addRenderableWidget(
-				Button.builder(Component.literal("Open Folder"), b -> openFolder())
+				Button.builder(Component.literal("打开文件夹"), b -> openFolder())
 						.bounds(8, 8, 100, 20).build());
 
 		addRenderableWidget(Button
-				.builder(Component.literal("New Profile"),
+				.builder(Component.literal("新建配置"),
 						b -> minecraft.setScreen(
 								new EnterProfileNameScreen(this, this::newProfile)))
 				.bounds(width / 2 - 154, height - 48, 100, 20).build());
 
 		loadButton = addRenderableWidget(
-				Button.builder(Component.literal("Load"), b -> loadSelected())
+				Button.builder(Component.literal("加载"), b -> loadSelected())
 						.bounds(width / 2 - 50, height - 48, 100, 20).build());
 
 		addRenderableWidget(Button
-				.builder(Component.literal("Cancel"),
+				.builder(Component.literal("取消"),
 						b -> minecraft.setScreen(prevScreen))
 				.bounds(width / 2 + 54, height - 48, 100, 20).build());
 	}
@@ -134,7 +134,7 @@ public final class KeybindProfilesScreen extends Screen
 		renderBackground(context, mouseX, mouseY, partialTicks);
 		listGui.render(context, mouseX, mouseY, partialTicks);
 
-		context.drawCenteredString(minecraft.font, "Keybind Profiles",
+		context.drawCenteredString(minecraft.font, "按键绑定配置",
 				width / 2, 12, 0xffffff);
 
 		for(Renderable drawable : renderables)
@@ -143,7 +143,7 @@ public final class KeybindProfilesScreen extends Screen
 		if(loadButton.isHoveredOrFocused() && !loadButton.active)
 			context.renderComponentTooltip(font,
 					Arrays
-							.asList(Component.literal("You must first select a file.")),
+							.asList(Component.literal("你必须先选择一个文件。")),
 					mouseX, mouseY);
 	}
 
@@ -167,7 +167,7 @@ public final class KeybindProfilesScreen extends Screen
 		public Component getNarration()
 		{
 			return Component.translatable("narrator.select",
-					"Profile " + path.getFileName());
+					"配置 " + path.getFileName());
 		}
 
 		@Override
